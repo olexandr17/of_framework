@@ -27,6 +27,9 @@
 		 */
 		public var roundingPosition:Boolean = true;
 		
+		protected var _widthPrev:Number = 0;
+		protected var _heightPrev:Number = 0;
+		
 		protected var _width:Number = 0;
 		protected var _height:Number = 0;
 		
@@ -54,6 +57,9 @@
 		 */
 		public function setSize(width:Number, height:Number):void {
 			if (_width != width || _height != height) {
+				_widthPrev = _width;
+				_heightPrev = _height;
+				
 				_width = roundingSize ? Math.round(width) : width;
 				_height = roundingSize ? Math.round(height) : height;
 				
@@ -70,7 +76,6 @@
 			
 		}
 		
-        
 		/**
 		 * 
 		 */
@@ -108,6 +113,15 @@
 		}
 		
 		
+		protected function invalidate():void {
+			if (invalidation) {
+				addEventListener(Event.ENTER_FRAME, invalidateHandler);
+			} else {
+ 				draw();
+				dispatchEvent(new Event(Event.RENDER));
+			}
+		}
+		
 		private function invalidateHandler(e:Event):void {
 			removeEventListener(Event.ENTER_FRAME, invalidateHandler);
 			
@@ -115,14 +129,5 @@
 			dispatchEvent(new Event(Event.RENDER));
 		}
 		
-		protected function invalidate():void {
-            if (invalidation) {
-				addEventListener(Event.ENTER_FRAME, invalidateHandler);
-			} else {
- 				draw();
-				dispatchEvent(new Event(Event.RENDER));
-			}
-		}
-        
 	}
 }

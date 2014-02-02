@@ -31,7 +31,7 @@
 		 * @param		.time				Number				Time in seconds or frames for the tweening to take (defaults 2)
 		 * @param		.delay				Number				Delay time (defaults 0)
 		 * @param		.useFrames			Boolean				Whether to use frames instead of seconds for time control (defaults false)
-		 * @param		.ease				String/Function		Type of ease equation... (defaults to "easeoutcubic")
+		 * @param		.ease				String/Function		Type of ease equation... (defaults to "easeoutsine")
 		 * @param		.onStart			Function			* Direct property, See the TweenListObj class
 		 * @param		.onUpdate			Function			* Direct property, See the TweenListObj class
 		 * @param		.onComplete			Function			* Direct property, See the TweenListObj class
@@ -132,7 +132,7 @@
 				// Proper ease function
 				rEase = p_obj.ease;
 			}
-			if (!Boolean(rEase)) rEase = _easingList["easeoutcubic"];
+			if (!Boolean(rEase)) rEase = _easingList["easeoutsine"];
 	
 			var nProperties:Object;
 			var nTween:TweenListObj;

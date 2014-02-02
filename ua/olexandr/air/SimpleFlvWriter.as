@@ -12,7 +12,7 @@
 	http://creativecommons.org/licenses/by/3.0/
 	Some Rights Reserved.
 
-	EXAMPLE USAGE: 
+	EXAMPLE USAGE:
 	
 		var myWriter:SimpleFlvWriter = SimpleFlvWriter.getInstance();
 		myWriter.createFile(myFile, 320,240, 30, 120);

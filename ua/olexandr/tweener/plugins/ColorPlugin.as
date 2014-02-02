@@ -2,6 +2,7 @@ package ua.olexandr.tweener.plugins {
 	
 	import flash.geom.ColorTransform;
 	import flash.filters.ColorMatrixFilter;
+	import ua.olexandr.tweener.AuxFunctions;
 	import ua.olexandr.tweener.Tweener;
 	
 	public class ColorPlugin {

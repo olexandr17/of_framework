@@ -1,6 +1,4 @@
 package ua.olexandr.media {
-	import caurina.transitions.Equations;
-	import caurina.transitions.Tweener;
 	import flash.events.AsyncErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -13,6 +11,8 @@ package ua.olexandr.media {
 	import flash.net.NetStream;
 	import flash.utils.Timer;
 	import ua.olexandr.events.MediaEvent;
+	import ua.olexandr.tweener.Easing;
+	import ua.olexandr.tweener.Tweener;
 	import ua.olexandr.vos.VideoMetadataVO;
 	/**
 	 * ...
@@ -159,10 +159,12 @@ package ua.olexandr.media {
 		 * 
 		 */
 		public function set volume(value:Number):void {
-			Tweener.addTween(_transform, { volume:value, time:.5, transition:Equations.easeNone, onUpdate:function():void {
-				if (_stream)
-					_stream.soundTransform = _transform;
-			} } );
+			Tweener.addTween(_transform, .5, { volume:value, ease:Easing.none,
+				onUpdate:function():void {
+					if (_stream)
+						_stream.soundTransform = _transform;
+				}
+			} );
 		}
 		
 		/**
@@ -313,7 +315,7 @@ package ua.olexandr.media {
 				}
 			}
 			
-			if (_playing && !_pause) {
+			if (_playing && !_pause && _metadata) {
 				_percentagePlaying = Math.round(_stream.time / _metadata.duration * 10000) / 10000;
 				
 				_event = new MediaEvent(MediaEvent.PLAY_PROGRESS);
