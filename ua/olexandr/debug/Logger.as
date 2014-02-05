@@ -195,22 +195,24 @@
 		private static function logRecursive(obj:Object, withType:Boolean, level:int):void {
 			var _indent:String = '';
 			for (var i:int = 0; i < level; i++)
-				_indent += '  ';
+				_indent += '    ';
 			
-			var _type:String = obj is Array ? 'arr' : 'obj';
-			var _constructor:String = '';
+			var _type:String = String(obj.constructor).match(/[A-Z0-9_]+/gi)[1];
+			_type = _type.substring(0, 3);
 			
 			for (var _name:Object in obj) {
-				if (withType) {
-					_constructor = obj[_name].constructor;
-					_constructor = ' [' + _constructor.split(' ')[1]
-				}
 				
-				//log(_type + ':' + level, _indent + _name + ': ' + obj[_name] + _constructor);
-				log(_type, _indent + _name + ': ' + obj[_name] + _constructor);
+				var _count:int = 0;
+				for (var _name2:Object in obj[_name])
+					_count++;
 				
-				if ((typeof obj[_name]) === 'object')
+				if (_count) {
+					log(MESSAGES[DEBUG], _indent + _name + ": {");
 					logRecursive(obj[_name], withType, level + 1);
+					log(MESSAGES[DEBUG], _indent + "}");
+				} else {
+					log(MESSAGES[DEBUG], _indent + _name + ': ' + obj[_name]);
+				}
 			}
 		}
 		

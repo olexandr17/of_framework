@@ -1,4 +1,4 @@
-﻿package ua.olexandr.effects {
+﻿package ua.olexandr.display.effects {
 	import flash.display.BitmapData;
 	import flash.display.GradientType;
 	import flash.display.InterpolationMethod;

@@ -21,7 +21,7 @@
    THE SOFTWARE.
  */
 
-package ua.olexandr.display {
+package ua.olexandr.display.effects {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
