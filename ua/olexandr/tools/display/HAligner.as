@@ -20,6 +20,7 @@ package ua.olexandr.tools.display {
 		 * @param	width
 		 * @return
 		 */
+		[Inline]
 		public static function alignToL(target:DisplayObject, width:Number = 0):Number {
 			return align(target, width, L);
 		}
@@ -30,6 +31,7 @@ package ua.olexandr.tools.display {
 		 * @param	width
 		 * @return
 		 */
+		[Inline]
 		public static function alignToC(target:DisplayObject, width:Number = 0):Number {
 			return align(target, width, C);
 		}
@@ -40,6 +42,7 @@ package ua.olexandr.tools.display {
 		 * @param	width
 		 * @return
 		 */
+		[Inline]
 		public static function alignToR(target:DisplayObject, width:Number = 0):Number {
 			return align(target, width, R);
 		}
@@ -51,6 +54,7 @@ package ua.olexandr.tools.display {
 		 * @param	width
 		 * @return
 		 */
+		[Inline]
 		public static function calcToL(target:DisplayObject, width:Number = 0):Number {
 			_calc = true;
 			return align(target, width, L);
@@ -62,6 +66,7 @@ package ua.olexandr.tools.display {
 		 * @param	width
 		 * @return
 		 */
+		[Inline]
 		public static function calcToC(target:DisplayObject, width:Number = 0):Number {
 			_calc = true;
 			return align(target, width, C);
@@ -73,6 +78,7 @@ package ua.olexandr.tools.display {
 		 * @param	width
 		 * @return
 		 */
+		[Inline]
 		public static function calcToR(target:DisplayObject, width:Number = 0):Number {
 			_calc = true;
 			return align(target, width, R);
@@ -86,6 +92,7 @@ package ua.olexandr.tools.display {
 		 * @param	location
 		 * @return
 		 */
+		[Inline]
 		public static function align(target:DisplayObject, width:Number = 0, location:String = 'C'):Number {
 			width ||= 0;
 			location = location.toUpperCase();

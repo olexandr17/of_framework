@@ -20,6 +20,7 @@ package ua.olexandr.tools.display {
 		 * @param	height
 		 * @return
 		 */
+		[Inline]
 		public static function alignToT(target:DisplayObject, height:Number = 0):Number {
 			return align(target, height, T);
 		}
@@ -30,6 +31,7 @@ package ua.olexandr.tools.display {
 		 * @param	height
 		 * @return
 		 */
+		[Inline]
 		public static function alignToC(target:DisplayObject, height:Number = 0):Number {
 			return align(target, height, C);
 		}
@@ -40,6 +42,7 @@ package ua.olexandr.tools.display {
 		 * @param	height
 		 * @return
 		 */
+		[Inline]
 		public static function alignToB(target:DisplayObject, height:Number = 0):Number {
 			return align(target, height, B);
 		}
@@ -51,6 +54,7 @@ package ua.olexandr.tools.display {
 		 * @param	height
 		 * @return
 		 */
+		[Inline]
 		public static function calcToT(target:DisplayObject, height:Number = 0):Number {
 			_calc = true;
 			return align(target, height, T);
@@ -62,6 +66,7 @@ package ua.olexandr.tools.display {
 		 * @param	height
 		 * @return
 		 */
+		[Inline]
 		public static function calcToC(target:DisplayObject, height:Number = 0):Number {
 			_calc = true;
 			return align(target, height, C);
@@ -73,6 +78,7 @@ package ua.olexandr.tools.display {
 		 * @param	height
 		 * @return
 		 */
+		[Inline]
 		public static function calcToB(target:DisplayObject, height:Number = 0):Number {
 			_calc = true;
 			return align(target, height, B);
@@ -86,6 +92,7 @@ package ua.olexandr.tools.display {
 		 * @param	location
 		 * @return
 		 */
+		[Inline]
 		public static function align(target:DisplayObject, height:Number = 0, location:String = 'C'):Number {
 			height ||= 0;
 			location = location.toUpperCase();

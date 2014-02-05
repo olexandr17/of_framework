@@ -16,6 +16,7 @@ package ua.olexandr.managers {
 		 * @param	center
 		 * @param	changeHandler
 		 */
+		[Inline]
 		public static function add(target:Sprite, dragRect:Rectangle = null, center:Boolean = false, changeHandler:Function = null):void {
 			add2(target, target, dragRect, center, changeHandler);
 		}
@@ -28,6 +29,7 @@ package ua.olexandr.managers {
 		 * @param	center
 		 * @param	changeHandler
 		 */
+		[Inline]
 		public static function add2(clickTarget:Sprite, dragTarget:Sprite, dragRect:Rectangle = null, center:Boolean = false, changeHandler:Function = null):void {
 			_hash[clickTarget] = new DragData(dragTarget, dragRect, changeHandler, center);
 			clickTarget.addEventListener(MouseEvent.MOUSE_DOWN, downHandler);
@@ -38,6 +40,7 @@ package ua.olexandr.managers {
 		 * @param	target
 		 * @return
 		 */
+		[Inline]
 		public static function has(target:Sprite):Boolean {
 			return Boolean(_hash[target]);
 		}
@@ -46,6 +49,7 @@ package ua.olexandr.managers {
 		 * 
 		 * @param	target
 		 */
+		[Inline]
 		public static function remove(target:Sprite):void {
 			target.removeEventListener(MouseEvent.MOUSE_DOWN, downHandler);
 			delete _hash[target];
@@ -54,6 +58,7 @@ package ua.olexandr.managers {
 		/**
 		 * 
 		 */
+		[Inline]
 		public static function clear():void {
 			for (var key:Object in _hash)
 				remove(key as Sprite);

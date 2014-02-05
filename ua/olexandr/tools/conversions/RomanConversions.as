@@ -51,6 +51,7 @@ package ua.olexandr.tools.conversions {
 		*	@playerversion Flash 9.0
 		*	@tiptext
 		*/
+		[Inline]
 		public static function decimalToRoman(decimal:uint):String{
 			if (decimal <= 0 || decimal >= 4000)
 				throw new Error("Value outside roman numeral range.");

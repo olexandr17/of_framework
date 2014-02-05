@@ -23,6 +23,7 @@
 		 * @param	smoothing
 		 * @return
 		 */
+		[Inline]
 		public static function toSprite(bitmap:Bitmap, smoothing:Boolean = false):Sprite {
 			var sprite:Sprite = new Sprite();
 			sprite.addChild(new Bitmap(bitmap.bitmapData.clone(), "auto", smoothing));
@@ -35,6 +36,7 @@
 		 * @param	smoothing
 		 * @return
 		 */
+		[Inline]
 		public static function fromSprite(sprite:Sprite, smoothing:Boolean = false):Bitmap {
 			var bitmapData:BitmapData = new BitmapData(sprite.width, sprite.height, true, 0x00FFFFFF);
 			bitmapData.draw(sprite);
@@ -48,6 +50,7 @@
 		 * @param	region
 		 * @return
 		 */
+		[Inline]
 		public static function crop(source:DisplayObject, region:Rectangle):BitmapData {
 			var _rect:Rectangle = new Rectangle(0, 0, region.width, region.height);
 			
@@ -62,6 +65,7 @@
 		 * @param	source
 		 * @return
 		 */
+		[Inline]
 		public static function drawWithBounds(source:DisplayObject):BitmapData {
 			var _rect:Rectangle = source.getBounds(source);
 			var _mat:Matrix = new Matrix();
@@ -79,6 +83,7 @@
 		 * @param	angle
 		 * @return
 		 */
+		[Inline]
 		public static function rotate(source:BitmapData, angle:Number):BitmapData {
 			var _m:Matrix = new Matrix();
 			_m.rotate(GeomUtils.degreesToRadians(angle));
@@ -93,6 +98,7 @@
 		 * 
 		 * @param	bitmap
 		 */
+		[Inline]
 		public static function dispose(bitmap:Bitmap):void {
 			if (bitmap) {
 				if (bitmap.parent)
@@ -114,6 +120,7 @@
 		 * @param	y
 		 * @return
 		 */
+		[Inline]
 		public static function isOpacity(bmpData:BitmapData, x:Number, y:Number):Boolean {
 			return Boolean(bmpData.getPixel32(x, y) >> 24 & 0xFF > 0);
 		}
@@ -124,6 +131,7 @@
 		 * @param	bmpData
 		 * @return
 		 */
+		[Inline]
 		public static function trim(bmpData:BitmapData, corner:String = "TL"):BitmapData {
 			var _blankColor:uint;
 			switch (corner) {

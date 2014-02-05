@@ -105,6 +105,26 @@ package ua.olexandr.text {
 			this.underline = underline;
 		}
 		
+		/**
+		 * Обрезать строку
+		 * @param	label
+		 * @param	text
+		 * @param	ellipsis
+		 */
+		public function truncate(ellipsis:String = "…"):void
+        {
+			var _t:String = text;
+			if (textWidth > width - 4 || (numLines > 1 && textHeight > height - 4)) {
+				text = ellipsis;
+				var elipsisW:Number = textWidth + 4;
+				
+				text = _t;
+				while (textWidth > width - elipsisW || (numLines > 1 && textHeight > height - 4))
+					text = text.substring(0, text.length - 1);
+				appendText(ellipsis);
+			}
+        }
+		
 		
 		/**
 		 * Выравнивание текста

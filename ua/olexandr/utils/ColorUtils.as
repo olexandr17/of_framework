@@ -13,6 +13,7 @@ package ua.olexandr.utils {
 		 * @param	def
 		 * @return
 		 */
+		[Inline]
 		public static function parse(str:String, def:uint = 0x000000):uint {
 			return str ? uint('0x' + str.replace('#', '').replace('0x', '')) : def;
 		}
@@ -24,6 +25,7 @@ package ua.olexandr.utils {
 		 * @param	b
 		 * @return
 		 */
+		[Inline]
 		public static function combine(r:int, g:int, b:int):uint {
 			return r << 16 | g << 8 | b;
 		}
@@ -33,6 +35,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function separate(color:uint):Object {
 			return { r:getRed(color), g:getGreen(color), b:getBlue(color) };
 		}
@@ -43,6 +46,7 @@ package ua.olexandr.utils {
 		 * @param	prefix
 		 * @return
 		 */
+		[Inline]
 		public static function getString(color:uint, prefix:String = '#'):String {
 			var _str:String = color.toString(16);
 			
@@ -58,6 +62,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function getWebColor(color:uint):uint {
 			var _r:uint = Math.round(getRed(color) / 0x33) * 0x33;
 			var _g:uint = Math.round(getGreen(color) / 0x33) * 0x33;
@@ -70,6 +75,7 @@ package ua.olexandr.utils {
 		 * @param	target
 		 * @param	color
 		 */
+		[Inline]
 		public static function setColor(target:DisplayObject, color:uint):void {
 			var _colorTransform:ColorTransform = target.transform.colorTransform;
 			_colorTransform.color = color;
@@ -82,6 +88,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function getRed(color:uint):uint {
 			return color >> 16;
 		}
@@ -91,6 +98,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function getGreen(color:uint):uint {
 			return color >> 8 & 0xFF;
 		}
@@ -100,6 +108,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function getBlue(color:uint):uint {
 			return color & 0xFF;
 		}
@@ -111,6 +120,7 @@ package ua.olexandr.utils {
 		 * @param	red
 		 * @return
 		 */
+		[Inline]
 		public static function setRed(color:uint, red:int):uint {
 			return combine(red, getGreen(color), getBlue(color));
 		}
@@ -121,6 +131,7 @@ package ua.olexandr.utils {
 		 * @param	green
 		 * @return
 		 */
+		[Inline]
 		public static function setGreen(color:uint, green:int):uint {
 			return combine(getRed(color), green, getBlue(color));
 		}
@@ -131,6 +142,7 @@ package ua.olexandr.utils {
 		 * @param	blue
 		 * @return
 		 */
+		[Inline]
 		public static function setBlue(color:uint, blue:int):uint {
 			return combine(getRed(color), getGreen(color), blue);
 		}
@@ -141,6 +153,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function invertRed(color:uint):uint {
 			return combine(0xFF - getRed(color), getGreen(color), getBlue(color));
 		}
@@ -150,6 +163,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function invertGreen(color:uint):uint {
 			return combine(getRed(color), 0xFF - getGreen(color), getBlue(color));
 		}
@@ -159,6 +173,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function invertBlue(color:uint):uint {
 			return combine(getRed(color), getGreen(color), 0xFF - getBlue(color));
 		}
@@ -169,6 +184,7 @@ package ua.olexandr.utils {
 		 * @param	color
 		 * @return
 		 */
+		[Inline]
 		public static function invertRGB(color:uint):uint {
 			return combine(0xFF - getRed(color), 0xFF - getGreen(color), 0xFF - getBlue(color));
 		}
@@ -180,6 +196,7 @@ package ua.olexandr.utils {
 		 * @param	ratio
 		 * @return
 		 */
+		[Inline]
 		public static function ratioRGB(start:uint, end:uint, ratio:Number = .5):uint {
 			var _r1:uint = getRed(start);
 			var _g1:uint = getGreen(start);

@@ -18,6 +18,7 @@ package ua.olexandr.managers {
 		 * @param	type тип события
 		 * @param	handler слушатель
 		 */
+		[Inline]
 		public static function addListener(target:EventDispatcher, type:String, handler:Function, needEvent:Boolean = true, ...attributes):void {
 			addParamListener(target, type, handler, false, false, needEvent, attributes);
 		}
@@ -28,6 +29,7 @@ package ua.olexandr.managers {
 		 * @param	type тип события
 		 * @param	handler слушатель
 		 */
+		[Inline]
 		public static function addListenerWithCapture(target:EventDispatcher, type:String, handler:Function, needEvent:Boolean = true, ...attributes):void {
 			addParamListener(target, type, handler, true, false, needEvent, attributes);
 		}
@@ -39,6 +41,7 @@ package ua.olexandr.managers {
 		 * @param	type тип события
 		 * @param	handler слушатель
 		 */
+		[Inline]
 		public static function addOneTimeListener(target:EventDispatcher, type:String, handler:Function, needEvent:Boolean = true, ...attributes):void {
 			addParamListener(target, type, handler, false, true, needEvent, attributes);
 		}
@@ -49,6 +52,7 @@ package ua.olexandr.managers {
 		 * @param	type тип события
 		 * @param	handler слушатель
 		 */
+		[Inline]
 		public static function addOneTimeListenerWithCapture(target:EventDispatcher, type:String, handler:Function, needEvent:Boolean = true, ...attributes):void {
 			addParamListener(target, type, handler, true, true, needEvent, attributes);
 		}
@@ -60,6 +64,7 @@ package ua.olexandr.managers {
 		 * @param	type тип события
 		 * @param	handler слушатель
 		 */
+		[Inline]
 		public static function removeListener(target:EventDispatcher, type:String, handler:Function):void {
 			removeParamListener(target, type, handler, false);
 		}
@@ -70,6 +75,7 @@ package ua.olexandr.managers {
 		 * @param	type тип события
 		 * @param	handler слушатель
 		 */
+		[Inline]
 		public static function removeListenerWithCapture(target:EventDispatcher, type:String, handler:Function):void {
 			removeParamListener(target, type, handler, true);
 		}
@@ -79,6 +85,7 @@ package ua.olexandr.managers {
 		 * Удалить все слушатели с диспетчера
 		 * @param	target диспетчер
 		 */
+		[Inline]
 		public static function removeListenersFrom(target:EventDispatcher):void {
 			if (!_hash[target])
 				return;
@@ -100,6 +107,7 @@ package ua.olexandr.managers {
 		/**
 		 * Удалить все слушатели
 		 */
+		[Inline]
 		public static function removeListenersFromAll():void {
 			for (var _obj:Object in _hash)
 				removeListenersFrom(_obj as EventDispatcher);
@@ -129,6 +137,7 @@ package ua.olexandr.managers {
 			_arr.push(_item);
 		}
 		
+		[Inline]
 		public static function removeParamListener(target:EventDispatcher, type:String, handler:Function, capture:Boolean):void {
 			if (!_hash[target] || !_hash[target][type])
 				return;

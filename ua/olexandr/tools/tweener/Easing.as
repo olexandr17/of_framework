@@ -1,4 +1,4 @@
-﻿package ua.olexandr.tweener {
+﻿package ua.olexandr.tools.tweener {
 	
 	public class Easing {
 		
@@ -78,6 +78,7 @@
 		/**
 		 * with no easing.
 		 */
+		[Inline]
 		public static function none(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * t / d + b;
 		}
@@ -86,6 +87,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function quadIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * (t /= d) * t + b;
 		}
@@ -93,6 +95,7 @@
 		/**
 		 * decelerating to zero velocity.
 		 */
+		[Inline]
 		public static function quadOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return -c * (t /= d) * (t - 2) + b;
 		}
@@ -100,6 +103,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function quadInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d * .5) < 1)
 				return c * .5 * t * t + b;
@@ -109,6 +113,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function quadOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return quadOut(t * 2, b, c * .5, d, params);
@@ -119,6 +124,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function cubicIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * (t /= d) * t * t + b;
 		}
@@ -126,6 +132,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function cubicOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * ((t = t / d - 1) * t * t + 1) + b;
 		}
@@ -133,6 +140,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function cubicInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d * .5) < 1)
 				return c * .5 * t * t * t + b;
@@ -142,6 +150,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function cubicOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return cubicOut(t * 2, b, c * .5, d, params);
@@ -152,6 +161,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function quartIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * (t /= d) * t * t * t + b;
 		}
@@ -159,6 +169,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function quartOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return -c * ((t = t / d - 1) * t * t * t - 1) + b;
 		}
@@ -166,6 +177,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function quartInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d * .5) < 1)
 				return c * .5 * t * t * t * t + b;
@@ -175,6 +187,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function quartOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return quartOut(t * 2, b, c * .5, d, params);
@@ -185,6 +198,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function quintIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * (t /= d) * t * t * t * t + b;
 		}
@@ -192,6 +206,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function quintOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
 		}
@@ -199,6 +214,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function quintInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d * .5) < 1)
 				return c * .5 * t * t * t * t * t + b;
@@ -208,6 +224,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function quintOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return quintOut(t * 2, b, c * .5, d, params);
@@ -218,6 +235,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function sexticIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * (t /= d) * t * t * t * t * t + b;
 		}
@@ -225,6 +243,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function sexticOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return -c * ((t = t / d - 1) * t * t * t * t * t - 1) + b;
 		}
@@ -232,6 +251,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function sexticInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d * .5) < 1)
 				return c * .5 * t * t * t * t * t * t + b;
@@ -242,6 +262,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function sexticOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return sexticOut(t * 2, b, c * .5, d, params);
@@ -252,6 +273,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function sineIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return -c * Math.cos(t / d * HALF_PI) + c + b;
 		}
@@ -259,6 +281,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function sineOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * Math.sin(t / d * HALF_PI) + b;
 		}
@@ -266,6 +289,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function sineInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return -c * .5 * (Math.cos(Math.PI * t / d) - 1) + b;
 		}
@@ -273,6 +297,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function sineOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return sineOut(t * 2, b, c * .5, d, params);
@@ -283,6 +308,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function expoIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return (t == 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b - c * 0.001;
 		}
@@ -290,6 +316,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function expoOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return (t == d) ? b + c : c * 1.001 * (-Math.pow(2, -10 * t / d) + 1) + b;
 		}
@@ -297,6 +324,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function expoInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t == 0)
 				return b;
@@ -310,6 +338,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function expoOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return expoOut(t * 2, b, c * .5, d, params);
@@ -320,6 +349,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function circIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
 		}
@@ -327,6 +357,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function circOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
 		}
@@ -334,6 +365,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function circInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d * .5) < 1)
 				return -c * .5 * (Math.sqrt(1 - t * t) - 1) + b;
@@ -343,6 +375,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function circOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return circOut(t * 2, b, c * .5, d, params);
@@ -353,6 +386,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function elasticIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t == 0)
 				return b;
@@ -373,6 +407,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function elasticOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t == 0)
 				return b;
@@ -393,6 +428,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function elasticInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t == 0)
 				return b;
@@ -415,6 +451,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function elasticOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return elasticOut(t * 2, b, c * .5, d, params);
@@ -425,6 +462,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function backIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			var s:Number = !Boolean(params) || isNaN(params.overshoot) ? 1.70158 : params.overshoot;
 			return c * (t /= d) * t * ((s + 1) * t - s) + b;
@@ -433,6 +471,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function backOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			var s:Number = !Boolean(params) || isNaN(params.overshoot) ? 1.70158 : params.overshoot;
 			return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
@@ -441,6 +480,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function backInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			var s:Number = !Boolean(params) || isNaN(params.overshoot) ? 1.70158 : params.overshoot;
 			if ((t /= d * .5) < 1)
@@ -451,6 +491,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function backOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return backOut(t * 2, b, c * .5, d, params);
@@ -461,6 +502,7 @@
 		/**
 		 * accelerating from zero velocity.
 		 */
+		[Inline]
 		public static function bounceIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			return c - bounceOut(d - t, 0, c, d, params) + b;
 		}
@@ -468,6 +510,7 @@
 		/**
 		 * decelerating from zero velocity.
 		 */
+		[Inline]
 		public static function bounceOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if ((t /= d) < (1 / 2.75)) {
 				return c * (7.5625 * t * t) + b;
@@ -483,6 +526,7 @@
 		/**
 		 * acceleration until halfway, then deceleration.
 		 */
+		[Inline]
 		public static function bounceInOut(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return bounceIn(t * 2, 0, c, d, params) * .5 + b;
@@ -493,6 +537,7 @@
 		/**
 		 * deceleration until halfway, then acceleration.
 		 */
+		[Inline]
 		public static function bounceOutIn(t:Number, b:Number, c:Number, d:Number, params:Object):Number {
 			if (t < d * .5)
 				return bounceOut(t * 2, b, c * .5, d, params);

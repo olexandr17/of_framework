@@ -18,6 +18,7 @@ package ua.olexandr.utils {
 		 * @param	useTabs
 		 * @return
 		 */
+		[Inline]
 		public static function format(serializedJSON:String, useTabs:Boolean = true):String {
 			var strings:Object = { };
 			

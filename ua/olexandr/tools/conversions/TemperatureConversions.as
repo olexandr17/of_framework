@@ -15,6 +15,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function fehrenheitToCelsius(temp:Number):Number {
 			return (temp - 32) * (9 / 5); ﻿
 		}
@@ -25,6 +26,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function celsiusToFehrenheit(temp:Number):Number {
 			return (temp * (9 / 5)) + 32;﻿  
 		}
@@ -35,6 +37,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function fehrenheitToKelvin(temp:Number):Number {
 			return celsiusToKelvin(fehrenheitToCelsius(temp));﻿  
 		}
@@ -45,6 +48,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function celsiusToKelvin(temp:Number):Number {
 			return temp - 273;﻿
 		}
@@ -55,6 +59,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function kelvinToFehrenheit(temp:Number):Number {
 			return celsiusToFehrenheit(kelvinToCelsius(temp));﻿
 		}
@@ -65,6 +70,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function kelvinToCelsius(temp:Number):Number {
 			return temp + 273;
 		}
@@ -75,6 +81,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function fehrenheitToRankine(temp:Number):Number {
 			return temp - 459.67;﻿
 		}
@@ -85,6 +92,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function celciusToRankine(temp:Number):Number {
 			return celsiusToFehrenheit(temp) - 459.67;﻿
 		}
@@ -95,6 +103,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function kelvinToRankine(temp:Number):Number {
 			return celciusToRankine(kelvinToCelsius(temp));﻿
 		}
@@ -105,6 +114,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function rankineToFehrenheit(temp:Number):Number {
 			return temp + 459.67;
 		}
@@ -115,6 +125,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function rankineToCelsius(temp:Number):Number {
 			return fehrenheitToCelsius(rankineToFehrenheit(temp));
 		}
@@ -125,6 +136,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	temp
 		 * @return
 		 */
+		[Inline]
 		public static function rankineToKelvin(temp:Number):Number {
 			return fehrenheitToKelvin(rankineToFehrenheit(temp));﻿
 		}

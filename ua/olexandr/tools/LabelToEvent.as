@@ -25,6 +25,7 @@ package ua.olexandr.tools {
 		}
 		*/
 		
+		[Inline]
 		public static function addTo(mc:MovieClip):Array {
 			var _labels:Array = mc.currentLabels;
 			var _names:Array = [];

@@ -15,6 +15,7 @@ package ua.olexandr.utils {
 		 * @param	name
 		 * @return
 		 */
+		[Inline]
 		public static function registerFont(name:Class):String {
 			if (!_registered[name]) {
 				Font.registerFont(name);
@@ -28,6 +29,7 @@ package ua.olexandr.utils {
 		 * 
 		 * @param	style
 		 */
+		[Inline]
 		public static function printAllFonts(style:Boolean = false):void {
 			var _arr:Array = Font.enumerateFonts(true).sortOn('fontName', Array.CASEINSENSITIVE);
 			
@@ -52,6 +54,7 @@ package ua.olexandr.utils {
 		 * 
 		 * @param	style
 		 */
+		[Inline]
 		public static function printEmbedFonts(style:Boolean = false):void {
 			var _arr:Array = Font.enumerateFonts(false).sortOn('fontName', Array.CASEINSENSITIVE);;
 			

@@ -30,6 +30,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToTL(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, TL);
 		}
@@ -40,6 +41,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToTC(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, TC);
 		}
@@ -50,6 +52,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToTR(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, TR);
 		}
@@ -60,6 +63,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToCL(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, CL);
 		}
@@ -70,6 +74,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToCC(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, CC);
 		}
@@ -80,6 +85,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToCR(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, CR);
 		}
@@ -90,6 +96,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToBL(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, BL);
 		}
@@ -100,6 +107,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToBC(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, BC);
 		}
@@ -110,6 +118,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function alignToBR(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, BR);
 		}
@@ -121,6 +130,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToTL(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, TL);
@@ -132,6 +142,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToTC(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, TC);
@@ -143,6 +154,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToTR(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, TR);
@@ -154,6 +166,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToCL(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, CL);
@@ -165,6 +178,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToCC(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, CC);
@@ -176,6 +190,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToCR(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, CR);
@@ -187,6 +202,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToBL(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, BL);
@@ -198,6 +214,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToBC(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, BC);
@@ -209,6 +226,7 @@ package ua.olexandr.tools.display {
 		 * @param	rect
 		 * @return
 		 */
+		[Inline]
 		public static function calcToBR(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
 			return align(target, rect, BR);
@@ -222,6 +240,7 @@ package ua.olexandr.tools.display {
 		 * @param	location
 		 * @return
 		 */
+		[Inline]
 		public static function align(target:DisplayObject, rect:Rectangle = null, location:String = 'CC'):Point {
 			rect ||= new Rectangle(0, 0, 0, 0);
 			location = location.toUpperCase();
@@ -293,6 +312,7 @@ package ua.olexandr.tools.display {
 		 * @param	isParent
 		 * @return
 		 */
+		[Inline]
 		public static function getRect(target:DisplayObject, isParent:Boolean = true):Rectangle {
 			var _rect:Rectangle = new Rectangle();
 			

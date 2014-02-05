@@ -17,6 +17,7 @@ package ua.olexandr.tools.display {
 		 * @param	direct
 		 * @return
 		 */
+		[Inline]
 		public static function arrangeX(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'right'):Number {
 			if (direct != DirectionConst.LEFT) 
 				direct = DirectionConst.RIGHT;
@@ -51,6 +52,7 @@ package ua.olexandr.tools.display {
 		 * @param	direct
 		 * @return
 		 */
+		[Inline]
 		public static function arrangeY(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'bottom'):Number {
 			if (direct != DirectionConst.TOP)
 				direct = DirectionConst.BOTTOM;
@@ -85,6 +87,7 @@ package ua.olexandr.tools.display {
 		 * @param	start
 		 * @return	количество строк
 		 */
+		[Inline]
 		public static function arrangeRows(arr:Array, cols:int, spaceX:Number = 0, spaceY:Number = 0, startX:Number = 0, startY:Number = 0, align:String = 'CC'):int {
 			var _len:int = arr.length;
 			
@@ -145,6 +148,7 @@ package ua.olexandr.tools.display {
 		 * @param	start
 		 * @return	количество строк
 		 */
+		[Inline]
 		public static function arrangeCols(arr:Array, rows:int, spaceX:Number = 0, spaceY:Number = 0, startX:Number = 0, startY:Number = 0, align:String = 'CC'):int {
 			var _len:int = arr.length;
 			

@@ -1,4 +1,4 @@
-package ua.olexandr.net.loaders {
+package ua.olexandr.tools.loader.loaders {
 	import flash.display.Bitmap;
 	import flash.display.DisplayObject;
 	import flash.display.Loader;
@@ -13,7 +13,7 @@ package ua.olexandr.net.loaders {
 	import flash.net.URLRequest;
 	import flash.system.LoaderContext;
 	import flash.system.Security;
-	import ua.olexandr.events.LoaderEvent;
+	import ua.olexandr.tools.loader.events.LoaderEvent;
 	
 	/**
 	 * ...
@@ -23,11 +23,11 @@ package ua.olexandr.net.loaders {
 	 * @link www.olexandr@gmail.com
 	 * @version 0.1
 	 */
-	[Event(name = "start", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "progress", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "fail", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "success", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "finish", type = "ua.olexandr.events.LoaderEvent")]
+	[Event(name="start", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="success", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="finish", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="fail", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="progress", type="ua.olexandr.tools.loader.events.LoaderEvent")]
 	public class MediaLoader extends EventDispatcher implements ILoader {
 		
 		/**

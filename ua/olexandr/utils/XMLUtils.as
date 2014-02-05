@@ -12,6 +12,7 @@
 		 * @param	data
 		 * @return
 		 */
+		[Inline]
 		public static function parse(data:String):XML {
 			var _data:XML;
 			
@@ -31,6 +32,7 @@
 		 * @param	$oldIndex
 		 * @param	$newIndex
 		 */
+		[Inline]
 		public static function swapIndex($list:XMLList, $oldIndex:int, $newIndex:int):void {
 			var parent:XML = $list.parent();
 			var nodeM:XML = $list[$oldIndex];
@@ -44,6 +46,7 @@
 		 * @param	$list
 		 * @param	$index
 		 */
+		[Inline]
 		public static function removeNode($list:XMLList, $index:int):void {
 			var node:XML = $list[$index];
 			delete node.parent().elements()[node.childIndex()]
@@ -55,6 +58,7 @@
 		 * @param	$attribute
 		 * @return
 		 */
+		[Inline]
 		public static function parseList($list:XMLList, $attribute:String = null):Array {
 			var _arr:Array = [];
 			var _len:int = $list.length();
@@ -75,6 +79,7 @@
 		 * @param	data
 		 * @return
 		 */
+		[Inline]
 		public static function removeNamespace(data:XML):XML {
 			var _reg1:RegExp = /\s*xmlns[^\'\"]*=[\'\"][^\'\"]*[\'\"]/gi;
 			var _reg2:RegExp = /<[\/]{0,1}(\w+:).*?>/i;
@@ -92,6 +97,7 @@
 		 * @param	$data
 		 * @return
 		 */
+		[Inline]
 		private static function removeFromAttributes($data:XML):String {
 			var ret:String = '';
 			$data.@*.(ret += localName() + '=\"' + toXMLString() + '\" ');
@@ -105,6 +111,7 @@
 		 * @param	$options	Константа Array.
 		 * @return
 		 */
+		[Inline]
 		public static function sortByAttribute($list:XMLList, $attribute:String, $options:* = 0):XMLList {
 			var _arr:Array = [];
 			
@@ -128,6 +135,7 @@
 		 * @param	count
 		 * @return
 		 */
+		[Inline]
 		public static function getSiblingByIndex(data:XML, count:int):XML {
 			var out:XML;
 			

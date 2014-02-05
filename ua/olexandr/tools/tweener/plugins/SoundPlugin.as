@@ -1,4 +1,4 @@
-package ua.olexandr.tweener.plugins {
+package ua.olexandr.tools.tweener.plugins {
 	
 	import flash.media.SoundTransform;
 	import ua.olexandr.tweener.Tweener;

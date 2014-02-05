@@ -1,16 +1,17 @@
-﻿package ua.olexandr.managers {
+﻿package ua.olexandr.tools.loader {
 	import flash.events.EventDispatcher;
-	import ua.olexandr.events.LoaderEvent;
-	import ua.olexandr.net.loaders.ILoader;
+	import ua.olexandr.tools.loader.events.LoaderEvent;
+	import ua.olexandr.tools.loader.loaders.ILoader;
 	/**
 	 * ...
 	 * @author Fedorow Olexandr
 	 */
-	[Event(name = "start", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "progress", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "fail", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "success", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "finish", type = "ua.olexandr.events.LoaderEvent")]
+	
+	[Event(name="start", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="success", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="finish", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="fail", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="progress", type="ua.olexandr.tools.loader.events.LoaderEvent")]
 	public class LoaderManager extends EventDispatcher {
 		
 		private var _maxStreams:uint;

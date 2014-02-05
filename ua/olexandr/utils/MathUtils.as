@@ -15,6 +15,7 @@ package ua.olexandr.utils {
 		 * @param	integer
 		 * @return
 		 */
+		[Inline]
 		public static function parse(str:String, integer:Boolean = false):Number {
 			var _int:Boolean = integer;
 			var _str:String = '';
@@ -35,6 +36,7 @@ package ua.olexandr.utils {
 		/**
 		 * определить четность числа
 		 */
+		[Inline]
 		public static function isEven(num:Number):Boolean {
 			//return (num % 2 == 0);
 			return (num & 1) == 0;
@@ -43,6 +45,7 @@ package ua.olexandr.utils {
 		/**
 		 * определить нечетность числа
 		 */
+		[Inline]
 		public static function isOdd(num:Number):Boolean {
 			return (num & 1) == 1;
 		}
@@ -52,6 +55,7 @@ package ua.olexandr.utils {
 		 * @param	number
 		 * @return
 		 */
+		[Inline]
 		public static function getSign(num:Number):Number {
 			if (num == 0)
 				return num;
@@ -62,6 +66,7 @@ package ua.olexandr.utils {
 		/**
 		 * Округлить дробное число num до count знаков после запятой
 		 */
+		[Inline]
 		public static function round(num:Number, count:int):Number {
 			var _d:Number = Math.pow(10, count);
 			return Math.round(num * _d) / _d;
@@ -72,6 +77,7 @@ package ua.olexandr.utils {
 		 * @param	arr
 		 * @return
 		 */
+		[Inline]
 		public static function sum(arr:Array):Number {
 			var _res:Number = 0;
 			
@@ -87,6 +93,7 @@ package ua.olexandr.utils {
 		/**
 		 * Находится ли Num в диапазоне min..max
 		 */
+		[Inline]
 		public static function inRange(value:Number, min:Number, max:Number):Boolean {
 			return ((value > min) && (value < max));
 		}
@@ -94,6 +101,7 @@ package ua.olexandr.utils {
 		/**
 		 * Получить ближайшие число к arg - val1 или val2
 		 */
+		[Inline]
 		public static function getClosest(arg:Number, val1:Number, val2:Number):Number {
 			if (arg - val1 > 0 ? arg - val1 : -(arg - val1) < arg - val2 > 0 ? arg - val2 : -(arg - val2))
 				return val1;
@@ -103,6 +111,7 @@ package ua.olexandr.utils {
 		/**
 		 * Равны ли числа val1 и val2 с заданной погрешностью aprox
 		 */
+		[Inline]
 		public static function aproxEqual(val1:Number, val2:Number, aprox:Number = .00001):Boolean {
 			return Math.abs(val2 - val1) <= aprox;
 		}
@@ -110,6 +119,7 @@ package ua.olexandr.utils {
 		/**
 		 * Перевести число value из диапазона a..b в диапазон c..d
 		 */
+		[Inline]
 		public static function remapVal(value:Number, a:Number, b:Number, c:Number, d:Number):Number {
 			return c + (d - c) * (value - a) / (b - a);
 		}
@@ -119,6 +129,7 @@ package ua.olexandr.utils {
 		 * если s=0.0 то возвращается cx.
 		 * если s=1.0 то возвращается cy.
 		 */
+		[Inline]
 		public static function lerp(cx:Number, cy:Number, s:Number):Number {
 			return cx + s * (cy - cx);
 		}
@@ -126,6 +137,7 @@ package ua.olexandr.utils {
 		/**
 		 * ограничить число интервалом min..max
 		 */
+		[Inline]
 		public static function limit(value:Number, min:Number, max:Number):Number {
 			return value < min ? min : (value > max ? max : value);
 		}
@@ -133,6 +145,7 @@ package ua.olexandr.utils {
 		/**
 		 * получить среднее арифметическое
 		 */
+		[Inline]
 		public static function average(... args):Number {
 			var _len:int = args.length;
 			var _res:Number = 0;
@@ -144,6 +157,7 @@ package ua.olexandr.utils {
 		/**
 		 * получить факториал
 		 */
+		[Inline]
 		public static function factorial(value:int):int {
 			return (value <= 1) ? 1 : value * factorial(value - 1);
 		}
@@ -152,6 +166,7 @@ package ua.olexandr.utils {
 		/**
 		 * Гиперболический синус
 		 */
+		[Inline]
 		public static function sinh(x:Number):Number {
 			return (Math.pow(Math.E, x) - Math.pow(Math.E, -x)) * .5;
 		}
@@ -159,6 +174,7 @@ package ua.olexandr.utils {
 		/**
 		 * Гиперболический косинус
 		 */
+		[Inline]
 		public static function cosh(x:Number):Number {
 			return (Math.pow(Math.E, x) + Math.pow(Math.E, -x)) * .5;
 		}
@@ -166,6 +182,7 @@ package ua.olexandr.utils {
 		/**
 		 * Гиперболический тангенс
 		 */
+		[Inline]
 		public static function tanh(x:Number):Number {
 			//return sinh(x) / cosh(x);
 			return (Math.pow(Math.E, 2 * x) - 1) / (Math.pow(Math.E, 2 * x) + 1);
@@ -174,6 +191,7 @@ package ua.olexandr.utils {
 		/**
 		 * Гиперболический котангенс
 		 */
+		[Inline]
 		public static function coth(x:Number):Number {
 			return 1 / tanh(x);
 		}

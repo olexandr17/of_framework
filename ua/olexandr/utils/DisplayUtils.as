@@ -20,6 +20,7 @@
 		 * @param	props
 		 * @return
 		 */
+		[Inline]
 		public static function createDisplayObject(parent:DisplayObjectContainer, child:DisplayObject, props:Object = null):DisplayObject {
 			parent.addChild(child);
 			
@@ -39,6 +40,7 @@
 		 * @param	$target
 		 * @return
 		 */
+		[Inline]
 		public static function getChildren(target:DisplayObjectContainer):Array {
 			var _arr:Array = [];
 			var _len:int = target.numChildren;
@@ -54,6 +56,7 @@
 		 * @param	$target
 		 * @return
 		 */
+		[Inline]
 		public static function getFirstChild(target:DisplayObjectContainer):DisplayObject {
 			return target.numChildren ? target.getChildAt(0) : null;
 		}
@@ -63,6 +66,7 @@
 		 * @param	$target
 		 * @return
 		 */
+		[Inline]
 		public static function getLastChild(target:DisplayObjectContainer):DisplayObject {
 			return target.numChildren ? target.getChildAt(target.numChildren - 1) : null;
 		}
@@ -72,6 +76,7 @@
 		 * @param	$target
 		 * @return
 		 */
+		[Inline]
 		public static function getNextChild(target:DisplayObject):DisplayObject {
 			if (target.parent) {
 				var _parent:DisplayObjectContainer = target.parent;
@@ -86,6 +91,7 @@
 		 * @param	$target
 		 * @return
 		 */
+		[Inline]
 		public static function getPreviousChild(target:DisplayObject):DisplayObject {
 			if (target.parent) {
 				var _parent:DisplayObjectContainer = target.parent;
@@ -101,6 +107,7 @@
 		 * @param	$remainingNum
 		 * @param	$removeTop
 		 */
+		[Inline]
 		public static function clear(target:DisplayObjectContainer, remainingNum:int = 0, removeTop:Boolean = false):void {
 			if (target.numChildren > remainingNum) {
 				while (target.numChildren > remainingNum)
@@ -113,6 +120,7 @@
 		 * @param	target
 		 * @param	children
 		 */
+		[Inline]
 		public static function lock(target:InteractiveObject, children:Boolean = true):void {
 			target.mouseEnabled = false;
 			if (children && target is DisplayObjectContainer)
@@ -124,6 +132,7 @@
 		 * @param	target
 		 * @param	children
 		 */
+		[Inline]
 		public static function unlock(target:InteractiveObject, children:Boolean = true):void {
 			target.mouseEnabled = true;
 			if (children && target is DisplayObjectContainer)
@@ -135,6 +144,7 @@
 		 * @param	$target
 		 * @return
 		 */
+		[Inline]
 		public static function topParent(target:DisplayObject):DisplayObject {
 			if (target.parent as DisplayObject)
 				return topParent(target.parent as DisplayObject)
@@ -148,6 +158,7 @@
 		 * @param	$full
 		 * @return
 		 */
+		[Inline]
 		public static function getClassName(target:DisplayObject, full:Boolean = false):String {
 			var _arr:Array = getQualifiedClassName(target).split('::');
 			return full ? _arr.join('.') : _arr[_arr.length - 1];
@@ -157,6 +168,7 @@
 		 * Округляет координаты детей заданного объекта на levelsOfDepth (0 - максимум) глубин
 		 * @param	$target
 		 */
+		[Inline]
 		public static function truncateChilrenXY(target:DisplayObjectContainer, levelsOfDepth:uint = 1):void {
 			var _len:int = target.numChildren;
 			for (var i:int = 0; i < _len; i++) {
@@ -173,6 +185,7 @@
 		 * Округляет координаты заданного объекта
 		 * @param	$target
 		 */
+		[Inline]
 		public static function truncateXY(target:DisplayObject):void {
 			if (!(target is Stage)) {
 				target.x = Math.round(target.x);
@@ -185,6 +198,7 @@
 		 * @param	target
 		 * @param	value
 		 */
+		[Inline]
 		public static function skewX(target:DisplayObject, value:Number):void {
 			var _m:Matrix = target.transform.matrix;
 			_m.c = Math.tan(GeomUtils.degreesToRadians(value));
@@ -196,6 +210,7 @@
 		 * @param	target
 		 * @param	value
 		 */
+		[Inline]
 		public static function skewY(target:DisplayObject, value:Number):void {
 			var _m:Matrix = target.transform.matrix;
 			_m.b = Math.tan(GeomUtils.degreesToRadians(value));
@@ -209,6 +224,7 @@
 		 * @param	point
 		 * @return
 		 */
+		[Inline]
 		public static function localToGlobal(target:DisplayObject, point:Point = null):Point {
 			var _point:Point = point ? point.clone() : new Point(target.x, target.y);
 			var _parent:DisplayObject = target.parent;
@@ -226,6 +242,7 @@
 		 * @param	point
 		 * @return
 		 */
+		[Inline]
 		public static function globalToLocal(target:DisplayObject, point:Point):Point {
 			var _point:Point = point.clone();
 			var _parent:DisplayObject = target.parent;
@@ -242,6 +259,7 @@
 		 * @param	target
 		 * @param	childs
 		 */
+		[Inline]
 		public static function zSort(target:DisplayObjectContainer, childs:Array):void {
 			childs = childs.sortOn(['y', 'name'], [Array.NUMERIC, Array.DESCENDING]);
 			var _len:int = childs.length;

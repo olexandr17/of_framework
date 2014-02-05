@@ -12,6 +12,7 @@ package ua.olexandr.utils {
 		 * @param	angle
 		 * @return
 		 */
+		[Inline]
 		public static function polarToCartesian(length:Number, angle:Number):Point {
 			//return (Point.polar(rad, degreesToRadians(theta)));     
 			
@@ -26,6 +27,7 @@ package ua.olexandr.utils {
 		 * @param	degrees радианы
 		 * @return радианы
 		 */
+		[Inline]
 		public static function degreesToRadians(degrees:Number):Number {
 			return degrees * Math.PI / 180;
 		}
@@ -35,6 +37,7 @@ package ua.olexandr.utils {
 		 * @param	radians радианы
 		 * @return градусы
 		 */
+		[Inline]
 		public static function radiansToDegrees(radians:Number):Number {
 			return radians * 180 / Math.PI;
 		}
@@ -46,6 +49,7 @@ package ua.olexandr.utils {
 		 * @param	p2
 		 * @return
 		 */
+		[Inline]
 		public static function getRadiansBetweenPoints(p1:Point, p2:Point):Number {
 			return Math.atan2(p2.y - p1.y, p2.x - p1.x);
 		}
@@ -56,6 +60,7 @@ package ua.olexandr.utils {
 		 * @param	p2
 		 * @return
 		 */
+		[Inline]
 		public static function getDegreesBetweenPoints(p1:Point, p2:Point):Number {
 			return radiansToDegrees(getRadiansBetweenPoints(p1, p2));
 		}
@@ -67,6 +72,7 @@ package ua.olexandr.utils {
 		 * @param	angleTo радианы
 		 * @return радианы
 		 */
+		[Inline]
 		public static function getShortestRadians(angleFrom:Number, angleDelta:Number):Number {
 			var _delta:Number = angleDelta - angleFrom;
 			return Math.atan2(Math.sin(_delta), Math.cos(_delta));
@@ -78,6 +84,7 @@ package ua.olexandr.utils {
 		 * @param	angleTo градусы
 		 * @return радианы
 		 */
+		[Inline]
 		public static function getShortestDegrees(angleFrom:Number, angleDelta:Number):Number {
 			var _af:Number = degreesToRadians(angleFrom);
 			var _at:Number = degreesToRadians(angleDelta);

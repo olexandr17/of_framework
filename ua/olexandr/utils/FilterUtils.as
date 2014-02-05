@@ -11,6 +11,7 @@ package ua.olexandr.utils {
 		 * 
 		 * @return
 		 */
+		[Inline]
 		public static function getGrayscaleFilter():ColorMatrixFilter {
 			return new ColorMatrixFilter([ 	0.3086, 0.6094, 0.082, 0, 0,
 											0.3086, 0.6094, 0.082, 0, 0,
@@ -22,6 +23,7 @@ package ua.olexandr.utils {
 		 * 
 		 * @return
 		 */
+		[Inline]
 		public static function getNegativeFilter():ColorMatrixFilter {
 			return new ColorMatrixFilter([ 	-1, 0, 0, 0, 255,
 											0, -1, 0, 0, 255,
@@ -34,6 +36,7 @@ package ua.olexandr.utils {
 		 * @param 		value:int	brightness value
 		 * @return		ColorMatrixFilter
 		 */
+		[Inline]
 		public static function getBrightnessFilter(value:Number):ColorMatrixFilter {
 			value = value * (255 / 250);
 			
@@ -51,6 +54,7 @@ package ua.olexandr.utils {
 		 * @param 		value:int	contrast value
 		 * @return		ColorMatrixFilter
 		 */
+		[Inline]
 		public static function getContrastFilter(value:Number):ColorMatrixFilter {
 			value /= 100;
 			var _s:Number = value + 1;
@@ -70,6 +74,7 @@ package ua.olexandr.utils {
 		 * @param 		value:int	saturation value
 		 * @return		ColorMatrixFilter
 		 */
+		[Inline]
 		public static function getSaturationFilter(value:Number):ColorMatrixFilter {
 			const lumaR:Number = 0.212671;
     		const lumaG:Number = 0.71516;
@@ -95,6 +100,7 @@ package ua.olexandr.utils {
 		 * @param	value
 		 * @return
 		 */
+		[Inline]
 		public static function getSepiaFilter(value:Number):ColorMatrixFilter {
 			return new ColorMatrixFilter([	0.3930000066757202, 0.7689999938011169, 0.1889999955892563, 0, 0,
 											0.3490000069141388, 0.6859999895095825, 0.1679999977350235, 0, 0,
@@ -103,6 +109,7 @@ package ua.olexandr.utils {
 											0, 0, 0, 0, 1]);
 
 		}
+	
 	}
 
 }

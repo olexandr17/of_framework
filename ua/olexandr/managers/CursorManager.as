@@ -18,6 +18,7 @@ package ua.olexandr.managers {
 		 * 
 		 * @param	stage
 		 */
+		[Inline]
 		public static function init(stage:Stage):void {
 			_stage = stage;
 		}
@@ -26,6 +27,7 @@ package ua.olexandr.managers {
 		 * 
 		 * @param	cursor
 		 */
+		[Inline]
 		public static function show(cursor:DisplayObject):void {
 			if (_cursor)
 				hide();
@@ -46,6 +48,7 @@ package ua.olexandr.managers {
 		/**
 		 * 
 		 */
+		[Inline]
 		public static function hide():void {
 			_stage.removeEventListener(Event.ENTER_FRAME, efHandler);
 			

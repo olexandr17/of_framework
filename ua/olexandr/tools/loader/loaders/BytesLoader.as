@@ -1,4 +1,4 @@
-package ua.olexandr.net.loaders {
+package ua.olexandr.tools.loader.loaders {
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -8,7 +8,7 @@ package ua.olexandr.net.loaders {
 	import flash.net.URLRequest;
 	import flash.net.URLStream;
 	import flash.utils.ByteArray;
-	import ua.olexandr.events.LoaderEvent;
+	import ua.olexandr.tools.loader.events.LoaderEvent;
 	
 	/**
 	 * ...
@@ -18,11 +18,11 @@ package ua.olexandr.net.loaders {
 	 * @link www.olexandr@gmail.com
 	 * @version 0.1
 	 */
-	[Event(name = "start", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "progress", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "fail", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "success", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "finish", type = "ua.olexandr.events.LoaderEvent")]
+	[Event(name="start", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="success", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="finish", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="fail", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="progress", type="ua.olexandr.tools.loader.events.LoaderEvent")]
 	public class BytesLoader extends EventDispatcher implements ILoader {
 		
 		/**
@@ -138,8 +138,8 @@ package ua.olexandr.net.loaders {
 			_percentage = _bytesLoaded / _bytesTotal;
 			
 			var _event:LoaderEvent = new LoaderEvent(LoaderEvent.PROGRESS);
-			_event.bytesTotalCurrent = _bytesTotal;
-			_event.bytesLoadedCurrent = _bytesLoaded;
+			_event.bytesTotal = _bytesTotal;
+			_event.bytesLoaded = _bytesLoaded;
 			_event.percentageTotal = _percentage;
 			_event.percentageCurrent = _percentage;
 			dispatchEvent(_event);

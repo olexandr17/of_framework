@@ -1,4 +1,4 @@
-package ua.olexandr.tweener {
+package ua.olexandr.tools.tweener {
 
 	public class SpecialPropertySplitter {
 		

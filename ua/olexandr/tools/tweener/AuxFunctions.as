@@ -1,4 +1,4 @@
-package ua.olexandr.tweener {
+package ua.olexandr.tools.tweener {
 	
 	public class AuxFunctions {
 		
@@ -7,6 +7,7 @@ package ua.olexandr.tweener {
 		 * @param		p_num				Number		Color number (ie, 0xffff00)
 		 * @return							Number		The R value
 		 */
+		[Inline]
 		public static function numberToR(p_num:Number):Number {
 			// The initial & is meant to crop numbers bigger than 0xffffff
 			return (p_num & 0xff0000) >> 16;
@@ -17,6 +18,7 @@ package ua.olexandr.tweener {
 		 * @param		p_num				Number		Color number (ie, 0xffff00)
 		 * @return							Number		The G value
 		 */
+		[Inline]
 		public static function numberToG(p_num:Number):Number {
 			return (p_num & 0xff00) >> 8;
 		}
@@ -26,6 +28,7 @@ package ua.olexandr.tweener {
 		 * @param		p_num				Number		Color number (ie, 0xffff00)
 		 * @return							Number		The B value
 		 */
+		[Inline]
 		public static function numberToB(p_num:Number):Number {
 			return (p_num & 0xff);
 		}
@@ -35,6 +38,7 @@ package ua.olexandr.tweener {
 		 * @param		p_object			Object		Target object with a number of properties
 		 * @return							Number		Number of total properties the object has
 		 */
+		[Inline]
 		public static function getObjectLength(p_object:Object):uint {
 			var totalProperties:uint = 0;
 			for (var pName:String in p_object)
@@ -46,6 +50,7 @@ package ua.olexandr.tweener {
 		 * @param		args				Object(s)	A variable number of objects
 		 * @return							Object		An object with the sum of all paremeters added as properties.
 		 */
+		[Inline]
 		public static function concatObjects(... args):Object {
 			var finalObject:Object = {};
 			var currentObject:Object;

@@ -16,6 +16,7 @@ package ua.olexandr.utils {
 		 * @param	table
 		 * @return
 		 */
+		[Inline]
 		public static function toArray(table:Object):Array {
 			var _out:Array = [];
 			for each (var thing:* in table)
@@ -28,6 +29,7 @@ package ua.olexandr.utils {
 		 * @param	input
 		 * @return
 		 */
+		[Inline]
 		public static function clone(input:Object):Object {
 			var _out:Object = {};
 			for (var _str:String in input) {
@@ -43,6 +45,7 @@ package ua.olexandr.utils {
 		 * @param	obj
 		 * @return
 		 */
+		[Inline]
 		public static function copy(obj:Object):Object {
 			var _bytes:ByteArray = new ByteArray();
 			_bytes.writeObject(obj);
@@ -56,6 +59,7 @@ package ua.olexandr.utils {
 		 * @param	prop
 		 * @return
 		 */
+		[Inline]
 		public static function has(obj:Object, prop:String):Boolean {
 			return obj.hasOwnProperty(prop);
 		}

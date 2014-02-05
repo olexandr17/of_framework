@@ -21,6 +21,7 @@ package ua.olexandr.utils {
 		 * @param	angle угол поворота (в градусах)
 		 * @param	clockwise по часовой стрелке
 		 */
+		[Inline]
 		public static function drawSector(canvas:Graphics, center:Point, radius:Number, angle:int, clockwise:Boolean = true):void {
 			canvas.moveTo(center.x, center.y);
 			canvas.lineTo(center.x, center.y - radius);
@@ -40,6 +41,7 @@ package ua.olexandr.utils {
 		 * @param	dash длина штриха
 		 * @param	space интервал между штрихами
 		 */
+		[Inline]
 		public static function drawDottedLine(canvas:Graphics, start:Point, end:Point, dash:Number = 1, space:Number = 1):void {
 			var _distance:Number = Point.distance(start, end);
 			
@@ -74,6 +76,7 @@ package ua.olexandr.utils {
 		 * @param	start начальная точка
 		 * @param	end конечная точка
 		 */
+		[Inline]
 		public static function drawLine(canvas:Graphics, start:Point, end:Point):void {
 			canvas.moveTo(start.x, start.y);
 			canvas.lineTo(end.x, end.y);
@@ -88,6 +91,7 @@ package ua.olexandr.utils {
 		 * @param	rows количество строке
 		 * @param	thick толщина границ
 		 */
+		[Inline]
 		public static function drawGrid(canvas:Graphics, w:int, h:int, cols:int, rows:int, thick:int):void {
 			var _cellW:Number = (w - (cols + 1) * thick) / cols;
 			var _cellH:Number = (h - (rows + 1) * thick) / rows;
@@ -111,6 +115,7 @@ package ua.olexandr.utils {
 		 * graphics.lineStyle(1, 0xFF);
 		 * DrawUtils.drawSpline(graphics, _arr, 10);
 		 */
+		[Inline]
 		public static function drawSpline(canvas:Graphics, arr:Array, details:int = 10):void {
 			canvas.moveTo(arr[0].x, arr[0].y);
 			
@@ -148,6 +153,7 @@ package ua.olexandr.utils {
 		 * graphics.lineStyle(1, 0xFF);
 		 * DrawUtils.drawBezier(graphics, new Point(10, 10), new Point(40, 40), _arr, 100);
 		 */
+		[Inline]
 		public static function drawBezier(canvas:Graphics, start:Point, end:Point, anchors:Array, details:int = 100):void {
 			anchors = anchors.concat();
 			anchors.unshift(start);
@@ -200,6 +206,7 @@ package ua.olexandr.utils {
 		 * @param	spreadMethod
 		 * @param	interpolationMethod
 		 */
+		[Inline]
 		public static function drawLinearGradient(canvas:Graphics, colors:Array, alphas:Array, ratios:Array, rect:Rectangle, angle:Number = 90, spreadMethod:String = 'pad', interpolationMethod:String = 'rgb'):void {
 			var _m:Matrix = new Matrix();
 			_m.createGradientBox(rect.width, rect.height, GeomUtils.degreesToRadians(angle), rect.left, rect.top);
@@ -214,6 +221,7 @@ package ua.olexandr.utils {
 		 * @param	w высота 
 		 * @param	h ширина
 		 */
+		[Inline]
 		public static function drawPalette(canvas:Graphics, w:uint = 100, h:uint = 100):void {
 			var _percent:Number;
 			var _radians:Number;
@@ -264,6 +272,7 @@ package ua.olexandr.utils {
 		 * @param	count
 		 * @param	degrees
 		 */
+		[Inline]
 		public static function drawPolygon(canvas:Graphics, x:Number, y:Number, radius:Number, count:uint, degrees:Number = 0):void {
 			var _start:Number = GeomUtils.degreesToRadians(degrees);
 			var _step:Number = GeomUtils.degreesToRadians(360 / count);
@@ -287,6 +296,7 @@ package ua.olexandr.utils {
 		 * @param	radiusOut
 		 * @param	count
 		 */
+		[Inline]
 		public static function drawStar(canvas:Graphics, x:Number, y:Number, radiusIn:Number, radiusOut:Number, count:uint):void {
 			if (radiusIn > radiusOut) {
 				radiusIn = radiusIn + radiusOut;
@@ -326,6 +336,7 @@ package ua.olexandr.utils {
 		 * @param	radiusAnchor
 		 * @param	_count
 		 */
+		[Inline]
 		public static function drawBurst(canvas:Graphics, x:Number, y:Number, radiusIn:Number, radiusOut:Number, count:uint):void {
 			if (radiusIn > radiusOut) {
 				radiusIn = radiusIn + radiusOut;
@@ -373,6 +384,7 @@ package ua.olexandr.utils {
 		 * @param	radiusOut
 		 * @param	count
 		 */
+		[Inline]
 		public static function drawBiscuit(canvas:Graphics, x:Number, y:Number, radiusIn:Number, radiusOut:Number, count:uint):void {
 			if (radiusIn > radiusOut) {
 				radiusIn = radiusIn + radiusOut;

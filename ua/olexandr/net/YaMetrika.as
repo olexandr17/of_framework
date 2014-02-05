@@ -16,6 +16,7 @@ package ua.olexandr.net {
 		 * 
 		 * @param	id
 		 */
+		[Inline]
 		public static function init(id:String):void {
 			_id = id;
 		}
@@ -26,6 +27,7 @@ package ua.olexandr.net {
 		 * @param	title
 		 * @param	referer
 		 */
+		[Inline]
 		public static function hit(url:String, title:String = null, referer:String = null):void {
 			if (!_id)
 				return;

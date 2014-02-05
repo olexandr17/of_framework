@@ -30,6 +30,7 @@
 		 * @param	target
 		 * @param	noCache
 		 */
+		[Inline]
 		public static function gotoURL(url:String, target:String = '', noCache:Boolean = false):void {
 			if (!target)
 				target = defaultTarget;
@@ -51,6 +52,7 @@
 		 * @param	param
 		 * @return
 		 */
+		[Inline]
 		public static function noCache(url:String, param:String = 'noCache'):String {
 			if (!url)
 				return url;

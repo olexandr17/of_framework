@@ -7,6 +7,7 @@
 		/**
 		 * пересекаются ли два круга
 		 */
+		[Inline]
 		public static function circleToCircle(c1:Circle, c2:Circle):Boolean {
 			return (c1.radius + c2.radius) * (c1.radius + c2.radius) <=
 				((c1.x - c2.x) * (c1.x - c2.x)) + ((c1.y - c2.y) * (c1.y - c2.y));
@@ -15,6 +16,7 @@
 		/**
 		 * пересекаются ли точка с кругом
 		 */
+		[Inline]
 		public static function pointToCircle(point:Point, circle:Circle):Boolean {
 			return (circle.radius * circle.radius) >
 				(point.x - circle.x) * (point.x - circle.x) + (point.y - circle.y) * (point.y - circle.y);
@@ -23,6 +25,7 @@
 		/**
 		 * пересекаются ли две линии 
 		 */
+		[Inline]
 		public static function lineToLine(p11:Point, p12:Point, p21:Point, p22:Point):Boolean {
 			// решаем систему методом Крамера
 			var _d:Number = (p12.x - p11.x) * (p21.y - p22.y) - (p21.x - p22.x) * (p12.y - p11.y);

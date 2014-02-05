@@ -26,6 +26,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function scaleInside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			return scale(target, width, height, INSIDE, max, min);
 		}
@@ -39,6 +40,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function scaleOutside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			return scale(target, width, height, OUTSIDE, max, min);
 		}
@@ -52,6 +54,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function scaleStretch(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			return scale(target, width, height, STRETCH, max, min);
 		}
@@ -64,6 +67,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function scaleWidth(target:DisplayObject, width:Number, max:Number = NaN, min:Number = NaN):Number {
 			return scale(target, width, 0, WIDTH, max, min);
 		}
@@ -76,6 +80,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function scaleHeight(target:DisplayObject, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			return scale(target, 0, height, HEIGHT, max, min);
 		}
@@ -85,6 +90,7 @@ package ua.olexandr.tools.display {
 		 * @param	target
 		 * @return
 		 */
+		[Inline]
 		public static function scaleNone(target:DisplayObject):Number {
 			return scale(target, 0, 0, NONE);
 		}
@@ -99,6 +105,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function calcInside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			_calc = true;
 			return scale(target, width, height, INSIDE, max, min);
@@ -113,6 +120,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function calcOutside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			_calc = true;
 			return scale(target, width, height, OUTSIDE, max, min);
@@ -126,6 +134,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function calcWidth(target:DisplayObject, width:Number, max:Number = NaN, min:Number = NaN):Number {
 			_calc = true;
 			return scale(target, width, 0, WIDTH, max, min);
@@ -139,6 +148,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function calcHeight(target:DisplayObject, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			_calc = true;
 			return scale(target, 0, height, HEIGHT, max, min);
@@ -155,6 +165,7 @@ package ua.olexandr.tools.display {
 		 * @param	min
 		 * @return
 		 */
+		[Inline]
 		public static function scale(target:DisplayObject, width:Number, height:Number, type:String, max:Number = NaN, min:Number = NaN):Number {
 			var _kW:Number = width / target.width * target.scaleX;
 			var _kH:Number = height / target.height * target.scaleY;

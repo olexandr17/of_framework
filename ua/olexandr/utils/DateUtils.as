@@ -31,6 +31,7 @@
 		 * @param	format
 		 * @return
 		 */
+		[Inline]
 		public static function parse(date:String = null, format:String = 'dd_mm_yyyy'):Date {
 			var _arr:Array;
 			var _date:Date;
@@ -91,6 +92,7 @@
 		 * @param	format
 		 * @return
 		 */
+		[Inline]
 		public static function getString(date:Date = null, format:String = 'dd_mm_yyyy'):String {
 			var _str:String;
 			var _date:Date = date ? date : new Date();
@@ -128,6 +130,7 @@
 		 * @param	$dateEnd
 		 * @return
 		 */
+		[Inline]
 		public static function getDifferenceOfDates(start:Date, end:Date = null):Number {
 			if (!end)
 				end = new Date();
@@ -141,6 +144,7 @@
 		 * @param	$mseconds
 		 * @return
 		 */
+		[Inline]
 		public static function getAggregateDate(date:Date, years:Number = 0, months:Number = 0, days:Number = 0, hours:Number = 0, minutes:Number = 0, seconds:Number = 0, milliseconds:Number = 0):Date {
 			var _date:Date = new Date(date.getTime());
 			_date.setFullYear(_date.getFullYear() + years);
@@ -161,6 +165,7 @@
 		 * @param	$genitivus
 		 * @return
 		 */
+		[Inline]
 		public static function getNameOfMonth(month:int, locale:String = 'en', genitivus:Boolean = false):String {
 			return genitivus ? DateConst.getMonthNamesGenitivus(locale)[month] : DateConst.getMonthNames(locale)[month];
 		}
@@ -171,6 +176,7 @@
 		 * @param	$locale
 		 * @return
 		 */
+		[Inline]
 		public static function getShortNameOfDay(day:int, locale:String = 'en'):String {
 			return DateConst.getDayShortNames(locale)[day];
 		}
@@ -181,6 +187,7 @@
 		 * @param	$year
 		 * @return
 		 */
+		[Inline]
 		public static function getDaysInMonth(month:int, year:uint):int {
 			if (isLeapYear(year) && month == 1)
 				return 29;
@@ -193,6 +200,7 @@
 		 * @param	$year
 		 * @return
 		 */
+		[Inline]
 		public static function getDaysInYear(year:uint):int {
 			return isLeapYear(year) ? 366 : 365;
 		}
@@ -203,6 +211,7 @@
 		 * @param	$year
 		 * @return
 		 */
+		[Inline]
 		public static function isLeapYear(year:uint):Boolean {
 			return !(year % 4) && (year % 100) || !(year % 400);
 		}
@@ -212,6 +221,7 @@
 		 * @param	date
 		 * @return
 		 */
+		[Inline]
 		public static function dayOfYear(date:Date):uint {
 			var _date:Date = new Date(date.fullYear, 0, 1);
 			return Math.floor((date.time - _date.time) / 86400000);
@@ -223,6 +233,7 @@
 		 * @param	b
 		 * @return
 		 */
+		[Inline]
 		public static function isEqual(a:Date, b:Date):Boolean {
 			return a.getTime() == b.getTime();
 		}
@@ -234,6 +245,7 @@
 		 * @param	locale
 		 * @return
 		 */
+		[Inline]
 		public static function getDateAgoAsString(a:Date, b:Date, locale:String = 'en'):String {
 			var _str:String;
 			var _msec:Number = b.getTime() - a.getTime();
@@ -289,6 +301,7 @@
 			
 			return _str;
 		}
+	
 	}
 
 }

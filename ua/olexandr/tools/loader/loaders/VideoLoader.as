@@ -1,4 +1,4 @@
-package ua.olexandr.net.loaders {
+package ua.olexandr.tools.loader.loaders {
 	import flash.events.AsyncErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -10,18 +10,18 @@ package ua.olexandr.net.loaders {
 	import flash.net.NetStream;
 	import flash.net.URLRequest;
 	import flash.utils.Timer;
-	import ua.olexandr.events.LoaderEvent;
+	import ua.olexandr.tools.loader.events.LoaderEvent;
 	import ua.olexandr.vos.VideoMetadataVO;
 	/**
 	 * ...
 	 * @author Fedorow Olexandr
 	 */
-	[Event(name = "start", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "progress", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "fail", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "success", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "finish", type = "ua.olexandr.events.LoaderEvent")]
-	[Event(name = "init", type = "ua.olexandr.events.LoaderEvent")]
+	[Event(name="start", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="init", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="success", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="finish", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="fail", type="ua.olexandr.tools.loader.events.LoaderEvent")]
+	[Event(name="progress", type="ua.olexandr.tools.loader.events.LoaderEvent")]
 	public class VideoLoader extends EventDispatcher implements ILoader {
 		
 		private var _metadata:VideoMetadataVO;

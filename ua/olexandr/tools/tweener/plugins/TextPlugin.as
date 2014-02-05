@@ -1,4 +1,4 @@
-package ua.olexandr.tweener.plugins {
+package ua.olexandr.tools.tweener.plugins {
 	
 	import flash.text.TextFormat;
 	import ua.olexandr.tweener.AuxFunctions;

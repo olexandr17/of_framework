@@ -12,6 +12,7 @@
 		 * @param	b
 		 * @return
 		 */
+		[Inline]
 		public static function isEqual(a:Array, b:Array):Boolean {
 			if (a.length != b.length)
 				return false;
@@ -32,6 +33,7 @@
 		 * @param	count
 		 * @return
 		 */
+		[Inline]
 		public static function getRandom(arr:Array, count:int = 1):Array {
 			if (arr.length < count) 
 				return null;
@@ -53,6 +55,7 @@
 		 * @param	field
 		 * @return
 		 */
+		[Inline]
 		public static function getFieldValues(arr:Array, field:String):Array {
 			var _arr:Array = [];
 			var _len:int = arr.length;
@@ -67,6 +70,7 @@
 		 * @param	arr
 		 * @return
 		 */
+		[Inline]
 		public static function getUnique(arr:Array):Array {
 			var obj:Dictionary = new Dictionary(true);
 			
@@ -81,6 +85,7 @@
 		 * @param	value
 		 * @return	массив удаленных элементов
 		 */
+		[Inline]
 		public static function removeValue(arr:Array, value:*):Array {
 			var _removed:Array = [];
 			var _len:uint = arr.length;
@@ -101,6 +106,7 @@
 		 * @param	values
 		 * @return	массив удаленных элементов
 		 */
+		[Inline]
 		public static function removeValues(arr:Array, values:Array):Array {
 			var _removed:Array = [];
 			var _lenA:int = arr.length;
@@ -123,6 +129,7 @@
 		 * @param	arr
 		 * @return
 		 */
+		[Inline]
 		public static function shuffle(arr:Array):void {
 			/*arr.sort(function (a:*, b:*):int {
 				return Math.random() > .5 ? -1 : 1;
@@ -140,6 +147,7 @@
 		 * @param	value
 		 * @return
 		 */
+		[Inline]
 		public static function contains(arr:Array, value:*):Boolean {
 			 return (arr.indexOf(value) != -1);
 		}
@@ -151,6 +159,7 @@
 		 * @param	step
 		 * @return
 		 */
+		[Inline]
 		public static function range(min:Number, max:Number, step:Number = 1):Array {
 			var _arr:Array = [];
 			for (var i:Number = min; i < max; i = i + step)
@@ -166,6 +175,7 @@
 		 * @param	j
 		 * @return
 		 */
+		[Inline]
 		public static function swap(arr:Array, i:int, j:int):void {
 			var _a:* = arr[i];
 			var _b:* = arr[j];
@@ -180,6 +190,7 @@
 		 * @param	len
 		 * @return
 		 */
+		[Inline]
 		public static function fill(value:*, len:int):Array {
 			var _arr:Array = [];
 			

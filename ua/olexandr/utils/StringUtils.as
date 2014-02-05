@@ -14,6 +14,7 @@
 		 * @param	toCase
 		 * @return
 		 */
+		[Inline]
 		public static function isEqual(str1:String, str2:String, toCase:Boolean = false):Boolean {
 			if (!isSet(str1) || !isSet(str2))
 				return false;
@@ -26,6 +27,7 @@
 		 * @param	value
 		 * @return
 		 */
+		[Inline]
 		public static function isSet(value:String):Boolean {
 			return (value != null && value.length > 0);
 		}
@@ -35,6 +37,7 @@
 		 * @param	value
 		 * @return
 		 */
+		[Inline]
 		public static function parse(value:*):String {
 			if (value) {
 				if (value is String) 						return value;
@@ -51,6 +54,7 @@
 		 * @param	$char
 		 * @return
 		 */
+		[Inline]
 		public static function setLength(str:String, count:int, direct:String = 'left', char:String = '0'):String {
 			if (!(str is String))
 				return null;
@@ -71,6 +75,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function trimLeft(str:String):String {
 			if (!(str is String))
 				return null;
@@ -83,6 +88,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function trimRight(str:String):String {
 			if (!(str is String))
 				return null;
@@ -95,6 +101,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function trim(str:String):String {
 			if (!(str is String))
 				return null;
@@ -107,6 +114,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function isNumeric(str:String):Boolean {
 			if (str == null)
 				return false;
@@ -120,22 +128,24 @@
 		 * @param	char
 		 * @return
 		 */
+		[Inline]
 		public static function isWhitespace(char:String):Boolean {
 			return char == '\r' || char == '\n' || char == '\f' || char == '\t' || char == ' ';
 		}
 		
 		/**
-		 * оберзает строку до заданной длины
+		 * обрезает строку до заданной длины
 		 * @param	str
 		 * @param	len
 		 * @return
 		 */
-        public static function truncate(str:String, len:int, ending:String = '...'):String {
+		[Inline]
+        public static function truncate(str:String, len:int, ellipsis:String = "…"):String {
 			if (!(str is String))
 				return null;
 				
             if (str.length > len)
-                str = str.substr(0, len - ending.length) + ending;
+                str = str.substr(0, len - ellipsis.length) + ellipsis;
 			
             return str;
         }
@@ -145,6 +155,7 @@
 		 * @param	$str
 		 * @return
 		 */
+		[Inline]
 		public static function normalize(str:String):String {
 			if (!(str is String))
 				return null;
@@ -161,6 +172,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function removeDoubleLines(str:String):String {
 			if (!(str is String))
 				return null;
@@ -173,6 +185,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function escapeTags(str:String):String {
 			if (!isSet(str))
 				return null;
@@ -189,6 +202,7 @@
 		 * @param	$str
 		 * @return
 		 */
+		[Inline]
 		public static function reverse(str:String):String {
 			if (!isSet(str))
 				return null;
@@ -203,6 +217,7 @@
 		 * @param	$caseSensitive
 		 * @return
 		 */
+		[Inline]
 		public static function getCount(str:String, char:String, caseSensitive:Boolean = true):uint {
 			if (!isSet(str))
 				return null;
@@ -215,6 +230,7 @@
 		 * @param	$str
 		 * @return
 		 */
+		[Inline]
 		public static function getWordCount(str:String):uint {
 			if (!isSet(str))
 				return null;
@@ -229,6 +245,7 @@
 		 * @param	$lang
 		 * @return
 		 */
+		[Inline]
 		public static function getHumanPluralForms(count:int, forms:Array, lang:String = 'ua'):String {
 			// http://translate.sourceforge.net/wiki/l10n/pluralforms
 			// $forms = ['комментарий', 'комментария', 'комментариев'];
@@ -261,6 +278,7 @@
 		 * @param	$separator
 		 * @return
 		 */
+		[Inline]
 		public static function addThousandsSeparator(str:String, sep:String = ' '):String {
 			if (!(str is String))
 				return null;
@@ -284,6 +302,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function toTitleCase(str:String):String {
 			if (!(str is String))
 				return null;
@@ -303,6 +322,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
 		public static function stripTags(str:String):String {
 			if (!isSet(str))
 				return null;
@@ -315,6 +335,7 @@
 		 * @param	str
 		 * @return
 		 */
+		[Inline]
         public static function decodeHTML(str:String):String {
 			if (!(str is String))
 				return null;

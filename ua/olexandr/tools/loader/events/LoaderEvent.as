@@ -1,4 +1,4 @@
-package ua.olexandr.events {
+package ua.olexandr.tools.loader.events {
 	import flash.events.Event;
 	/**
 	 * ...

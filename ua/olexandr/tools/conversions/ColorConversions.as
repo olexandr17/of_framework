@@ -16,6 +16,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	b
 		 * @return
 		 */
+		[Inline]
 		public static function RGBtoCMYK(r:Number, g:Number, b:Number):Object {
 			var _max:Number = Math.max(r, g, b);
 			var _min:Number = Math.min(r, g, b);
@@ -37,6 +38,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	k
 		 * @return
 		 */
+		[Inline]
 		public static function CMYKtoRGB(c:Number, m:Number, y:Number, k:Number):Object {
 			var _r:Number = _c * (1 - k) + k;
 			var _g:Number = _m * (1 - k) + k;
@@ -62,6 +64,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	b
 		 * @return
 		 */
+		[Inline]
 		public static function RGBtoHSV(r:Number, g:Number, b:Number):Object {
 			var _max:Number = Math.max(r, g, b);
 			var _min:Number = Math.min(r, g, b);
@@ -99,6 +102,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	v
 		 * @return
 		 */
+		[Inline]
 		public static function HSVtoRGB(h:Number, s:Number, v:Number):Object {
 			var _r:Number;
 			var _g:Number;
@@ -164,6 +168,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	b
 		 * @return
 		 */
+		[Inline]
 		public static function RGBtoHLS(r:Number, g:Number, b:Number):Object {
 			var _max:Number = Math.max(r, g, b);
 			var _min:Number = Math.min(r, g, b);
@@ -211,6 +216,7 @@ package ua.olexandr.tools.conversions {
 		 * @param	s
 		 * @return
 		 */
+		[Inline]
 		public static function HLStoRGB(h:Number, l:Number, s:Number):Object {
 			var _max:Number = (l <= .5) ? l * (1 + s) : l * (1 - s) + s;
 			var _min:Number = 2 * l - _max;
@@ -231,6 +237,7 @@ package ua.olexandr.tools.conversions {
 		}
 		
 		
+		[Inline]
 		private static function calcHLSValue(min:Number, max:Number, hue:Number):Number {
 			if (hue > 1) 		hue--;
 			else if (hue < 0) 	hue++;

@@ -18,6 +18,7 @@
 		 * @param	account
 		 * @param	debug
 		 */
+		[Inline]
 		public static function init(target:DisplayObject, account:String, debug:Boolean = false):void {
 			if (!_tracker)
 				_tracker = new GATracker(target, account, TrackerMode.AS3, debug);
@@ -30,6 +31,7 @@
 		 * @param	label
 		 * @return
 		 */
+		[Inline]
 		public static function trackEvent(category:String, action:String, label:String = null):Boolean {
 			if (!_tracker)
 				return false;
@@ -41,6 +43,7 @@
 		 * 
 		 * @param	pageURL
 		 */
+		[Inline]
 		public static function trackPageview(pageURL:String):void {
 			if (!_tracker)
 				return;

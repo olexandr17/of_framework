@@ -1,4 +1,4 @@
-package ua.olexandr.tweener.plugins {
+package ua.olexandr.tools.tweener.plugins {
 	
 	import ua.olexandr.tweener.Tweener;
 	
