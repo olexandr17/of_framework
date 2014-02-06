@@ -6,7 +6,7 @@ package ua.olexandr.ui.components {
 	public class TextArea extends Text {
 		protected var _scrollbar:VScrollBar;
 		
-		public function TextArea(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, text:String = "") {
+		public function TextArea(text:String = "") {
 			super(text);
 		}
 		

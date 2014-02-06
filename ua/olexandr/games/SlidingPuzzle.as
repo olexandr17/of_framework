@@ -1,5 +1,4 @@
 ﻿package ua.olexandr.games {
-	import caurina.transitions.Tweener;
 	import flash.display.Bitmap;
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
@@ -7,6 +6,7 @@
 	import flash.geom.Rectangle;
 	import flash.utils.Dictionary;
 	import ua.olexandr.games.renderers.SlidingPuzzleItem;
+	import ua.olexandr.tools.tweener.Tweener;
 	import ua.olexandr.utils.BitmapUtils;
 	/**
 	 * ...
@@ -40,13 +40,13 @@
 			
 			_itemWidth = ($width - _interval * (_cols - 1)) / _cols;
 			_itemHeight = ($height - _interval * (_rows - 1)) / _rows;
-			_source = BitmapUtils.createBitmap($source, new Rectangle(0, 0, _itemWidth * _cols, _itemHeight * _rows));
+			_source = BitmapUtils.create($source, new Rectangle(0, 0, _itemWidth * _cols, _itemHeight * _rows));
 
 			_items = new Dictionary();
 
 			for (var i:int = 0; i < _cols * _rows - 1; i++) {
 				var _rect:Rectangle = new Rectangle(i % _cols * _itemWidth, Math.floor(i / _cols) * _itemHeight, _itemWidth, _itemHeight);
-				var _itemBitmap:Bitmap = BitmapUtils.createBitmap(_source, _rect, null, false);
+				var _itemBitmap:Bitmap = BitmapUtils.create(_source, _rect, null, false);
 				var _item:SlidingPuzzleItem = new SlidingPuzzleItem(_itemBitmap, i);
 				addChild(_item);
 
@@ -76,7 +76,7 @@
 			var _x:Number = ($idCurrent % _cols) * (_itemWidth + _interval);
 			var _y:Number = Math.floor($idCurrent / _cols) * (_itemHeight + _interval);
 			Tweener.removeTweens($target);
-			Tweener.addTween($target, { x:_x, y:_y, time:$quick ? 0 : .3 } );
+			Tweener.addTween($target, $quick ? 0 : .3, { x:_x, y:_y } );
 		}
 
 		private function itemOverHandler(e:MouseEvent):void {

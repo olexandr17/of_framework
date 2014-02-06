@@ -11,8 +11,8 @@ package ua.olexandr.ui.components {
 		protected var _corner:Shape;
 		protected var _dragContent:Boolean = true;
 		
-		public function ScrollPane(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0) {
-			super(parent, xpos, ypos);
+		public function ScrollPane() {
+			super();
 		}
 		
 		public function update():void {

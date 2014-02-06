@@ -26,12 +26,9 @@ package ua.olexandr.ui.components {
 		protected var _value:Number = 0;
 		protected var _valueLabel:Label;
 		
-		public function Knob(label:String = "", defaultHandler:Function = null) {
+		public function Knob(label:String = "") {
 			_labelText = label;
 			super();
-			if (defaultHandler != null) {
-				addEventListener(Event.CHANGE, defaultHandler);
-			}
 		}
 		
 		public override function draw():void {

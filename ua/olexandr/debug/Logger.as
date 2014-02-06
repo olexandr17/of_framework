@@ -87,8 +87,8 @@
 		 * @param	str
 		 * @param	...args
 		 */
-		public static function codeFormat(str:String, ...args):void {
-			logFormat(MESSAGES[CODE], str, args);
+		public static function codeF(str:String, ...args):void {
+			logF(MESSAGES[CODE], str, args);
 		}
 		
 		/**
@@ -96,8 +96,8 @@
 		 * @param	str
 		 * @param	...args
 		 */
-		public static function debugFormat(str:String, ...args):void {
-			logFormat(MESSAGES[DEBUG], str, args);
+		public static function debugF(str:String, ...args):void {
+			logF(MESSAGES[DEBUG], str, args);
 		}
 		
 		/**
@@ -105,8 +105,8 @@
 		 * @param	str
 		 * @param	...args
 		 */
-		public static function infoFormat(str:String, ...args):void {
-			logFormat(MESSAGES[INFO], str, args);
+		public static function infoF(str:String, ...args):void {
+			logF(MESSAGES[INFO], str, args);
 		}
 		
 		/**
@@ -114,8 +114,8 @@
 		 * @param	str
 		 * @param	...args
 		 */
-		public static function warnFormat(str:String, ...args):void {
-			logFormat(MESSAGES[WARN], str, args);
+		public static function warnF(str:String, ...args):void {
+			logF(MESSAGES[WARN], str, args);
 		}
 		
 		/**
@@ -123,20 +123,49 @@
 		 * @param	str
 		 * @param	...args
 		 */
-		public static function errorFormat(str:String, ...args):void {
-			logFormat(MESSAGES[ERROR], str, args);
+		public static function errorF(str:String, ...args):void {
+			logF(MESSAGES[ERROR], str, args);
 		}
-		
 		
 		/**
 		 * 
 		 * @param	obj
-		 * @param	withType
 		 */
-		public static function logObject(obj:Object, withType:Boolean = false):void {
-			logRecursive(obj, withType, 0);
+		public static function codeObj(obj:Object, levelMax:int = int.MAX_VALUE):void {
+			logObjRecursive(MESSAGES[CODE], obj, 0, levelMax);
 		}
 		
+		/**
+		 * 
+		 * @param	obj
+		 */
+		public static function debugObj(obj:Object, levelMax:int = int.MAX_VALUE):void {
+			logObjRecursive(MESSAGES[DEBUG], obj, 0, levelMax);
+		}
+		
+		/**
+		 * 
+		 * @param	obj
+		 */
+		public static function infoObj(obj:Object, levelMax:int = int.MAX_VALUE):void {
+			logObjRecursive(MESSAGES[INFO], obj, 0, levelMax);
+		}
+		
+		/**
+		 * 
+		 * @param	obj
+		 */
+		public static function warnObj(obj:Object, levelMax:int = int.MAX_VALUE):void {
+			logObjRecursive(MESSAGES[WARN], obj, 0, levelMax);
+		}
+		
+		/**
+		 * 
+		 * @param	obj
+		 */
+		public static function errorObj(obj:Object, levelMax:int = int.MAX_VALUE):void {
+			logObjRecursive(MESSAGES[ERROR], obj, 0, levelMax);
+		}
 		
 		
 		private static function log(prefix:String, ...args):void {
@@ -174,7 +203,7 @@
 			}
 		}
 		
-		private static function logFormat(prefix:String, str:String, ...args):void {
+		private static function logF(prefix:String, str:String, ...args):void {
 			var _len:uint = args.length;
 			var _arr:Array;
 			
@@ -191,27 +220,33 @@
 			log(prefix, str);
 		}
 		
-		
-		private static function logRecursive(obj:Object, withType:Boolean, level:int):void {
-			var _indent:String = '';
-			for (var i:int = 0; i < level; i++)
-				_indent += '    ';
-			
-			var _type:String = String(obj.constructor).match(/[A-Z0-9_]+/gi)[1];
-			_type = _type.substring(0, 3);
-			
-			for (var _name:Object in obj) {
+		private static function logObjRecursive(prefix:String, obj:Object, level:int, levelMax:int):void {
+			if (level < levelMax) {
+				var _indent:String = '';
+				for (var i:int = 0; i < level; i++)
+					_indent += '    ';
 				
-				var _count:int = 0;
-				for (var _name2:Object in obj[_name])
-					_count++;
-				
-				if (_count) {
-					log(MESSAGES[DEBUG], _indent + _name + ": {");
-					logRecursive(obj[_name], withType, level + 1);
-					log(MESSAGES[DEBUG], _indent + "}");
-				} else {
-					log(MESSAGES[DEBUG], _indent + _name + ': ' + obj[_name]);
+				for (var _name:Object in obj) {
+					
+					var _count:int = 0;
+					for (var _:Object in obj[_name])
+						_count++;
+					
+					if (_count && level != levelMax - 1) {
+						var _type:String = String(obj[_name].constructor).match(/[A-Z0-9_]+/gi)[1];
+						var _brackets:Array;
+						switch (_type) {
+							case "Object": 	{ _brackets = ["{", "}"]; break; }
+							case "Array": 	{ _brackets = ["[", "]"]; break; }
+							default: 		{ _brackets = ["<", ">"]; }
+						}
+						
+						log(prefix, _indent + _name + ": " + _brackets[0]);
+						logObjRecursive(prefix, obj[_name], level + 1, levelMax);
+						log(prefix, _indent + _brackets[1]);
+					} else {
+						log(prefix, _indent + _name + ': ' + obj[_name]);
+					}
 				}
 			}
 		}

@@ -10,19 +10,7 @@ package ua.olexandr.tools.display {
 	 */
 	public class Aligner {
 		
-		public static const TL:String = AlignConst.TL;
-		public static const TC:String = AlignConst.TC;
-		public static const TR:String = AlignConst.TR;
-		public static const CL:String = AlignConst.CL;
-		public static const CC:String = AlignConst.CC;
-		public static const CR:String = AlignConst.CR;
-		public static const BL:String = AlignConst.BL;
-		public static const BC:String = AlignConst.BC;
-		public static const BR:String = AlignConst.BR;
-		
-		
 		private static var _calc:Boolean = false;
-		
 		
 		/**
 		 * 
@@ -32,7 +20,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToTL(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, TL);
+			return align(target, rect, AlignConst.TL);
 		}
 		
 		/**
@@ -43,7 +31,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToTC(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, TC);
+			return align(target, rect, AlignConst.TC);
 		}
 		
 		/**
@@ -54,7 +42,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToTR(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, TR);
+			return align(target, rect, AlignConst.TR);
 		}
 		
 		/**
@@ -65,7 +53,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToCL(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, CL);
+			return align(target, rect, AlignConst.CL);
 		}
 		
 		/**
@@ -76,7 +64,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToCC(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, CC);
+			return align(target, rect, AlignConst.CC);
 		}
 		
 		/**
@@ -87,7 +75,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToCR(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, CR);
+			return align(target, rect, AlignConst.CR);
 		}
 		
 		/**
@@ -98,7 +86,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToBL(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, BL);
+			return align(target, rect, AlignConst.BL);
 		}
 		
 		/**
@@ -109,7 +97,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToBC(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, BC);
+			return align(target, rect, AlignConst.BC);
 		}
 		
 		/**
@@ -120,7 +108,7 @@ package ua.olexandr.tools.display {
 		 */
 		[Inline]
 		public static function alignToBR(target:DisplayObject, rect:Rectangle = null):Point {
-			return align(target, rect, BR);
+			return align(target, rect, AlignConst.BR);
 		}
 		
 		
@@ -133,7 +121,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToTL(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, TL);
+			return align(target, rect, AlignConst.TL);
 		}
 		
 		/**
@@ -145,7 +133,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToTC(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, TC);
+			return align(target, rect, AlignConst.TC);
 		}
 		
 		/**
@@ -157,7 +145,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToTR(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, TR);
+			return align(target, rect, AlignConst.TR);
 		}
 		
 		/**
@@ -169,7 +157,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToCL(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, CL);
+			return align(target, rect, AlignConst.CL);
 		}
 		
 		/**
@@ -181,7 +169,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToCC(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, CC);
+			return align(target, rect, AlignConst.CC);
 		}
 		
 		/**
@@ -193,7 +181,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToCR(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, CR);
+			return align(target, rect, AlignConst.CR);
 		}
 		
 		/**
@@ -205,7 +193,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToBL(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, BL);
+			return align(target, rect, AlignConst.BL);
 		}
 		
 		/**
@@ -217,7 +205,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToBC(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, BC);
+			return align(target, rect, AlignConst.BC);
 		}
 		
 		/**
@@ -229,7 +217,7 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function calcToBR(target:DisplayObject, rect:Rectangle = null):Point {
 			_calc = true;
-			return align(target, rect, BR);
+			return align(target, rect, AlignConst.BR);
 		}
 		
 		
@@ -248,42 +236,42 @@ package ua.olexandr.tools.display {
 			var _p:Point = new Point();
 			
 			switch (location) {
-				case TL: {
+				case AlignConst.TL: {
 					_p.x = Math.ceil(rect.x);
 					_p.y = Math.ceil(rect.y);
 					break;
 				}
-				case TC: {
+				case AlignConst.TC: {
 					_p.x = Math.round(rect.x + (rect.width - target.width) * .5);
 					_p.y = Math.ceil(rect.y);
 					break;
 				}
-				case TR: {
+				case AlignConst.TR: {
 					_p.x = Math.floor(rect.x + rect.width - target.width);
 					_p.y = Math.ceil(rect.y);
 					break;
 				}
-				case CL: {
+				case AlignConst.CL: {
 					_p.x = Math.ceil(rect.x);
 					_p.y = Math.round(rect.y + (rect.height - target.height) * .5);
 					break;
 				}
-				case CR: {
+				case AlignConst.CR: {
 					_p.x = Math.floor(rect.x + rect.width - target.width);
 					_p.y = Math.round(rect.y + (rect.height - target.height) * .5);
 					break;
 				}
-				case BL: {
+				case AlignConst.BL: {
 					_p.x = Math.ceil(rect.x);
 					_p.y = Math.floor(rect.y + rect.height - target.height);
 					break;
 				}
-				case BC: {
+				case AlignConst.BC: {
 					_p.x = Math.round(rect.x + (rect.width - target.width) * .5);
 					_p.y = Math.floor(rect.y + rect.height - target.height);
 					break;
 				}
-				case BR: {
+				case AlignConst.BR: {
 					_p.x = Math.floor(rect.x + rect.width - target.width);
 					_p.y = Math.floor(rect.y + rect.height - target.height);
 					break;

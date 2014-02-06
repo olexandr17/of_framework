@@ -10,8 +10,8 @@ package ua.olexandr.ui.components {
 		protected var _prefix:String = "";
 		protected var _fps:int = 0;
 		
-		public function FPSMeter(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, prefix:String = "FPS:") {
-			super(parent, xpos, ypos);
+		public function FPSMeter(prefix:String = "FPS:") {
+			super();
 			_prefix = prefix;
 			_frames = 0;
 			_startTime = getTimer();

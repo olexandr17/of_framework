@@ -1,4 +1,4 @@
-package ua.olexandr.debug.dialog {
+package ua.olexandr.display.dialog {
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;

@@ -21,12 +21,9 @@ package ua.olexandr.ui.components {
 		protected var _labels:Sprite;
 		protected var _labelMode:String = ALPHABETIC;
 		
-		public function RotarySelector(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, label:String = "", defaultHandler:Function = null) {
+		public function RotarySelector(label:String = "") {
 			_labelText = label;
-			super(parent, xpos, ypos);
-			if (defaultHandler != null) {
-				addEventListener(Event.CHANGE, defaultHandler);
-			}
+			super();
 		}
 		
 		public override function draw():void {

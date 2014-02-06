@@ -3,8 +3,8 @@ package ua.olexandr.ui.components {
 	
 	public class HRangeSlider extends RangeSlider {
 		
-		public function HRangeSlider(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, defaultHandler:Function = null) {
-			super(HORIZONTAL, parent, xpos, ypos, defaultHandler);
+		public function HRangeSlider() {
+			super(HORIZONTAL);
 		}
 		
 	}

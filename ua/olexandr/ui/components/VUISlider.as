@@ -3,9 +3,9 @@ package ua.olexandr.ui.components {
 	
 	public class VUISlider extends UISlider {
 		
-		public function VUISlider(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, label:String = "", defaultHandler:Function = null) {
+		public function VUISlider(label:String = "") {
 			_sliderClass = VSlider;
-			super(parent, xpos, ypos, label, defaultHandler);
+			super(label);
 		}
 		
 		public override function draw():void {

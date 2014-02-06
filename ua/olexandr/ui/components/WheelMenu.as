@@ -18,17 +18,13 @@ package ua.olexandr.ui.components {
 		protected var _selectedIndex:int = -1;
 		protected var _startingAngle:Number = -90;
 		
-		public function WheelMenu(parent:DisplayObjectContainer, numButtons:int, outerRadius:Number = 80, iconRadius:Number = 60, innerRadius:Number = 10, defaultHandler:Function = null) {
+		public function WheelMenu(numButtons:int, outerRadius:Number = 80, iconRadius:Number = 60, innerRadius:Number = 10) {
 			_numButtons = numButtons;
 			_outerRadius = outerRadius;
 			_iconRadius = iconRadius;
 			_innerRadius = innerRadius;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			super(parent);
-			
-			if (defaultHandler != null) {
-				addEventListener(Event.SELECT, defaultHandler);
-			}
+			super();
 		}
 		
 		public function hide():void {

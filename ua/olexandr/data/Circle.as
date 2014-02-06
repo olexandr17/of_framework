@@ -2,9 +2,9 @@
 	
 	public class Circle {
 		
+		public var radius:Number
 		public var x:Number
 		public var y:Number
-		public var radius:Number
 		
 		/**
 		 * 
@@ -12,13 +12,28 @@
 		 * @param	y
 		 * @param	radius
 		 */
-		public function Circle(x:Number = 0, y:Number = 0, radius:Number = 0) {
+		public function Circle(radius:Number, x:Number = 0, y:Number = 0) {
+			this.radius = radius;
 			this.x = x;
 			this.y = y;
-			this.radius = radius;
+		}
+		
+		/**
+		 * Check whether two circles intersects each other
+		 * @param	line
+		 * @return
+		 */
+		public function intersectCircle(circle:Circle):Boolean {
+			var _min:Number = _radius + circle.radius;
+			return Math.sqrt((x - circle.x) * (x - circle.x) + (y - circle.y) * (y - circle.y)) < _min;
 		}
 		
 		public function get diameter():Number { return radius * 2; }
+		public function set diameter(value:Number):void { radius = value * .5; }
+		
+		public function get area():Number { return Math.PI * Math.pow(radius, 2); }
+		
+		public function get perimeter():Number { return Math.PI * diameter; }
 		
 	}
 

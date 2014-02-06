@@ -33,12 +33,9 @@ package ua.olexandr.ui.components {
 		protected var _orientation:String = VERTICAL;
 		protected var _tick:Number = 1;
 		
-		public function RangeSlider(orientation:String, parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, defaultHandler:Function = null) {
+		public function RangeSlider(orientation:String) {
 			_orientation = orientation;
-			super(parent, xpos, ypos);
-			if (defaultHandler != null) {
-				addEventListener(Event.CHANGE, defaultHandler);
-			}
+			super();
 		}
 		
 		public override function draw():void {

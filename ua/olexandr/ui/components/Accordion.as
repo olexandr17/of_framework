@@ -8,8 +8,8 @@ package ua.olexandr.ui.components {
 		protected var _winHeight:Number = 100;
 		protected var _vbox:VBox;
 		
-		public function Accordion(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0) {
-			super(parent, xpos, ypos);
+		public function Accordion() {
+			super();
 		}
 		
 		public function addWindow(title:String):void {

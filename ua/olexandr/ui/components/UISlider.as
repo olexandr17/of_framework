@@ -12,12 +12,9 @@ package ua.olexandr.ui.components {
 		protected var _labelText:String;
 		protected var _tick:Number = 1;
 		
-		public function UISlider(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, label:String = "", defaultHandler:Function = null) {
+		public function UISlider(label:String = "") {
 			_labelText = label;
-			super(parent, xpos, ypos);
-			if (defaultHandler != null) {
-				addEventListener(Event.CHANGE, defaultHandler);
-			}
+			super();
 			formatValueLabel();
 		}
 		

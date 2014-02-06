@@ -3,9 +3,9 @@ package ua.olexandr.ui.components {
 	
 	public class HUISlider extends UISlider {
 		
-		public function HUISlider(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, label:String = "", defaultHandler:Function = null) {
+		public function HUISlider(label:String = "") {
 			_sliderClass = HSlider;
-			super(parent, xpos, ypos, label, defaultHandler);
+			super(label);
 		}
 		
 		public override function draw():void {

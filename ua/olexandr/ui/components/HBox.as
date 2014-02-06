@@ -13,8 +13,8 @@
 		public static const MIDDLE:String = "middle";
 		public static const NONE:String = "none";
 		
-		public function HBox(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0) {
-			super(parent, xpos, ypos);
+		public function HBox() {
+			super();
 		}
 		
 		public override function addChild(child:DisplayObject):DisplayObject {

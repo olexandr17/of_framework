@@ -12,8 +12,8 @@ package ua.olexandr.tools.tweener.plugins {
 	import flash.filters.GradientBevelFilter;
 	import flash.filters.GradientGlowFilter;
 	import flash.geom.Point;
-	import ua.olexandr.tweener.AuxFunctions;
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.AuxFunctions;
+	import ua.olexandr.tools.tweener.Tweener;
 	
 	public class FilterPlugin {
 		

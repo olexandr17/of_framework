@@ -8,8 +8,8 @@ package ua.olexandr.ui.components {
 		protected var _value:Number = 0;
 		protected var _max:Number = 1;
 		
-		public function ProgressBar(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0) {
-			super(parent, xpos, ypos);
+		public function ProgressBar() {
+			super();
 		}
 		
 		public override function draw():void {

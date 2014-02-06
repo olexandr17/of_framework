@@ -18,7 +18,7 @@
 	public class BitmapUtils {
 		
 		/**
-		 * 
+		 *
 		 * @param	bitmap
 		 * @param	smoothing
 		 * @return
@@ -31,7 +31,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	sprite
 		 * @param	smoothing
 		 * @return
@@ -43,9 +43,8 @@
 			return new Bitmap(bitmapData, "auto", smoothing);
 		}
 		
-		
 		/**
-		 * 
+		 *
 		 * @param	source
 		 * @param	region
 		 * @return
@@ -61,7 +60,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	source
 		 * @return
 		 */
@@ -78,7 +77,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	source
 		 * @param	angle
 		 * @return
@@ -95,7 +94,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	bitmap
 		 */
 		[Inline]
@@ -114,7 +113,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	bmpData
 		 * @param	x
 		 * @param	y
@@ -124,10 +123,9 @@
 		public static function isOpacity(bmpData:BitmapData, x:Number, y:Number):Boolean {
 			return Boolean(bmpData.getPixel32(x, y) >> 24 & 0xFF > 0);
 		}
-	
 		
 		/**
-		 * 
+		 *
 		 * @param	bmpData
 		 * @return
 		 */
@@ -135,19 +133,19 @@
 		public static function trim(bmpData:BitmapData, corner:String = "TL"):BitmapData {
 			var _blankColor:uint;
 			switch (corner) {
-				case AlignConst.TR: {
+				case AlignConst.TR:  {
 					_blankColor = bmpData.getPixel32(bmpData.width - 1, 0);
 					break;
 				}
-				case AlignConst.BL: {
+				case AlignConst.BL:  {
 					_blankColor = bmpData.getPixel32(0, bmpData.height - 1);
 					break;
 				}
-				case AlignConst.BR: {
+				case AlignConst.BR:  {
 					_blankColor = bmpData.getPixel32(bmpData.width - 1, bmpData.height - 1);
 					break;
 				}
-				default: {
+				default:  {
 					_blankColor = bmpData.getPixel32(0, 0);
 				}
 			}
@@ -164,7 +162,7 @@
 				_rect.top++;
 			}
 			
-			bottomOuter: for (_y = bmpData.height - 1; _y >= _rect.top ; _y--) {
+			bottomOuter: for (_y = bmpData.height - 1; _y >= _rect.top; _y--) {
 				for (_x = 0; _x < bmpData.width; _x++) {
 					if (_blankColor != bmpData.getPixel32(_x, _y))
 						break bottomOuter;
@@ -192,75 +190,101 @@
 				return bmpData.clone();
 			
 			var _bmpData:BitmapData = new BitmapData(_rect.width, _rect.height, bmpData.transparent, 0x00000000);
-			_bmpData.copyPixels(bmpData, _rect, new Point(0,0), null, null, true);
+			_bmpData.copyPixels(bmpData, _rect, new Point(0, 0), null, null, true);
 			return _bmpData;
-        }
+		}
 		
+		/**
+		 *
+		 * @param	source
+		 * @param	clip
+		 * @param	region
+		 * @param	scaling
+		 * @return
+		 */
+		[Inline]
+		public static function create(source:DisplayObject, clip:Rectangle, region:String = null, scaling:Boolean = true):Bitmap {
+			
+			var _scale:Number = scaling ? Math.max(clip.width / source.width, clip.height / source.height) : 1;
+			var _matrix:Matrix = new Matrix(_scale, 0, 0, _scale);
+			
+			if (region) {
+				switch (region) {
+					case AlignConst.TL:  {
+						_matrix.tx = 0;
+						_matrix.ty = 0;
+						break;
+					}
+					case AlignConst.TC:  {
+						_matrix.tx = -(source.width * _scale - clip.width) / 2;
+						_matrix.ty = 0;
+						break;
+					}
+					case AlignConst.TR:  {
+						_matrix.tx = -(source.width * _scale - clip.width);
+						_matrix.ty = 0;
+						break;
+					}
+					case AlignConst.CL:  {
+						_matrix.tx = 0;
+						_matrix.ty = -(source.height * _scale - clip.height) / 2;
+						break;
+					}
+					case AlignConst.CC:  {
+						_matrix.tx = -(source.width * _scale - clip.width) / 2;
+						_matrix.ty = -(source.height * _scale - clip.height) / 2;
+						break;
+					}
+					case AlignConst.CR:  {
+						_matrix.tx = -(source.width * _scale - clip.width);
+						_matrix.ty = -(source.height * _scale - clip.height) / 2;
+						break;
+					}
+					case AlignConst.BL:  {
+						_matrix.tx = 0;
+						_matrix.ty = -(source.height * _scale - clip.height);
+						break;
+					}
+					case AlignConst.BC:  {
+						_matrix.tx = -(source.width * _scale - clip.width) / 2;
+						_matrix.ty = -(source.height * _scale - clip.height);
+						break;
+					}
+					case AlignConst.BR:  {
+						_matrix.tx = -(source.width * _scale - clip.width);
+						_matrix.ty = -(source.height * _scale - clip.height);
+						break;
+					}
+				}
+			} else {
+				_matrix.tx = -clip.x;
+				_matrix.ty = -clip.y;
+			}
+			
+			var _rect:Rectangle = new Rectangle(0, 0, clip.width, clip.height);
+			var _bmd:BitmapData = new BitmapData(clip.width, clip.height, true, 0xFFFFFF);
+			_bmd.draw(source, _matrix, null, null, _rect, true);
+			
+			return new Bitmap(_bmd);
+		}
 		
-	/*public static function create(source:DisplayObject, clip:Rectangle, region:String = null, scaling:Boolean = true):Bitmap {
-	
-	   var _scale:Number = scaling ? Math.max(clip.width / source.width, clip.height / source.height) : 1;
-	   var _matrix:Matrix = new Matrix(_scale, 0, 0, _scale);
-	
-	   if (region) {
-	   switch (region) {
-	   case AlignConst.TL: {
-	   _matrix.tx = 0;
-	   _matrix.ty = 0;
-	   break;
-	   }
-	   case AlignConst.TC: {
-	   _matrix.tx = -(source.width * _scale - clip.width) / 2;
-	   _matrix.ty = 0;
-	   break;
-	   }
-	   case AlignConst.TR: {
-	   _matrix.tx = -(source.width * _scale - clip.width);
-	   _matrix.ty = 0;
-	   break;
-	   }
-	   case AlignConst.CL: {
-	   _matrix.tx = 0;
-	   _matrix.ty = -(source.height * _scale - clip.height) / 2;
-	   break;
-	   }
-	   case AlignConst.CC: {
-	   _matrix.tx = -(source.width * _scale - clip.width) / 2;
-	   _matrix.ty = -(source.height * _scale - clip.height) / 2;
-	   break;
-	   }
-	   case AlignConst.CR: {
-	   _matrix.tx = -(source.width * _scale - clip.width);
-	   _matrix.ty = -(source.height * _scale - clip.height) / 2;
-	   break;
-	   }
-	   case AlignConst.BL: {
-	   _matrix.tx = 0;
-	   _matrix.ty = -(source.height * _scale - clip.height);
-	   break;
-	   }
-	   case AlignConst.BC: {
-	   _matrix.tx = -(source.width * _scale - clip.width) / 2;
-	   _matrix.ty = -(source.height * _scale - clip.height);
-	   break;
-	   }
-	   case AlignConst.BR: {
-	   _matrix.tx = -(source.width * _scale - clip.width);
-	   _matrix.ty = -(source.height * _scale - clip.height);
-	   break;
-	   }
-	   }
-	   } else {
-	   _matrix.tx = -clip.x;
-	   _matrix.ty = -clip.y;
-	   }
-	
-	   var _rect:Rectangle = new Rectangle(0, 0, clip.width, clip.height);
-	   var _bmd:BitmapData = new BitmapData(clip.width, clip.height, true, 0xFFFFFF);
-	   _bmd.draw(source, _matrix, null, null, _rect, true);
-	
-	   return new Bitmap(_bmd);
-	 }*/
+		/**
+		 * 
+		 * @param	target
+		 * @param	pattern
+		 * @param	alpha
+		 */
+		[Inline]
+		public static function fillPattern(target:Bitmap, pattern:BitmapData):void {
+			var rr:Rectangle = new Rectangle(0, 0, pattern.width, pattern.height);
+			var tx:uint = Math.ceil(target.bitmapData.width / pattern.width);
+			var ty:uint = Math.ceil(target.bitmapData.height / pattern.height);
+			
+			for (var i:uint = 0; i < tx; i++) {
+				for (var j:uint = 0; j < ty; j++)
+					target.bitmapData.copyPixels(pattern, rr, new Point(i * pattern.width, j * pattern.height));
+			}
+		}
 	
 	}
 

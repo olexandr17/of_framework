@@ -1,4 +1,4 @@
-package ua.olexandr.debug.dialog {
+package ua.olexandr.display.dialog {
 	import flash.display.Stage;
 	import flash.events.Event;
 	import ua.olexandr.display.Box;

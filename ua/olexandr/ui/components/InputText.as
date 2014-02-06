@@ -13,11 +13,8 @@ package ua.olexandr.ui.components {
 		protected var _text:String = "";
 		protected var _tf:TextField;
 		
-		public function InputText(text:String = "", defaultHandler:Function = null) {
+		public function InputText(text:String = "") {
 			this.text = text;
-			if (defaultHandler != null) {
-				addEventListener(Event.CHANGE, defaultHandler);
-			}
 		}
 		
 		public override function draw():void {
