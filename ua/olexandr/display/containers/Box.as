@@ -14,8 +14,11 @@ package ua.olexandr.display.containers {
 	 */
 	public class Box extends ResizableObject {
 		
-		private var _space:Number;
-		private var _children:Array;
+		protected static var _secureKey:Boolean = false;
+		
+		
+		protected var _space:Number;
+		protected var _children:Array;
 		
 		/**
 		 * 
@@ -23,18 +26,24 @@ package ua.olexandr.display.containers {
 		 * @param	vAlign
 		 */
 		public function Box(space:Number = 0, children:Array = null) {
-			invalidation = false;
-			
-			_space = space;
-			
-			_width = 0;
-			_height = 0;
-			
-			_children = [];
-			if (children is Array) {
-				var len:int = children.length;
-				for (var i:int = 0; i < len; i++) 
-					addChild(children[i] as DisplayObject);
+			if (_secureKey) {
+				_secureKey = false;
+				
+				invalidation = false;
+				
+				_space = space;
+				
+				_width = 0;
+				_height = 0;
+				
+				_children = [];
+				if (children is Array) {
+					var len:int = children.length;
+					for (var i:int = 0; i < len; i++) 
+						addChild(children[i] as DisplayObject);
+				}
+			} else {
+				throw new Error("You can not create Box. Use HBox or VBox");
 			}
 		}
 		

@@ -11,8 +11,8 @@ package ua.olexandr.media {
 	import flash.net.NetStream;
 	import flash.utils.Timer;
 	import ua.olexandr.events.MediaEvent;
-	import ua.olexandr.tweener.Easing;
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.Easing;
+	import ua.olexandr.tools.tweener.Tweener;
 	import ua.olexandr.vos.VideoMetadataVO;
 	/**
 	 * ...

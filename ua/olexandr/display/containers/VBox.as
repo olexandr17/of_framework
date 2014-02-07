@@ -22,6 +22,8 @@ package ua.olexandr.display.containers {
 		 */
 		public function VBox(space:Number = 0, hAlign:String = 'C', children:Array = null) {
 			_hAlign = hAlign;
+			
+			_secureKey = true;
 			super(space, children);
 		}
 		

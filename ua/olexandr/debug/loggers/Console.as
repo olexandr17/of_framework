@@ -1,7 +1,7 @@
 ﻿package ua.olexandr.debug.loggers {
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
-	import ua.olexandr.display.Box;
+	import ua.olexandr.display.FillObject;
 	import ua.olexandr.display.ResizableObject;
 	import ua.olexandr.text.Label;
 	import ua.olexandr.tools.display.Arranger;
@@ -17,9 +17,9 @@
 		private var _withTime:Boolean;
 		private var _withDelta:Boolean;
 		
-		private var _back:Box;
+		private var _back:FillObject;
 		private var _container:Sprite;
-		private var _mask:Box;
+		private var _mask:FillObject;
 		
 		/**
 		 * 
@@ -30,7 +30,7 @@
 			_withTime = withTime;
 			_withDelta = withDelta;
 			
-			_back = new Box(0x000000, .6);
+			_back = new FillObject(0x000000, .6);
 			addChild(_back);
 			
 			_container = new Sprite();
@@ -38,7 +38,7 @@
 			_container.y = INDENT;
 			addChild(_container);
 			
-			_mask = new Box();
+			_mask = new FillObject();
 			_mask.x = _container.x;
 			_mask.y = _container.y;
 			addChild(_mask);

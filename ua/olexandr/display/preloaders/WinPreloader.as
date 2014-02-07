@@ -1,8 +1,8 @@
 ﻿package ua.olexandr.display.preloaders {  
 	import flash.display.Shape;
 	import flash.display.Sprite;
-	import ua.olexandr.tweener.Easing;
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.Easing;
+	import ua.olexandr.tools.tweener.Tweener;
 	
 	/**
 	 * @author Olexandr Fedorow,

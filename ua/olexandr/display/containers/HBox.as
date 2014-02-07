@@ -21,6 +21,8 @@ package ua.olexandr.display.containers {
 		 */
 		public function HBox(space:Number = 0, vAlign:String = 'C', children:Array = null) {
 			_vAlign = vAlign;
+			
+			_secureKey = true;
 			super(space, children);
 		}
 		

@@ -6,7 +6,7 @@ package ua.olexandr.display {
 	 * ...
 	 * @author Olexandr Fedorow
 	 */
-	public class Box extends ResizableObject {
+	public class FillObject extends ResizableObject {
 		
 		private var _fColor:uint;
 		private var _fAlpha:Number;
@@ -25,7 +25,7 @@ package ua.olexandr.display {
 		 * @param	fillColor
 		 * @param	fillAlpha
 		 */
-		public function Box(fillColor:uint = 0xFFFFFF, fillAlpha:Number = 1) {
+		public function FillObject(fillColor:uint = 0xFFFFFF, fillAlpha:Number = 1) {
 			_border = new Shape();
 			addChildAt(_border, 0);
 			
