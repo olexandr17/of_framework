@@ -1,6 +1,5 @@
 package ua.olexandr.tools.tweener.plugins {
-	
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.Tweener;
 	
 	public class CurveModifiers {
 		

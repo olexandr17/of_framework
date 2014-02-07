@@ -182,7 +182,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array		An array containing the .name and .value of all new properties
 		 */
 		public static function _generic_color_splitter(p_value:Number, p_parameters:Array):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			nArray.push({name: p_parameters[0], value: AuxFunctions.numberToR(p_value)});
 			nArray.push({name: p_parameters[1], value: AuxFunctions.numberToG(p_value)});
 			nArray.push({name: p_parameters[2], value: AuxFunctions.numberToB(p_value)});
@@ -195,7 +195,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array		An array containing the .name and .value of all new properties
 		 */
 		public static function _generic_point_splitter(p_value:Point, p_parameters:Array):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			nArray.push({name: p_parameters[0], value: p_value.x});
 			nArray.push({name: p_parameters[1], value: p_value.y});
 			return nArray;
@@ -209,7 +209,7 @@ package ua.olexandr.tools.tweener.plugins {
 		public static function _generic_matrix_splitter(p_value:Array, p_parameters:Array):Array {
 			if (p_value == null)
 				p_value = p_parameters[0].concat();
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			for (var i:Number = 0; i < p_value.length; i++) {
 				nArray.push({name: p_parameters[1][i], value: p_value[i]});
 			}
@@ -222,7 +222,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array			An array containing the .name and .value of all new properties
 		 */
 		public static function _filter_splitter(p_value:BitmapFilter, p_parameters:Array, p_extra:Object = null):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			if (p_value is BevelFilter) {
 				nArray.push({name: "_Bevel_angle", value: BevelFilter(p_value).angle});
 				nArray.push({name: "_Bevel_blurX", value: BevelFilter(p_value).blurX});
@@ -433,7 +433,7 @@ package ua.olexandr.tools.tweener.plugins {
 			
 			// The correct filter class wasn't found, so create a new one that is the equivalent of the object without the filter
 			if (f == null)
-				f = new Array();
+				f = [];
 			var fi:BitmapFilter;
 			switch (filterClass) {
 				case BevelFilter: 

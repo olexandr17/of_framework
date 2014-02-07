@@ -2,7 +2,7 @@ package ua.olexandr.tools.tweener.plugins {
 	
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.Tweener;
 	
 	public class DisplayPlugin {
 		
@@ -41,7 +41,7 @@ package ua.olexandr.tools.tweener.plugins {
 		}
 		
 		public static function _scale_splitter(p_value:Number, p_parameters:Array):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			nArray.push({name: "scaleX", value: p_value});
 			nArray.push({name: "scaleY", value: p_value});
 			return nArray;
@@ -53,7 +53,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array		An array containing the .name and .value of all new properties
 		 */
 		public static function _scrollRect_splitter(p_value:Rectangle, p_parameters:Array, p_extra:Object = null):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			if (p_value == null) {
 				// No parameter passed, so try any rectangle :/
 				nArray.push({name: "_scrollRect_x", value: 0});

@@ -40,10 +40,10 @@ package ua.olexandr.tools.tweener {
 		 */
 		[Inline]
 		public static function getObjectLength(p_object:Object):uint {
-			var totalProperties:uint = 0;
+			var total:uint = 0;
 			for (var pName:String in p_object)
-				totalProperties++;
-			return totalProperties;
+				total++;
+			return total;
 		}
 		
 		/* Takes a variable number of objects as parameters and "adds" their properties, from left to right. If a latter object defines a property as null, it will be removed from the final object
@@ -51,21 +51,18 @@ package ua.olexandr.tools.tweener {
 		 * @return							Object		An object with the sum of all paremeters added as properties.
 		 */
 		[Inline]
-		public static function concatObjects(... args):Object {
-			var finalObject:Object = {};
-			var currentObject:Object;
+		public static function concatObjects(...args):Object {
+			var result:Object = { };
+			var current:Object;
 			for (var i:int = 0; i < args.length; i++) {
-				currentObject = args[i];
-				for (var prop:String in currentObject) {
-					if (currentObject[prop] == null) {
-						// delete in case is null
-						delete finalObject[prop];
-					} else {
-						finalObject[prop] = currentObject[prop];
-					}
+				current = args[i];
+				for (var prop:String in current) {
+					if (current[prop] == null) 	delete result[prop];
+					else						result[prop] = current[prop];
 				}
 			}
-			return finalObject;
+			return result;
 		}
+		
 	}
 }

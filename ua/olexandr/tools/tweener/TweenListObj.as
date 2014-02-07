@@ -53,7 +53,7 @@
 			easeParams			=	p_easeParams;
 
 			// Other default information
-			properties		=	new Object();
+			properties		=	{ };
 			isPaused		=	false;
 			timePaused		=	undefined;
 			isCaller		=	false;
@@ -71,7 +71,7 @@
 		 */
 		public function clone(omitEvents:Boolean):TweenListObj {
 			var nTween:TweenListObj = new TweenListObj(scope, timeStart, timeComplete, useFrames, ease, easeParams);
-			nTween.properties = new Array();
+			nTween.properties = [];
 			for (var pName:String in properties) {
 				nTween.properties[pName] = properties[pName].clone();
 			}

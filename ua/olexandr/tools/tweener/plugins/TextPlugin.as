@@ -1,8 +1,8 @@
 package ua.olexandr.tools.tweener.plugins {
 	
 	import flash.text.TextFormat;
-	import ua.olexandr.tweener.AuxFunctions;
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.AuxFunctions;
+	import ua.olexandr.tools.tweener.Tweener;
 	
 	public class TextPlugin {
 		
@@ -77,7 +77,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array		An array containing the .name and .value of all new properties
 		 */
 		public static function _generic_color_splitter(p_value:Number, p_parameters:Array):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			nArray.push({name: p_parameters[0], value: AuxFunctions.numberToR(p_value)});
 			nArray.push({name: p_parameters[1], value: AuxFunctions.numberToG(p_value)});
 			nArray.push({name: p_parameters[2], value: AuxFunctions.numberToB(p_value)});

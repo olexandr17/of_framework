@@ -2,8 +2,8 @@ package ua.olexandr.tools.tweener.plugins {
 	
 	import flash.geom.ColorTransform;
 	import flash.filters.ColorMatrixFilter;
-	import ua.olexandr.tweener.AuxFunctions;
-	import ua.olexandr.tweener.Tweener;
+	import ua.olexandr.tools.tweener.AuxFunctions;
+	import ua.olexandr.tools.tweener.Tweener;
 	
 	public class ColorPlugin {
 		
@@ -63,7 +63,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array		An array containing the .name and .value of all new properties
 		 */
 		public static function _color_splitter(p_value:*, p_parameters:Array):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			if (p_value == null) {
 				// No parameter passed, so just resets the color
 				nArray.push({name: "_color_redMultiplier", value: 1});
@@ -90,7 +90,7 @@ package ua.olexandr.tools.tweener.plugins {
 		 * @return							Array		An array containing the .name and .value of all new properties
 		 */
 		public static function _colorTransform_splitter(p_value:Object, p_parameters:Array):Array {
-			var nArray:Array = new Array();
+			var nArray:Array = [];
 			if (p_value == null) {
 				// No parameter passed, so just resets the color
 				nArray.push({name: "_color_redMultiplier", value: 1});
