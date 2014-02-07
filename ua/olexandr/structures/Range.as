@@ -25,7 +25,7 @@ package ua.olexandr.structures {
 		 */
 		public function add(value:Number):void {
 			if (isNaN(value))
-				throw new Error('DataRange: someone added a NaN-value');
+				throw new Error('Range: someone added a NaN-value');
 			
 			_values.push(value);
 			

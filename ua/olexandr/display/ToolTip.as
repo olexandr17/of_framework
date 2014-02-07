@@ -3,7 +3,7 @@ package ua.olexandr.display {
 	import flash.display.Graphics;
 	import flash.display.Sprite;
 	import ua.olexandr.constants.AlignConst;
-	import ua.olexandr.data.Indents;
+	import ua.olexandr.structures.Indents;
 	
 	/**
 	 * ...
@@ -65,13 +65,7 @@ package ua.olexandr.display {
 			
 			_indents = new Indents(2, 2, 2, 2);
 			
-			_tailOffset = 10;
-			_tailWidth = 0;
-			_tailHeight = 0;
-			_tailCenter = 0;
-			
-			
-			draw();
+			setTail();
 		}
 		
 		/**

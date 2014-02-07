@@ -11,48 +11,18 @@ package ua.olexandr.display.containers {
 	 * @link www.olexandr@gmail.com
 	 * @version 0.1
 	 */
-	public class VLayout extends ResizableObject {
+	public class VBox extends Box {
 		
-		private var _space:Number;
-		private var _hAlign:String;
-		private var _children:Array;
+		protected var _hAlign:String;
 		
 		/**
 		 * 
 		 * @param	space
 		 * @param	hAlign
 		 */
-		public function VLayout(space:Number = 0, hAlign:String = 'C') {
-			invalidation = false;
-			
-			_space = space;
+		public function VBox(space:Number = 0, hAlign:String = 'C', children:Array = null) {
 			_hAlign = hAlign;
-			
-			_children = [];
-			
-			_width = 0;
-			_height = 0;
-		}
-		
-		/**
-		 * 
-		 */
-		override public function set width(value:Number):void { }
-		/**
-		 * 
-		 */
-		override public function set height(value:Number):void { }
-		
-		/**
-		 * 
-		 */
-		public function get space():Number { return _space; }
-		/**
-		 * 
-		 */
-		public function set space(value:Number):void {
-			_space = value;
-			invalidate();
+			super(space, children);
 		}
 		
 		/**
@@ -66,38 +36,6 @@ package ua.olexandr.display.containers {
 			_hAlign = value;
 			invalidate();
 		}
-		
-		/**
-		 * 
-		 */
-		public function clear():void {
-			while (numChildren)
-				removeChildAt(0);
-			
-			_children = [];
-			invalidate();
-		}
-		
-		/**
-		 * 
-		 * @param	child
-		 * @return
-		 */
-		override public function addChild(child:DisplayObject):DisplayObject {
-			super.addChild(child);
-			
-			_children.push(child);
-			invalidate();
-			
-			return child;
-		}
-		
-		/**
-		 * 
-		 * @param	width
-		 * @param	height
-		 */
-		override public function setSize(width:Number, height:Number):void { }
 		
 		/**
 		 * 
