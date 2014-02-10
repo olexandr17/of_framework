@@ -14,7 +14,7 @@
 	public class DisplayUtils {
 		
 		/**
-		 * 
+		 *
 		 * @param	parent
 		 * @param	child
 		 * @param	props
@@ -116,24 +116,24 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	children
 		 */
 		[Inline]
-		public static function lock(target:InteractiveObject, children:Boolean = true):void {
+		public static function disable(target:InteractiveObject, children:Boolean = true):void {
 			target.mouseEnabled = false;
 			if (children && target is DisplayObjectContainer)
 				(target as DisplayObjectContainer).mouseChildren = false;
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	children
 		 */
 		[Inline]
-		public static function unlock(target:InteractiveObject, children:Boolean = true):void {
+		public static function enable(target:InteractiveObject, children:Boolean = true):void {
 			target.mouseEnabled = true;
 			if (children && target is DisplayObjectContainer)
 				(target as DisplayObjectContainer).mouseChildren = true;
@@ -169,15 +169,15 @@
 		 * @param	$target
 		 */
 		[Inline]
-		public static function truncateChilrenXY(target:DisplayObjectContainer, levelsOfDepth:uint = 1):void {
+		public static function roundChildrenPositions(target:DisplayObjectContainer, levelsOfDepth:uint = 1):void {
 			var _len:int = target.numChildren;
 			for (var i:int = 0; i < _len; i++) {
 				var _child:DisplayObject = target.getChildAt(i);
 				
-				truncateXY(_child);
+				roundPosition(_child);
 				
 				if (levelsOfDepth != 1 && _child is DisplayObjectContainer)
-					truncateChilrenXY(_child as DisplayObjectContainer, Math.max(0, levelsOfDepth - 1));
+					roundChildrenPositions(_child as DisplayObjectContainer, Math.max(0, levelsOfDepth - 1));
 			}
 		}
 		
@@ -186,7 +186,7 @@
 		 * @param	$target
 		 */
 		[Inline]
-		public static function truncateXY(target:DisplayObject):void {
+		public static function roundPosition(target:DisplayObject):void {
 			if (!(target is Stage)) {
 				target.x = Math.round(target.x);
 				target.y = Math.round(target.y);
@@ -194,7 +194,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	value
 		 */
@@ -206,7 +206,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	value
 		 */
@@ -217,9 +217,8 @@
 			target.transform.matrix = _m;
 		}
 		
-		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	point
 		 * @return
@@ -237,7 +236,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	point
 		 * @return
@@ -255,7 +254,7 @@
 		}
 		
 		/**
-		 * 
+		 *
 		 * @param	target
 		 * @param	childs
 		 */
@@ -268,6 +267,25 @@
 				if (target.getChildAt(_len) != _child)
 					target.setChildIndex(_child, _len);
 			}
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	center
+		 * @param	degrees
+		 */
+		[Inline]
+		public static function centerRotate(target:DisplayObject, center:Point, degrees:Number):void {
+			var m:Matrix = target.transform.matrix;
+			
+			m.tx -= center.x;
+			m.ty -= center.y;
+			m.rotate(GeomUtils.degreesToRadians(degrees));
+			m.tx += center.x;
+			m.ty += center.y;
+			
+			target.transform.matrix = m;
 		}
 	
 	}

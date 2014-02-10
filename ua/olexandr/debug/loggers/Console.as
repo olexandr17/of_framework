@@ -132,7 +132,7 @@
 			for (var i:int = 0; i < _len; i++)
 				(_container.getChildAt(i) as ConsoleItem).width = _width - INDENT * 2;
 			
-			var _h:Number = Arranger.arrangeY(DisplayUtils.getChildren(_container), -6);
+			var _h:Number = Arranger.arrangeByV(DisplayUtils.getChildren(_container), -6);
 			
 			_container.y = Math.min(INDENT, _height - INDENT - _h);
 			
@@ -213,7 +213,7 @@ internal class ConsoleItem extends ResizableObject {
 	}
 	
 	override protected function draw():void {
-		Arranger.arrangeX(DisplayUtils.getChildren(this));
+		Arranger.arrangeByH(DisplayUtils.getChildren(this));
 		
 		_labelMessage.width = _width - _labelMessage.x;
 		
