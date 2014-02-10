@@ -141,7 +141,7 @@ package ua.olexandr.display {
 		/**
 		 * 
 		 */
-		override public function draw():void {
+		override protected function draw():void {
 			var _fg:Graphics = _fill.graphics;
 			var _bg:Graphics = _border.graphics;
 			
@@ -150,7 +150,6 @@ package ua.olexandr.display {
 			
 			if (_width && _height) {
 				if (_bThick) {
-					
 					var _wMin:int = _width - _bThick * 2;
 					var _hMin:int = _height - _bThick * 2;
 					
@@ -171,7 +170,6 @@ package ua.olexandr.display {
 						_bg.drawRect(0, 0, _width, _height);
 						_bg.drawRect(_bThick, _bThick, _wMin, _hMin);
 					}
-					
 				} else {
 					_fg.beginFill(_fColor, _fAlpha);
 					if (_rad) 	_fg.drawRoundRect(0, 0, _width, _height, _rad);

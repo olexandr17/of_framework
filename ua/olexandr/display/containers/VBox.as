@@ -1,6 +1,5 @@
 package ua.olexandr.display.containers {
 	import flash.display.DisplayObject;
-	import ua.olexandr.display.ResizableObject;
 	import ua.olexandr.tools.display.Arranger;
 	import ua.olexandr.tools.display.HAligner;
 	/**
@@ -42,12 +41,19 @@ package ua.olexandr.display.containers {
 		/**
 		 * 
 		 */
-		override public function draw():void {
-			_height = Arranger.arrangeY(_children, _space);
+		override protected function measure():void {
+			_height = Arranger.calcHeight(_children, _space);
 			
 			_width = 0;
 			for (var i:int = 0, _len:int = _children.length; i < _len; i++)
 				_width = Math.max(_width, (_children[i] as DisplayObject).width);
+		}
+		
+		/**
+		 * 
+		 */
+		override protected function draw():void {
+			Arranger.arrangeByV(_children, _space);
 			
 			var _child:DisplayObject;
 			switch(_hAlign) {
@@ -66,8 +72,6 @@ package ua.olexandr.display.containers {
 						_child.x = (_width - _child.width) / 2;
 				}
 			}
-			
-			super.draw();
 		}
 		
 	}

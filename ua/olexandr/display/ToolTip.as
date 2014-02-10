@@ -284,14 +284,13 @@ package ua.olexandr.display {
 		}
 		
 		
-		/**
-		 * 
-		 */
-		override public function draw():void {
+		override protected function measure():void {
 			_width = _indents.left + Math.ceil(_content.width) + _indents.right;
 			_height = _indents.top + Math.ceil(_content.height) + _indents.bottom + _tailHeight;
 			_tipHeight = _height - _tailHeight;
-			
+		}
+		
+		override protected function draw():void {
 			var _g:Graphics = _holder.graphics;
 			_g.clear();
 			_g.beginFill(_fillColor, _fillAlpha);

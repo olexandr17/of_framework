@@ -5,7 +5,7 @@ package ua.olexandr.display {
 	 * ...
 	 * @author Fedorow Olexandr
 	 */
-	public class AddedObject extends ResizableObject{
+	public class AddedObject extends ResizableObject {
 		
 		/**
 		 * 

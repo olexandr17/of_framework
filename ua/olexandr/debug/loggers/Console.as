@@ -123,9 +123,7 @@
 		/**
 		 * 
 		 */
-		override public function draw():void {
-			super.draw();
-			
+		override protected function draw():void {
 			scrollRect = new Rectangle(0, 0, _width, _height);
 			
 			_back.setSize(_width, _height);
@@ -214,9 +212,7 @@ internal class ConsoleItem extends ResizableObject {
 		_labelMessage.text = message;
 	}
 	
-	override public function draw():void {
-		super.draw();
-		
+	override protected function draw():void {
 		Arranger.arrangeX(DisplayUtils.getChildren(this));
 		
 		_labelMessage.width = _width - _labelMessage.x;

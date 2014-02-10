@@ -9,6 +9,37 @@ package ua.olexandr.tools.display {
 	 */
 	public class Arranger {
 		
+		private static var _calc:Boolean = false;
+		
+		/**
+		 * Рассчитывает ширину массива элементов
+		 * @param	arr
+		 * @param	space
+		 * @param	start
+		 * @param	direct
+		 * @return
+		 */
+		[Inline]
+		public static function calcWidth(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'right'):Number {
+			_calc = true;
+			return arrangeByH(arr, space, start, direct);
+		}
+		
+		/**
+		 * Рассчитывает высоту массива элементов
+		 * @param	arr
+		 * @param	space
+		 * @param	start
+		 * @param	direct
+		 * @return
+		 */
+		[Inline]
+		public static function calcHeight(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'bottom'):Number {
+			_calc = true;
+			return arrangeByV(arr, space, start, direct);
+		}
+		
+		
 		/**
 		 * Расставляет массив элементов в линию
 		 * @param	arr
@@ -18,7 +49,7 @@ package ua.olexandr.tools.display {
 		 * @return
 		 */
 		[Inline]
-		public static function arrangeX(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'right'):Number {
+		public static function arrangeByH(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'right'):Number {
 			if (direct != DirectionConst.LEFT) 
 				direct = DirectionConst.RIGHT;
 			
@@ -32,14 +63,21 @@ package ua.olexandr.tools.display {
 				for (var i:int = 0; i < _len; i++ ) {
 					if (arr[i] is DisplayObject) {
 						_item = arr[i] as DisplayObject;
-						_item.x = Math.round(_flag ? _x : _x - _item.width);
 						
-						_x = Math.round(_flag ? (_item.x + _item.width + space) : (_item.x - space));
+						_x = Math.round(_flag ? _x : _x - _item.width);
+						
+						if (!_calc)
+							_item.x = _x;
+						
+						_x = Math.round(_flag ? (_x + _item.width + space) : (_x - space));
 						_result += (_item.width + space);
 					}
 				}
 				_result -= space;
 			}
+			
+			if (_calc)
+				_calc = false;
 			
 			return _result;
 		}
@@ -53,7 +91,7 @@ package ua.olexandr.tools.display {
 		 * @return
 		 */
 		[Inline]
-		public static function arrangeY(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'bottom'):Number {
+		public static function arrangeByV(arr:Array, space:Number = 0, start:Number = 0, direct:String = 'bottom'):Number {
 			if (direct != DirectionConst.TOP)
 				direct = DirectionConst.BOTTOM;
 			
@@ -67,15 +105,22 @@ package ua.olexandr.tools.display {
 				for (var i:int = 0; i < _len; i++ ) {
 					if (arr[i] is DisplayObject) {
 						_item = arr[i] as DisplayObject;
-						_item.y = Math.round(_flag ? _y : _y - _item.height);
 						
-						_y = Math.round(_flag ? (_item.y + _item.height + space) : (_item.y - space));
+						_y = Math.round(_flag ? _y : _y - _item.height);
+						
+						if (!_calc)
+							_item.y = _y;
+						
+						_y = Math.round(_flag ? (_y + _item.height + space) : (_y - space));
 						_result += (_item.height + space);
 					}
 				}
 				_result -= space;
 			}
 				
+			if (_calc)
+				_calc = false;
+			
 			return _result;
 		}
 		

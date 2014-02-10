@@ -8,7 +8,7 @@
 	 * ...
 	 * @author Fedorow Olexandr
 	 */
-	public class Image extends Box {
+	public class Image extends FillObject {
 		
 		private var _source:Bitmap;
 		private var _fitIn:Boolean;
@@ -50,7 +50,7 @@
 		 */
 		public function set fitIn(value:Boolean):void {
 			_fitIn = value;
-			draw();
+			invalidate();
 		}
 		
 		/**
@@ -62,7 +62,7 @@
 		 */
 		public function set align(value:String):void {
 			_align = value;
-			draw();
+			invalidate();
 		}
 		
 		/**
@@ -85,7 +85,7 @@
 		/**
 		 * 
 		 */
-		override public function draw():void {
+		override protected function draw():void {
 			super.draw();
 			
 			scrollRect = new Rectangle(0, 0, _width, _height);

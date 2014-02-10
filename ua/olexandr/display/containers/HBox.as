@@ -5,10 +5,10 @@ package ua.olexandr.display.containers {
 	/**
 	 * ...
 	 * @author @author Olexandr Fedorow,
-	 * @copy Copyright (c) 2012
+	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
-	 * @version 0.1
+	 * @version 0.2
 	 */
 	public class HBox extends Box {
 		
@@ -41,12 +41,19 @@ package ua.olexandr.display.containers {
 		/**
 		 * 
 		 */
-		override public function draw():void {
-			_width = Arranger.arrangeX(_children, _space);
+		override protected function measure():void {
+			_width = Arranger.calcWidth(_children, _space);
 			
 			_height = 0;
 			for (var i:int = 0, _len:int = _children.length; i < _len; i++)
 				_height = Math.max(_height, (_children[i] as DisplayObject).height);
+		}
+		
+		/**
+		 * 
+		 */
+		override protected function draw():void {
+			Arranger.arrangeByH(_children, _space);
 			
 			var _child:DisplayObject;
 			switch(_vAlign) {
@@ -65,8 +72,6 @@ package ua.olexandr.display.containers {
 						_child.y = (_height - _child.height) / 2;
 				}
 			}
-			
-			super.draw();
 		}
 		
 	}

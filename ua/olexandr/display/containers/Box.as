@@ -1,9 +1,6 @@
 package ua.olexandr.display.containers {
 	import flash.display.DisplayObject;
-	import flash.display.Sprite;
 	import ua.olexandr.display.ResizableObject;
-	import ua.olexandr.tools.display.Arranger;
-	import ua.olexandr.tools.display.VAligner;
 	/**
 	 * ...
 	 * @author @author Olexandr Fedorow,
@@ -16,7 +13,6 @@ package ua.olexandr.display.containers {
 		
 		protected static var _secureKey:Boolean = false;
 		
-		
 		protected var _space:Number;
 		protected var _children:Array;
 		
@@ -28,8 +24,6 @@ package ua.olexandr.display.containers {
 		public function Box(space:Number = 0, children:Array = null) {
 			if (_secureKey) {
 				_secureKey = false;
-				
-				invalidation = false;
 				
 				_space = space;
 				
