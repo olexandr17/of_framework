@@ -5,7 +5,7 @@
 	 * ...
 	 * @author Fedorow Olexandr
 	 */
-	public class DateUtils{
+	public class DateUtils {
 		
 		public static const HOUR_IN_DAY			:int = 24;
 		public static const MINUTES_IN_HOUR		:int = 60;
