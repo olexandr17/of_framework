@@ -34,7 +34,7 @@
 				_stage.addChild(tip);
 				
 				tip.addEventListener(Event.ENTER_FRAME, onTipEnterFrame);
-				Tweener.addTween(tip, .3, { alpha:1 } );
+				Tweener.addTween(tip, .3, {alpha: 1});
 			}
 		}
 		
@@ -43,9 +43,9 @@
 			if (index != -1) {
 				_tips.splice(index, 1);
 				
-				Tweener.addTween(tip, .3, { alpha:0, onComplete:function():void {
-					tip.removeEventListener(Event.ENTER_FRAME, onTipEnterFrame);
-				} } );
+				Tweener.addTween(tip, .3, {alpha: 0, onComplete: function():void {
+						tip.removeEventListener(Event.ENTER_FRAME, onTipEnterFrame);
+					}});
 			}
 		}
 		
@@ -65,7 +65,7 @@
 				tip.y = _stage.stageHeight;
 			if (tip.y < tip.height)
 				tip.y = tip.height;
-			
+		
 			//_showTimer.reset();
 			//_showTimer.start();
 		}
