@@ -47,6 +47,15 @@ package ua.olexandr.display {
 			_widthOriginal = _source.width;
 			_heightOriginal = _source.height;
 			
+			if (indents.left < 0 || indents.top < 0 || indents.right < 0 || indents.bottom < 0)
+				throw new Error("All indents should be greater than zero");
+			
+			if (indents.left + indents.right > _widthOriginal)
+				throw new Error("Sum of left and right indents should be less than width of source");
+			
+			if (indents.left + indents.right > _widthOriginal)
+				throw new Error("Sum of top and bottom indents should be less than width of source");
+			
 			initClips();
 			
 			setSize(_source.width, _source.height);
@@ -142,6 +151,19 @@ package ua.olexandr.display {
 			return new Bitmap(_bmpData);
 		}
 		
+		
+		override protected function measure():void {
+			if (_width < _indents.left + _indents.right) {
+				trace("Sum of left and right indents should be less than width of source");
+				_width = _indents.left + _indents.right;
+			}
+			
+			if (_height < _indents.top + _indents.bottom) {
+				trace("Sum of top and bottom indents should be less than width of source");
+				_height = _indents.top + _indents.bottom;
+			}
+		}
+		
 		override protected function draw():void {
 			var _widthI:Number = _indents.left + _indents.right;
 			var _heightI:Number = _indents.top + _indents.bottom;
@@ -164,11 +186,11 @@ package ua.olexandr.display {
 				_widthC = _widthOriginal - _widthI;
 				_heightC = _heightOriginal - _heightI;
 				
-				var _widthL:Number = Math.round((_width - _widthC) * _indents.left / _widthI);
-				var _widthR:Number = Math.round((_width - _widthC) * _indents.right / _widthI);
+				var _widthL:int = Math.round((_width - _widthC) * _indents.left / _widthI);
+				var _widthR:int = Math.round((_width - _widthC) * _indents.right / _widthI);
 				
-				var _heightT:Number = Math.round((_height - _heightC) * _indents.top / _heightI);
-				var _heightB:Number = Math.round((_height - _heightC) * _indents.bottom / _heightI);
+				var _heightT:int = Math.round((_height - _heightC) * _indents.top / _heightI);
+				var _heightB:int = Math.round((_height - _heightC) * _indents.bottom / _heightI);
 				
 				_bitmapTL.width = _widthL;
 				_bitmapCL.width = _widthL;
@@ -186,7 +208,6 @@ package ua.olexandr.display {
 				_bitmapBC.height = _heightB;
 				_bitmapBR.height = _heightB;
 			}
-			
 			
 			Arranger.arrangeByH([_bitmapTL, _bitmapTC, _bitmapTR]);
 			Arranger.arrangeByH([_bitmapCL, _bitmapCC, _bitmapCR]);
