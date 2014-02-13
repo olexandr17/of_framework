@@ -148,6 +148,49 @@
 			return out;
 		}
 	
+		/**
+		 * 
+		 * @param	str
+		 * @return
+		 */
+		[Inline]
+		public static function stripTags(str:String):String {
+			if (!isSet(str))
+				return null;
+			
+			return str.replace(new RegExp("<[^<]*<", "gi"), "");
+		}
+		
+		/**
+		 * 
+		 * @param	$xml
+		 * @return
+		 */
+		[Inline]
+		public static function xmlTagsToLowerCase(data:XML):XML {
+			// convert the root tag to lowercase
+			data.setName(data.name().toString().toLowerCase());
+			
+			for each (var attribute:XML in data.@*)
+				attribute.setName(attribute.name().toString().toLowerCase());
+			
+			// convert all descendant tags to lowercase
+			for each (var child:XML in data..*) {
+				// if the node is an element...
+				if (child.nodeKind() == "element") {
+					// ...change its name to lowercase.
+					child.setName(child.name().toString().toLowerCase());
+					
+					// if the node has any attributes, change their names to lowercase.
+					for each (attribute in child.@*) {
+						attribute.setName(attribute.name().toString().toLowerCase());
+					}
+				}
+			}
+			
+			return data;
+		}
+	
 	}
 }
 

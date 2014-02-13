@@ -19,6 +19,119 @@ package ua.olexandr.tools.display {
 		 * @return
 		 */
 		[Inline]
+		public static function calcToTL(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.TL);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToTC(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.TC);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToTR(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.TR);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToCL(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.CL);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToCC(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.CC);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToCR(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.CR);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToBL(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.BL);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToBC(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.BC);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calcToBR(target:DisplayObject, rect:Rectangle = null):Point {
+			return calc(target, rect, AlignConst.BR);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
+		public static function calc(target:DisplayObject, rect:Rectangle = null, location:String = 'CC'):Point {
+			_calc = true;
+			return align(target, rect, location);
+		}
+		
+		
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	rect
+		 * @return
+		 */
+		[Inline]
 		public static function alignToTL(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, AlignConst.TL);
 		}
@@ -110,116 +223,6 @@ package ua.olexandr.tools.display {
 		public static function alignToBR(target:DisplayObject, rect:Rectangle = null):Point {
 			return align(target, rect, AlignConst.BR);
 		}
-		
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToTL(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.TL);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToTC(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.TC);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToTR(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.TR);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToCL(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.CL);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToCC(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.CC);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToCR(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.CR);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToBL(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.BL);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToBC(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.BC);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	rect
-		 * @return
-		 */
-		[Inline]
-		public static function calcToBR(target:DisplayObject, rect:Rectangle = null):Point {
-			_calc = true;
-			return align(target, rect, AlignConst.BR);
-		}
-		
 		
 		/**
 		 * 
@@ -322,76 +325,3 @@ package ua.olexandr.tools.display {
 		
 	}
 }
-
-/*
-		public static function fitIntoRect(displayObject : DisplayObject, rectangle : Rectangle, fillRect : Boolean = true, align : String = "C", applyTransform : Boolean = true) : Matrix
-		{
-			var matrix : Matrix = new Matrix();
-			
-			var wD : Number = displayObject.width / displayObject.scaleX;
-			var hD : Number = displayObject.height / displayObject.scaleY;
-			
-			var wR : Number = rectangle.width;
-			var hR : Number = rectangle.height;
-			
-			var sX : Number = wR / wD;
-			var sY : Number = hR / hD;
-			
-			var rD : Number = wD / hD;
-			var rR : Number = wR / hR;
-			
-			var sH : Number = fillRect ? sY : sX;
-			var sV : Number = fillRect ? sX : sY;
-			
-			var s : Number = rD >= rR ? sH : sV;
-			var w : Number = wD * s;
-			var h : Number = hD * s;
-			
-			var tX : Number = 0.0;
-			var tY : Number = 0.0;
-			
-			switch(align)
-			{
-				case Alignment.LEFT :
-				case Alignment.TOP_LEFT :
-				case Alignment.BOTTOM_LEFT :
-					tX = 0.0;
-					break;
-					
-				case Alignment.RIGHT :
-				case Alignment.TOP_RIGHT :
-				case Alignment.BOTTOM_RIGHT :
-					tX = w - wR;
-					break;
-					
-				default : 					
-					tX = 0.5 * (w - wR);
-			}
-			
-			switch(align)
-			{
-				case Alignment.TOP :
-				case Alignment.TOP_LEFT :
-				case Alignment.TOP_RIGHT :
-					tY = 0.0;
-					break;
-					
-				case Alignment.BOTTOM :
-				case Alignment.BOTTOM_LEFT :
-				case Alignment.BOTTOM_RIGHT :
-					tY = h - hR;
-					break;
-					
-				default : 					
-					tY = 0.5 * (h - hR);
-			}
-			
-			matrix.scale(s, s);
-			matrix.translate(rectangle.left - tX, rectangle.top - tY);
-			
-			if(applyTransform)
-				displayObject.transform.matrix = matrix;
-			
-			return matrix;
-		}
-*/

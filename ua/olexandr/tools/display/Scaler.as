@@ -27,6 +27,77 @@ package ua.olexandr.tools.display {
 		 * @return
 		 */
 		[Inline]
+		public static function calcInside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
+			return calc(target, width, height, INSIDE, max, min);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	width
+		 * @param	height
+		 * @param	max
+		 * @param	min
+		 * @return
+		 */
+		[Inline]
+		public static function calcOutside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
+			return calc(target, width, height, OUTSIDE, max, min);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	width
+		 * @param	max
+		 * @param	min
+		 * @return
+		 */
+		[Inline]
+		public static function calcWidth(target:DisplayObject, width:Number, max:Number = NaN, min:Number = NaN):Number {
+			return calc(target, width, 0, WIDTH, max, min);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	height
+		 * @param	max
+		 * @param	min
+		 * @return
+		 */
+		[Inline]
+		public static function calcHeight(target:DisplayObject, height:Number, max:Number = NaN, min:Number = NaN):Number {
+			return calc(target, 0, height, HEIGHT, max, min);
+		}
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	width
+		 * @param	height
+		 * @param	type
+		 * @param	max
+		 * @param	min
+		 * @return
+		 */
+		[Inline]
+		public static function calc(target:DisplayObject, width:Number, height:Number, type:String, max:Number = NaN, min:Number = NaN):Number {
+			_calc = true;
+			return scale(target, width, height, type, max, min);
+		}
+		
+		
+		/**
+		 * 
+		 * @param	target
+		 * @param	width
+		 * @param	height
+		 * @param	max
+		 * @param	min
+		 * @return
+		 */
+		[Inline]
 		public static function scaleInside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
 			return scale(target, width, height, INSIDE, max, min);
 		}
@@ -93,65 +164,6 @@ package ua.olexandr.tools.display {
 		[Inline]
 		public static function scaleNone(target:DisplayObject):Number {
 			return scale(target, 0, 0, NONE);
-		}
-		
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	width
-		 * @param	height
-		 * @param	max
-		 * @param	min
-		 * @return
-		 */
-		[Inline]
-		public static function calcInside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
-			_calc = true;
-			return scale(target, width, height, INSIDE, max, min);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	width
-		 * @param	height
-		 * @param	max
-		 * @param	min
-		 * @return
-		 */
-		[Inline]
-		public static function calcOutside(target:DisplayObject, width:Number, height:Number, max:Number = NaN, min:Number = NaN):Number {
-			_calc = true;
-			return scale(target, width, height, OUTSIDE, max, min);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	width
-		 * @param	max
-		 * @param	min
-		 * @return
-		 */
-		[Inline]
-		public static function calcWidth(target:DisplayObject, width:Number, max:Number = NaN, min:Number = NaN):Number {
-			_calc = true;
-			return scale(target, width, 0, WIDTH, max, min);
-		}
-		
-		/**
-		 * 
-		 * @param	target
-		 * @param	height
-		 * @param	max
-		 * @param	min
-		 * @return
-		 */
-		[Inline]
-		public static function calcHeight(target:DisplayObject, height:Number, max:Number = NaN, min:Number = NaN):Number {
-			_calc = true;
-			return scale(target, 0, height, HEIGHT, max, min);
 		}
 		
 		
