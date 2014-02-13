@@ -1,8 +1,8 @@
 ﻿package ua.olexandr.utils {
+	import ua.olexandr.geom.Circle;
 	import flash.geom.Point;
-	import ua.olexandr.data.Circle;
 	
-	public class CollisionUtils {
+	public class IntersectionUtils {
 		
 		/**
 		 * пересекаются ли два круга
