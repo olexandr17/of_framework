@@ -47,7 +47,14 @@
 			var point2:Point = new Point(boundsOut2.x, boundsOut2.y);
 			
 			
-			return bmpData1.hitTest(point1, threshold, bmpData2, point2, threshold);
+			var hit:Boolean = bmpData1.hitTest(point1, threshold, bmpData2, point2, threshold);
+			
+			
+			bmpData1.dispose();
+			bmpData2.dispose();
+			
+			
+			return hit;
 		}
 		
 		/**
