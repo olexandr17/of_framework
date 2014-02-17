@@ -246,6 +246,41 @@
 		
 		/**
 		 * 
+		 * @param	num
+		 * @return
+		 */
+		[Inline]
+		public static function getOrdinalSuffix(num:int):String {
+			switch (lang) {
+				case LocaleConst.EN: {
+					if ((number % 100) > 10 && (number % 100) < 14)
+						return number + "th";
+					
+					switch (number % 10) {
+						case 1: {
+							return number + "st";
+						}
+						case 2: {
+							return number + "nd";
+						}
+						case 3: {
+							return number + "rd";
+						}
+						default: {
+							return number + "th";
+						}
+					}
+					break;
+				}
+				default: {
+					return num;
+					break;
+				}
+			}
+		}
+		
+		/**
+		 * 
 		 * @param	$count
 		 * @param	$forms ['комментарий', 'комментария', 'комментариев']
 		 * @param	$lang

@@ -110,6 +110,18 @@ package ua.olexandr.utils {
 
 		}
 	
+		/*
+		public static function getTintFilter(color:uint):ColorMatrixFilter {
+			var r:int = (( color >> 16 ) & 0xFF );
+			var g:int = (( color >> 8 )  & 0xFF );
+			var b:int = (( color )       & 0xFF );
+			
+			//var colorTransform:ColorTransform = new ColorTransform( 1.0, 1.0, 1.0, 1.0, r, g, b );
+			
+			return new ColorMatrixFilter([]);
+		}
+		*/
+		
 	}
 
 }
