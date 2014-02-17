@@ -1,8 +1,54 @@
 ﻿package ua.olexandr.utils {
+	import flash.display.BitmapData;
+	import flash.display.DisplayObject;
+	import flash.geom.Matrix;
+	import flash.geom.Rectangle;
 	import ua.olexandr.geom.Circle;
 	import flash.geom.Point;
 	
 	public class IntersectionUtils {
+		
+		/**
+		 * пересекаются ли 2 объекта
+		 * @see		http://www.mikechambers.com/blog/2009/06/24/using-bitmapdata-hittest-for-collision-detection/
+		 * @param	dObj0
+		 * @param	dObj1
+		 * @param	threshold
+		 * @return
+		 */
+		[Inline]
+		public static function hitTest(dObj1:DisplayObject, dObj2:DisplayObject, threshold:Number = 255):Boolean {
+			if (!dObj1.stage || !dObj2.stage)
+				throw new Error("Both objects must be added in display list");
+			
+			var boundsIn1:Rectangle = dObj1.getBounds(dObj1);
+			var boundsOut1:Rectangle = dObj1.getBounds(dObj1.stage);
+			
+			var matrix1:Matrix = dObj1.transform.matrix.clone();
+			matrix1.tx = -boundsIn1.x;
+			matrix1.ty = -boundsIn1.y;
+			
+			var bmpData1:BitmapData = new BitmapData(boundsOut1.width, boundsOut1.height, true, 0);
+			bmpData1.draw(dObj1, matrix1);
+			
+			var point1:Point = new Point(boundsOut1.x, boundsOut1.y);
+			
+			
+			var boundsIn2:Rectangle = dObj2.getBounds(dObj2);
+			var boundsOut2:Rectangle = dObj2.getBounds(dObj2.stage);
+			
+			var matrix2:Matrix = dObj2.transform.matrix.clone();
+			matrix2.tx = -boundsIn2.x;
+			matrix2.ty = -boundsIn2.y;
+			
+			var bmpData2:BitmapData = new BitmapData(boundsOut2.width, boundsOut2.height, true, 0);
+			bmpData2.draw(dObj2, matrix2);
+			
+			var point2:Point = new Point(boundsOut2.x, boundsOut2.y);
+			
+			
+			return bmpData1.hitTest(point1, threshold, bmpData2, point2, threshold);
+		}
 		
 		/**
 		 * пересекаются ли два круга

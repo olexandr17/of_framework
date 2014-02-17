@@ -24,7 +24,7 @@
 		 * @return
 		 */
 		public function intersectCircle(circle:Circle):Boolean {
-			var _min:Number = _radius + circle.radius;
+			var _min:Number = radius + circle.radius;
 			return Math.sqrt((x - circle.x) * (x - circle.x) + (y - circle.y) * (y - circle.y)) < _min;
 		}
 		
