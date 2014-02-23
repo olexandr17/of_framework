@@ -5,7 +5,7 @@ package ua.olexandr.utils {
 	import flash.net.URLVariables;
 	import flash.system.Capabilities;
 	import flash.system.Security;
-	import ua.olexandr.constants.ExternalConst;
+	import ua.olexandr.constants.EnvironmentConst;
 	/**
 	 * ...
 	 * @author Olexandr Fedorow
@@ -18,16 +18,16 @@ package ua.olexandr.utils {
 		 * 
 		 */
 		[Inline]
-		public static function get isJSAvailable():Boolean {
+		public static function isJSAvailable():Boolean {
 			if (AVAILABLE) {
 				try {
 					return Boolean(ExternalInterface.call("function() { return true; }"));
 				} catch (e:Error) {
 					return false;
 				}
-			} else {
-				return false;
 			}
+			
+			return false;
 		}
 		
 		
@@ -227,15 +227,15 @@ package ua.olexandr.utils {
 				var _agent:String = ExternalInterface.call('window.navigator.userAgent.toString');
 				
 				if (_agent.indexOf('Safari') != -1)
-					_browser = ExternalConst.BROWSER_SAFARI;
+					_browser = EnvironmentConst.BROWSER_SAFARI;
                 else if (_agent.indexOf('Firefox') != -1)
-                    _browser = ExternalConst.BROWSER_FIREFOX;
+                    _browser = EnvironmentConst.BROWSER_FIREFOX;
                 else if (_agent.indexOf('Chrome') != -1)
-                    _browser = ExternalConst.BROWSER_CHROME;
+                    _browser = EnvironmentConst.BROWSER_CHROME;
                 else if (_agent.indexOf('MSIE') != -1)
-                    _browser = ExternalConst.BROWSER_IE;
+                    _browser = EnvironmentConst.BROWSER_IE;
                 else if (_agent.indexOf('Opera') != -1)
-                    _browser = ExternalConst.BROWSER_OPERA;
+                    _browser = EnvironmentConst.BROWSER_OPERA;
             } catch (err:Error) {
             }
 			

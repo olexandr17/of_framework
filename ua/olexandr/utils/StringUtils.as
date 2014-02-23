@@ -250,30 +250,30 @@
 		 * @return
 		 */
 		[Inline]
-		public static function getOrdinalSuffix(num:int):String {
+		public static function getOrdinalSuffix(num:int, lang:String = 'en'):String {
 			switch (lang) {
 				case LocaleConst.EN: {
-					if ((number % 100) > 10 && (number % 100) < 14)
-						return number + "th";
+					if ((num % 100) > 10 && (num % 100) < 14)
+						return num + "th";
 					
-					switch (number % 10) {
+					switch (num % 10) {
 						case 1: {
-							return number + "st";
+							return num + "st";
 						}
 						case 2: {
-							return number + "nd";
+							return num + "nd";
 						}
 						case 3: {
-							return number + "rd";
+							return num + "rd";
 						}
 						default: {
-							return number + "th";
+							return num + "th";
 						}
 					}
 					break;
 				}
 				default: {
-					return num;
+					return num.toString();
 					break;
 				}
 			}

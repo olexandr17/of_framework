@@ -13,6 +13,7 @@ package ua.olexandr.functions {
 		try {
 			new LocalConnection().connect('foo');
 			new LocalConnection().connect('foo');
+			new LocalConnection().connect('foo');
 		} catch (e:Error){
 			//trace(e.message);
 		}

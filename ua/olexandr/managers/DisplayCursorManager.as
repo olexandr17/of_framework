@@ -9,7 +9,7 @@ package ua.olexandr.managers {
 	 * ...
 	 * @author Olexandr Fedorow
 	 */
-	public class CursorManager {
+	public class DisplayCursorManager {
 		
 		private static var _stage:Stage;
 		private static var _cursor:DisplayObject;

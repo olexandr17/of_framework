@@ -1,5 +1,6 @@
 package ua.olexandr.tools.loader.loaders {
 	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
 	import flash.display.Loader;
 	import flash.display.MovieClip;
@@ -67,11 +68,20 @@ package ua.olexandr.tools.loader.loaders {
 		 * 
 		 * @return
 		 */
-		public function getBitmap():Bitmap {
+		public function getBitmapData():BitmapData {
 			if (!_content)
 				return null;
 			
-			return Bitmap(_content);
+			_bitmapData ||= Bitmap(_content).bitmapData.clone(); 
+			return _bitmapData;
+		}
+		
+		/**
+		 * 
+		 * @return
+		 */
+		public function getBitmap():Bitmap {
+			return new Bitmap(getBitmapData());
 		}
 		
 		private var _request:URLRequest;
@@ -87,6 +97,7 @@ package ua.olexandr.tools.loader.loaders {
 		
 		private var _loaderContent:DisplayObject;
 		private var _content:DisplayObject;
+		private var _bitmapData:BitmapData;
 		private var _error:String;
 		
 		/**
@@ -133,6 +144,13 @@ package ua.olexandr.tools.loader.loaders {
 		 * 
 		 */
 		public function close():void {
+			if (loader.content is Bitmap) {
+				(loader.content as Bitmap).cacheAsBitmap = false;
+				(loader.content as Bitmap).bitmapData.dispose();
+				(loader.content as Bitmap).bitmapData = null;
+				(loader.contentLoaderInfo.content as Bitmap).bitmapData = null;
+			}
+			
 			_loader.unload();
 			
 			try {
@@ -158,6 +176,11 @@ package ua.olexandr.tools.loader.loaders {
 			_loader = null;
 			
 			_content = null;
+			if (_bitmapData) {
+				_bitmapData.dispose();
+				_bitmapData = null;
+			}
+			
 			_error = null;
 		}
 		
