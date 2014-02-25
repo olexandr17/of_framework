@@ -144,11 +144,11 @@ package ua.olexandr.tools.loader.loaders {
 		 * 
 		 */
 		public function close():void {
-			if (loader.content is Bitmap) {
-				(loader.content as Bitmap).cacheAsBitmap = false;
-				(loader.content as Bitmap).bitmapData.dispose();
-				(loader.content as Bitmap).bitmapData = null;
-				(loader.contentLoaderInfo.content as Bitmap).bitmapData = null;
+			if (_loader.content is Bitmap) {
+				(_loader.content as Bitmap).cacheAsBitmap = false;
+				(_loader.content as Bitmap).bitmapData.dispose();
+				(_loader.content as Bitmap).bitmapData = null;
+				(_loader.contentLoaderInfo.content as Bitmap).bitmapData = null;
 			}
 			
 			_loader.unload();
