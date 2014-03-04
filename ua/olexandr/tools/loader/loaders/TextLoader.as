@@ -7,6 +7,7 @@ package ua.olexandr.tools.loader.loaders {
 	import flash.events.SecurityErrorEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.utils.getDefinitionByName;
 	import ua.olexandr.tools.loader.events.LoaderEvent;
 	
 	/**
@@ -47,6 +48,28 @@ package ua.olexandr.tools.loader.loaders {
 			} catch (e:Error) { }
 			
 			return _data;
+		}
+		
+		/**
+		 * 
+		 * @return
+		 */
+		public function getJSON():Object {
+			var _class:Class = getDefinitionByName("JSON") as Class;
+			if (_class && _class["parse"] is Function) {
+				if (!_content)
+					return null;
+				
+				var _data:Object;
+				
+				try {
+					_data = _class["parse"](_content);
+				} catch (e:Error) { }
+				
+				return _data;
+			}
+			
+			return null;
 		}
 		
 		private var _request:URLRequest;
