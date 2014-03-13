@@ -155,9 +155,6 @@
 		 */
 		[Inline]
 		public static function stripTags(str:String):String {
-			if (!isSet(str))
-				return null;
-			
 			return str.replace(new RegExp("<[^<]*<", "gi"), "");
 		}
 		
