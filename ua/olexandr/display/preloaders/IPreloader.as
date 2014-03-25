@@ -4,7 +4,7 @@ package ua.olexandr.display.preloaders {
 	 * ...
 	 * @author Olexandr Fedorow
 	 */
-	public interface IProgressable {
+	public interface IPreloader {
 		
 		function start():void;
 		function stop():void;

@@ -11,7 +11,7 @@
 	 * @link www.olexandr@gmail.com
 	 * @version 0.1
 	 */
-	public class WinPreloader extends Sprite implements IProgressable {  
+	public class WinPreloader extends Sprite implements IPreloader {  
 		
 		private var _count:int;
 		private var _shift:int;

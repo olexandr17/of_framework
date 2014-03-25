@@ -8,7 +8,7 @@ package ua.olexandr.display.preloaders {
 	 * @author wolsh (update Olexandr Fedorow)
 	 */
 	
-	public class FillPreloader extends Sprite implements IProgressable {
+	public class FillPreloader extends Sprite implements IPreloader {
 		
 		private var _colorBack:uint;
 		private var _colorFore:uint;

@@ -9,7 +9,7 @@
 	 * @author Lord_Xaoca (update Olexandr Fedorow)
 	 */
 	
-	public class LinePreloader extends Sprite implements IProgressable {  
+	public class LinePreloader extends Sprite implements IPreloader {  
 		
 		private var _count:int;
 		private var _timer:Timer;

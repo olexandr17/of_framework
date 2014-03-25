@@ -7,7 +7,7 @@ package ua.olexandr.display.preloaders {
 	 * ...
 	 * @author Olexandr Fedorow
 	 */
-	public class SpinnerPreloader extends Sprite implements IProgressable {
+	public class SpinnerPreloader extends Sprite implements IPreloader {
 		
 		private var _timer:Timer;
 		private var _count:int = 0;

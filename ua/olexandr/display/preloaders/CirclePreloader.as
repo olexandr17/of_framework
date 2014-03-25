@@ -15,7 +15,7 @@
 	 * @link www.olexandr@gmail.com
 	 * @version 0.1
 	 */
-	public class CirclePreloader extends Sprite implements IProgressable {  
+	public class CirclePreloader extends Sprite implements IPreloader {  
 		
 		private var _count:int;
 		private var _timer:Timer;
