@@ -3,24 +3,19 @@
 	import flash.display.Sprite;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
-	import ua.olexandr.display.preloader.IProgressable;
-	import ua.olexandr.text.Label;
 	import ua.olexandr.utils.ColorUtils;
 	
 	/**
-	 * ...
-	 * @author @author Olexandr Fedorow,
-	 * @copy Copyright (c) 2012
+	 * @author Olexandr Fedorow,
+	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
-	 * @version 0.1
+	 * @version 0.2
 	 */
-	public class CirclePreloader extends Sprite implements IPreloader {  
+	public class CirclePreloader extends BasePreloader {  
 		
 		private var _count:int;
 		private var _timer:Timer;
-		
-		private var _container:Sprite;
 		
 		/**
 		 * 
@@ -31,11 +26,10 @@
 		 * @param	count
 		 * @param	speed
 		 */
-		public function CirclePreloader(colorStart:uint = 0x000000, colorEnd:uint = 0xFFFFFF, radiusMin:int = 12, size:int = 4, count:int = 10, speed:int = 50) {
+		public function CirclePreloader(colorStart:uint = 0x000000, colorEnd:uint = 0x999999, radiusMin:int = 12, size:int = 4, count:int = 10, speed:int = 50) {
 			_count = count;  
 			
-			_container = new Sprite();
-			addChild(_container);
+			super();
 			
 			for (var i:int = 0; i < _count; i++) {
 				var _color:uint = ColorUtils.ratioRGB(colorStart, colorEnd, i / _count);
@@ -46,44 +40,27 @@
 				var _cont:Sprite = new Sprite();
 				_cont.addChild(_circle);
 				_cont.rotation = 360 * i / _count;
-				_container.addChild(_cont);
+				_holder.addChild(_cont);
 			}
 			
 			
 			_timer = new Timer(speed);
-			
-			mouseChildren = false;
-			mouseEnabled = false;
 		}  
 		
-		/**
-		 * 
-		 */
-		public function start():void {
+		
+		override protected function startIn():void {
 			_timer.addEventListener(TimerEvent.TIMER, timerHandler);
 			_timer.start();
 		}
 		
-		/**
-		 * 
-		 */
-		public function stop():void {
+		override protected function stopIn():void {
 			_timer.removeEventListener(TimerEvent.TIMER, timerHandler);
 			_timer.stop();
 		}
 		
-		/**
-		 * 
-		 */
-		public function get percent():Number { return 0; }
-		/**
-		 * 
-		 */
-		public function set percent(value:Number):void { }
-		
 		
 		private function timerHandler(e:TimerEvent):void {
-			_container.rotation += 360 / _count;
+			_holder.rotation += 360 / _count;
 		}  
 		
 		private function drawCircle(size:Number, color:uint = 0x000000):Shape {

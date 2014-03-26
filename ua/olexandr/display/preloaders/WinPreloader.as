@@ -6,22 +6,20 @@
 	
 	/**
 	 * @author Olexandr Fedorow,
-	 * @copy Copyright (c) 2013
+	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
-	 * @version 0.1
+	 * @version 0.2
 	 */
-	public class WinPreloader extends Sprite implements IPreloader {  
+	public class WinPreloader extends BasePreloader {  
 		
 		private var _count:int;
 		private var _shift:int;
 		private var _time:Number;
 		private var _delay:Number;
 		
-		private var _container:Sprite;
 		private var _dots:Array;
 		
-		private var _animating:Boolean;
 		private var _animateCount:int;
 		
 		/**
@@ -34,14 +32,13 @@
 		 * @param	time	время анимации одного цикла одной точки
 		 * @param	delay	задержка перед повтором анимации
 		 */
-		public function WinPreloader(color:uint = 0x000000, radius:int = 2, count:int = 5, space:int = 20, shift:int = 150, time:Number = .5, delay:Number = .5) {
+		public function WinPreloader(color:uint = 0x000000, radius:int = 2, count:int = 5, space:int = 20, shift:int = 200, time:Number = .5, delay:Number = .5) {
 			_count = count;  
 			_shift = shift;
 			_time = time;
 			_delay = delay;
 			
-			_container = new Sprite();
-			addChild(_container);
+			super();
 			
 			_animating = false;
 			_animateCount = 0;
@@ -50,7 +47,7 @@
 			for (var i:int = 0; i < _count; i++) {
 				var _item:Sprite = new Sprite();
 				_item.x = space * i;
-				_container.addChild(_item);
+				_holder.addChild(_item);
 				
 				var _dot:Shape = drawCircle(radius, color);
 				_item.addChild(_dot);
@@ -58,19 +55,16 @@
 				_dots[i] = _dot;
 			}
 			
-			_container.x -= (_item.x + radius) * .5;
-			
-			mouseChildren = false;
-			mouseEnabled = false;
+			_holder.x -= (_item.x + radius) * .5;
 		}  
 		
-		/**
-		 * 
-		 */
-		public function start():void {
-			var _b:Boolean = _animating == true;
-			_animating = true;
-			
+		
+		override protected function startIn():void {
+			nextIteration();
+		}
+		
+		
+		private function nextIteration(delay:Number = 0):void {
 			for (var i:int = 0; i < _count; i++) {
 				_animateCount++;
 				
@@ -78,36 +72,18 @@
 				_dot.alpha = 0;
 				_dot.x = -_shift;
 				
-				var _d:Number = (_b ? _delay : 0) + .1 * (_count - 1 - i);
+				var _d:Number = delay + .1 * (_count - 1 - i);
 				Tweener.addTween(_dot, _time, { alpha:1, x:0, delay:_d, ease:Easing.expoOut } );
 				
 				_d += _time;
 				Tweener.addTween(_dot, _time, { alpha:0, x:_shift, delay:_d, ease:Easing.expoIn, 
-					onComplete:completeHandler } );
+					onComplete:function():void {
+						_animateCount--;
+						if (_animateCount == 0 && _animating)
+							nextIteration(_delay);
+					}
+				} );
 			}
-		}
-		
-		/**
-		 * 
-		 */
-		public function stop():void {
-			_animating = false;
-		}
-		
-		/**
-		 * 
-		 */
-		public function get percent():Number { return 0; }
-		/**
-		 * 
-		 */
-		public function set percent(value:Number):void { }
-		
-		
-		private function completeHandler():void {
-			_animateCount--;
-			if (_animateCount == 0 && _animating)
-				start();
 		}
 		
 		private function drawCircle(size:Number, color:uint = 0x000000):Shape {

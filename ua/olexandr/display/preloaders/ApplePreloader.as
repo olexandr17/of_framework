@@ -5,20 +5,21 @@
 	import flash.utils.Timer;
 	
 	/**
-	 * ...
-	 * @author Lord_Xaoca (update Olexandr Fedorow)
+	 * @author Olexandr Fedorow,
+	 * @copy Copyright (c) 2014
+	 * @link http://www.olexandr.org
+	 * @link www.olexandr@gmail.com
+	 * @version 0.2
 	 */
 	
-	public class LinePreloader extends Sprite implements IPreloader {  
+	public class ApplePreloader extends BasePreloader {  
 		
-		private var _count:int;
-		private var _timer:Timer;
-		
-		private var _percent:Number;
-		
+		private var _color:uint;
 		private var _radiusMin:int;
 		private var _size:int;
-		private var _color:uint;
+		private var _count:int;
+		
+		private var _timer:Timer;
 		
 		/**
 		 * 
@@ -28,12 +29,13 @@
 		 * @param	count
 		 * @param	speed
 		 */
-		public function LinePreloader(color:uint = 0x666666, radiusMin:int = 10, size:int = 10, count:int = 12, speed:int = 50) {
-			_count = count;  
-			
+		public function ApplePreloader(color:uint = 0x666666, radiusMin:int = 10, size:int = 10, count:int = 12, speed:int = 50) {
+			_color = color;
 			_radiusMin = radiusMin;
 			_size = size;
-			_color = color;
+			_count = count;  
+			
+			super();
 			
 			for (var i:int = 0; i < _count; i++) {
 				var _line:Shape = drawRoundedRect(_size, _size * .4, _size * .2, _color);
@@ -44,39 +46,21 @@
 				_cont.addChild(_line);
 				_cont.alpha = .3 + .7 * i / _count;
 				_cont.rotation = 360 * i / _count;
-				addChild(_cont);
+				_holder.addChild(_cont);
 			}
 			
 			_timer = new Timer(speed);
-			
-			mouseChildren = false;
-			mouseEnabled = false;
 		}  
 		
-		/**
-		 * 
-		 */
-		public function start():void {
+		override protected function startIn():void {
 			_timer.addEventListener(TimerEvent.TIMER, timerHandler);
 			_timer.start();
 		}
 		
-		/**
-		 * 
-		 */
-		public function stop():void {
+		override protected function stopIn():void {
 			_timer.removeEventListener(TimerEvent.TIMER, timerHandler);
 			_timer.stop();
 		}
-		
-		/**
-		 * 
-		 */
-		public function get percent():Number { return _percent; }
-		/**
-		 * 
-		 */
-		public function set percent(value:Number):void { _percent = value; }
 		
 		
 		private function timerHandler(e:TimerEvent):void {

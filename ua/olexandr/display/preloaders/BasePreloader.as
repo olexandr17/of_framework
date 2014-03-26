@@ -3,8 +3,7 @@
 	import ua.olexandr.tools.tweener.Tweener;
 	
 	/**
-	 * ...
-	 * @author @author Olexandr Fedorow,
+	 * @author Olexandr Fedorow,
 	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
@@ -34,7 +33,8 @@
 		 * 
 		 */
 		public function start():void {
-			show();
+			if (show())
+				startIn();
 		}
 		
 		/**
@@ -73,15 +73,19 @@
 			return false;
 		}
 		
-		protected function hide():Boolean {
+		protected function hide():void {
 			if (_animating) {
 				_animating = false;
-				Tweener.addTween(_holder, .3, { alpha:0 } );
-				
-				return true;
+				Tweener.addTween(_holder, .3, { alpha:0, onComplete:stopIn } );
 			}
+		}
+		
+		protected function startIn():void {
 			
-			return false;
+		}
+		
+		protected function stopIn():void {
+			
 		}
 		
 		protected function update():void {

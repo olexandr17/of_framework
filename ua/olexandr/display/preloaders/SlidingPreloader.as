@@ -7,7 +7,7 @@
 	
 	/**
 	 * @author Olexandr Fedorow,
-	 * @copy Copyright (c) 2013
+	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
 	 * @version 0.1
@@ -19,6 +19,13 @@
 		private var _height:int;
 		private var _space:int;
 		
+		/**
+		 * 
+		 * @param	color	цвет линий
+		 * @param	width	ширина прелоадера
+		 * @param	height	высота прелоадера
+		 * @param	space	расстояние между линиями
+		 */
 		public function SlidingPreloader(color:uint = 0x000000, width:int = 200, height:int = 4, space:int = 4) {
 			_color = color;
 			_width = width;
@@ -37,14 +44,10 @@
 			_holder.addChild(_item);
 		}  
 		
-		/**
-		 * 
-		 */
-		override public function start():void {
-			if (super.show()) {
-				createItem();
-				addEventListener(Event.ENTER_FRAME, onEnterFrame);
-			}
+		
+		override protected function startIn():void {
+			createItem();
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 		
 		
@@ -58,7 +61,7 @@
 				_holder.addChildAt(_item, 0);
 				
 				Tweener.addTween(_item, .2, { x:0, delay:delay, ease:Easing.none, onComplete:function():void {
-					Tweener.addTween(_item, 2, { width:_width, ease:Easing.quadIn } );
+					Tweener.addTween(_item, 2.5, { width:_width, ease:Easing.quadIn } );
 					createItem(.3);
 				} } );
 			}
