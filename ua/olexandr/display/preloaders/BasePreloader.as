@@ -7,7 +7,7 @@
 	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
-	 * @version 0.1
+	 * @version 0.2
 	 */
 	public class BasePreloader extends Sprite {
 		
@@ -15,44 +15,46 @@
 		protected var _animating:Boolean;
 		protected var _holder:Sprite;
 		
+		private var _fading:Boolean;
+		
 		/**
-		 * 
+		 * Конструктор
 		 */
 		public function BasePreloader() {
-			_animating = false;
-			
 			_holder = new Sprite();
-			_holder.alpha = 0;
 			addChild(_holder);
+			
+			_animating = false;
+			fading = true;
 			
 			mouseChildren = false;
 			mouseEnabled = false;
 		}  
 		
 		/**
-		 * 
+		 * Начать работу прелоадера
 		 */
-		public function start():void {
+		final public function start():void {
 			if (show())
 				startIn();
 		}
 		
 		/**
-		 * 
+		 * Остановить работу прелоадера
 		 */
-		public function stop():void {
+		final public function stop():void {
 			hide();
 		}
 		
 		/**
-		 * 
+		 * Текущий прогресс
 		 */
 		public function get ratio():Number { 
 			return _ratio;
 		}
 		
 		/**
-		 * 
+		 * Текущий прогресс
 		 */
 		public function set ratio(value:Number):void {
 			if (_ratio != value) {
@@ -61,11 +63,28 @@
 			}
 		}
 		
+		/**
+		 * Автоисчезание прелоадера в неактивном состоянии
+		 */
+		public function get fading():Boolean {
+			return _fading;
+		}
 		
-		protected function show():Boolean {
+		/**
+		 * Автоисчезание прелоадера в неактивном состоянии
+		 */
+		public function set fading(value:Boolean):void {
+			_fading = value;
+			_holder.alpha = (!_fading || _animating) ? 1 : 0;
+		}
+		
+		
+		private function show():Boolean {
 			if (!_animating) {
 				_animating = true;
-				Tweener.addTween(_holder, .3, { alpha:1 } );
+				
+				if (fading)
+					Tweener.addTween(_holder, .3, { alpha:1 } );
 				
 				return true;
 			}
@@ -73,21 +92,33 @@
 			return false;
 		}
 		
-		protected function hide():void {
+		private function hide():void {
 			if (_animating) {
 				_animating = false;
-				Tweener.addTween(_holder, .3, { alpha:0, onComplete:stopIn } );
+				
+				if (fading)		Tweener.addTween(_holder, .3, { alpha:0, onComplete:stopIn } );
+				else			stopIn();
 			}
 		}
 		
+		
+		/**
+		 * Метод, вызываемый при старте работы
+		 */
 		protected function startIn():void {
 			
 		}
 		
+		/**
+		 * Метод, вызываемый после остановки работы или исчезания
+		 */
 		protected function stopIn():void {
 			
 		}
 		
+		/**
+		 * Метод, в котором обновляется значение прогресса
+		 */
 		protected function update():void {
 			
 		}

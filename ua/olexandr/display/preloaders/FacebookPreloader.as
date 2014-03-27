@@ -1,5 +1,6 @@
 package ua.olexandr.display.preloaders {
 	import flash.display.Shape;
+	import ua.olexandr.tools.tweener.Easing;
 	import ua.olexandr.tools.tweener.Tweener;
 	
 	/**
@@ -61,11 +62,14 @@ package ua.olexandr.display.preloaders {
 		
 		
 		private function zoom(item:Shape, delay:Number = 0):void {
-			if (_animating) {
-				var _z:Number = item.scaleX == 1 ? _minScale : 1;
-				Tweener.addTween(item, ITERATION_TIME, { scaleX:_z, scaleY:_z, delay:delay, onComplete:function():void {
-					zoom(item);
-				} } );
+			var _z:Number = item.scaleX == 1 ? _minScale : 1;
+			var _e:Function = item.scaleX == 1 ? Easing.sineOut : Easing.sineIn;
+			if (_animating || _z == 1) {
+				Tweener.addTween(item, ITERATION_TIME, { scaleX:_z, scaleY:_z, delay:delay, ease:_e, 
+					onComplete:function():void {
+						zoom(item);
+					}
+				} );
 			}
 		}
 		
