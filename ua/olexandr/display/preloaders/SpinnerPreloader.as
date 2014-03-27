@@ -29,7 +29,7 @@ package ua.olexandr.display.preloaders {
 		public function SpinnerPreloader(color:uint = 0x666666, radiusMin:int = 16, size:int = 4, count:int = 12, speed:int = 50) {
 			_count = count;
 			
-			super();
+			super(false);
 			
 			for (var i:int = 0; i < _count; i++) {
 				_opacity[i] = i / _count;

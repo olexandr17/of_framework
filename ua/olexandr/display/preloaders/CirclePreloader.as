@@ -29,7 +29,7 @@
 		public function CirclePreloader(colorStart:uint = 0x000000, colorEnd:uint = 0x999999, radiusMin:int = 12, size:int = 4, count:int = 10, speed:int = 50) {
 			_count = count;  
 			
-			super();
+			super(false);
 			
 			for (var i:int = 0; i < _count; i++) {
 				var _color:uint = ColorUtils.ratioRGB(colorStart, colorEnd, i / _count);

@@ -11,21 +11,26 @@
 	 */
 	public class BasePreloader extends Sprite {
 		
-		protected var _ratio:Number;
+		protected var _progress:Number;
 		protected var _animating:Boolean;
 		protected var _holder:Sprite;
 		
 		private var _fading:Boolean;
+		private var _hasProgress:Boolean;
 		
 		/**
 		 * Конструктор
 		 */
-		public function BasePreloader() {
+		public function BasePreloader(hasProgress:Boolean) {
 			_holder = new Sprite();
 			addChild(_holder);
 			
 			_animating = false;
 			fading = true;
+			
+			_hasProgress = hasProgress;
+			if (_hasProgress)
+				progress = 0;
 			
 			mouseChildren = false;
 			mouseEnabled = false;
@@ -47,18 +52,25 @@
 		}
 		
 		/**
-		 * Текущий прогресс
+		 * Поддерживается ли прогресс
 		 */
-		public function get ratio():Number { 
-			return _ratio;
+		public function canProgress():Boolean {
+			return _hasProgress;
 		}
 		
 		/**
 		 * Текущий прогресс
 		 */
-		public function set ratio(value:Number):void {
-			if (_ratio != value) {
-				_ratio = value;
+		final public function get progress():Number { 
+			return _progress;
+		}
+		
+		/**
+		 * Текущий прогресс
+		 */
+		final public function set progress(value:Number):void {
+			if (_progress != value) {
+				_progress = value;
 				update();
 			}
 		}
@@ -66,17 +78,24 @@
 		/**
 		 * Автоисчезание прелоадера в неактивном состоянии
 		 */
-		public function get fading():Boolean {
+		final public function get fading():Boolean {
 			return _fading;
 		}
 		
 		/**
 		 * Автоисчезание прелоадера в неактивном состоянии
 		 */
-		public function set fading(value:Boolean):void {
+		final public function set fading(value:Boolean):void {
 			_fading = value;
 			_holder.alpha = (!_fading || _animating) ? 1 : 0;
 		}
+		
+		
+		override public function get width():Number { return 0; }
+		override public function set width(value:Number):void { }
+		
+		override public function get height():Number { return 0; }
+		override public function set height(value:Number):void { }
 		
 		
 		private function show():Boolean {

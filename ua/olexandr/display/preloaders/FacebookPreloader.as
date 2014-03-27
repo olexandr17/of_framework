@@ -32,7 +32,7 @@ package ua.olexandr.display.preloaders {
 			_count = count;
 			_minScale = minScale;
 			
-			super();
+			super(false);
 			
 			_holder.x = -width >> 1;
 			_holder.y = -height >> 1;

@@ -32,7 +32,7 @@
 			_height = height;
 			_space = space;
 			
-			super();
+			super(false);
 			
 			_holder.scrollRect = new Rectangle(0, 0, _width, _height);
 			_holder.x = -_width * .5;

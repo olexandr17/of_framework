@@ -33,12 +33,10 @@ package ua.olexandr.display.preloaders {
 			_width = width;
 			_height = height;
 			
-			super();
+			super(true);
 			
 			_holder.x = -_width >> 1;
 			_holder.y = -_height >> 1;
-			
-			ratio = 0;
 		}
 		
 		
@@ -50,9 +48,9 @@ package ua.olexandr.display.preloaders {
 			g.drawRect(0, 0, _width, _height);
 			g.endFill();
 			
-			if (_ratio != 0) {
+			if (progress != 0) {
 				g.beginFill(_foreColor, _foreAlpha);
-				g.drawRect(0, 0, _width * _ratio, _height);
+				g.drawRect(0, 0, _width * progress, _height);
 				g.endFill();
 			}
 		}

@@ -37,27 +37,25 @@ package ua.olexandr.display.preloaders {
 			_width = width;
 			_height = height > 3 ? height : 3;
 			
-			super();
-			
 			_back = new FillObject(_backColor, _backAlpha);
 			_back.setSize(_width, _height);
-			_holder.addChild(_back);
 			
 			_fore = new FillObject(_foreColor, _foreAlpha);
 			_fore.y = 1;
 			_fore.setSize(0, _height - _fore.y * 2);
 			_fore.filters = [new GlowFilter(foreColor, 1, 4, 4, 2, 3)];
-			_holder.addChild(_fore);
 			
+			super(true);
+			
+			_holder.addChild(_back);
+			_holder.addChild(_fore);
 			_holder.x = -_width >> 1;
 			_holder.y = -_height >> 1;
-			
-			ratio = 0;
 		}
 		
 		
 		override protected function update():void {
-			_fore.width = _width * _ratio;
+			_fore.width = _width * progress;
 		}
 		
 	}

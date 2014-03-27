@@ -33,16 +33,14 @@ package ua.olexandr.display.preloaders {
 			_radiusMin = radiusMin;
 			_radiusMax = radiusMax;
 			
-			super();
+			super(true);
 			
 			_holder.rotation = -90;
-			
-			ratio = 0;
 		}
 		
 		
 		override protected function update():void {
-			var _r:Number = _ratio * 360;
+			var _r:Number = progress * 360;
 			while (_r > 360)
 				_r -= 360;
 			

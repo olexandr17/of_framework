@@ -35,7 +35,7 @@
 			_size = size;
 			_count = count;  
 			
-			super();
+			super(false);
 			
 			for (var i:int = 0; i < _count; i++) {
 				var _line:Shape = drawRoundedRect(_size, _size * .4, _size * .2, _color);

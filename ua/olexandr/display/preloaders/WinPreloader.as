@@ -38,7 +38,7 @@
 			_time = time;
 			_delay = delay;
 			
-			super();
+			super(false);
 			
 			_animating = false;
 			_animateCount = 0;
