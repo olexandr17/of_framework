@@ -17,6 +17,7 @@ package ua.olexandr.display.preloaders {
 		
 		private var _count:int;
 		private var _minScale:Number;
+		private var _minAlpha:Number;
 		
 		/**
 		 * 
@@ -27,10 +28,12 @@ package ua.olexandr.display.preloaders {
 		 * @param	height		высота
 		 * @param	space		расстояние между элементами
 		 * @param	minScale	минимальное значение масштаба
+		 * @param	minAlpha	минимальное значение прозрачности
 		 */
-		public function FacebookPreloader(color:uint = 0xEEEEEE, alpha:Number = 1, count:int = 3, width:int = 45, height:int = 25, space:int = 5, minScale:Number = .75) {
+		public function FacebookPreloader(color:uint = 0xEEEEEE, alpha:Number = 1, count:int = 3, width:int = 45, height:int = 25, space:int = 5, minScale:Number = .75, minAlpha:Number = 1) {
 			_count = count;
 			_minScale = minScale;
+			_minAlpha = minAlpha;
 			
 			super(false);
 			
@@ -40,7 +43,6 @@ package ua.olexandr.display.preloaders {
 			var _itemW:Number = (width + space) / _count - space;
 			var _itemX:Number = _itemW * .5;
 			var _itemY:Number = height * .5;
-			var _scaleStep:Number = (1 - _minScale) / (_count - 1);
 			for (var i:int = 0; i < _count; i++) {
 				var _item:Shape = new Shape();
 				_item.graphics.beginFill(color, alpha);
@@ -63,9 +65,10 @@ package ua.olexandr.display.preloaders {
 		
 		private function zoom(item:Shape, delay:Number = 0):void {
 			var _z:Number = item.scaleX == 1 ? _minScale : 1;
+			var _a:Number = item.alpha == 1 ? _minAlpha : 1;
 			var _e:Function = item.scaleX == 1 ? Easing.sineOut : Easing.sineIn;
 			if (_animating || _z == 1) {
-				Tweener.addTween(item, ITERATION_TIME, { scaleX:_z, scaleY:_z, delay:delay, ease:_e, 
+				Tweener.addTween(item, ITERATION_TIME, { scaleX:_z, scaleY:_z, alpha:_a, delay:delay, ease:_e, 
 					onComplete:function():void {
 						zoom(item);
 					}
