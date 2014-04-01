@@ -1,5 +1,6 @@
 ﻿package ua.olexandr.display.preloaders {  
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import ua.olexandr.tools.tweener.Tweener;
 	
 	/**
@@ -7,8 +8,10 @@
 	 * @copy Copyright (c) 2014
 	 * @link http://www.olexandr.org
 	 * @link www.olexandr@gmail.com
-	 * @version 0.2
+	 * @version 0.3
 	 */
+	[Event(name="change", type="flash.events.Event")]
+	[Event(name="complete", type="flash.events.Event")]
 	public class BasePreloader extends Sprite {
 		
 		protected var _progress:Number;
@@ -72,6 +75,10 @@
 			if (_progress != value) {
 				_progress = value;
 				update();
+				
+				dispatchEvent(new Event(Event.CHANGE));
+				if (_progress == 1)
+					dispatchEvent(new Event(Event.COMPLETE));
 			}
 		}
 		
