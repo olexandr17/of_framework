@@ -2,8 +2,10 @@ package ua.olexandr.tools.stateMachine {
 	import flash.events.*;
 	import flash.utils.Dictionary; 
 
-	[Event(name="transition complete", type="ua.olexandr.stateMachine.StateMachineEvent")]
-	[Event(name="transition denied", type="ua.olexandr.stateMachine.StateMachineEvent")]
+	[Event(name="enter", type="ua.olexandr.tools.stateMachine.StateMachineEvent")]
+	[Event(name="transition complete", type="ua.olexandr.tools.stateMachine.StateMachineEvent")]
+	[Event(name="transition denied", type="ua.olexandr.tools.stateMachine.StateMachineEvent")]
+	[Event(name="exit", type="ua.olexandr.tools.stateMachine.StateMachineEvent")]
 	public class StateMachine extends EventDispatcher {
 		
 		public var id:String
