@@ -4,7 +4,7 @@ package ua.olexandr.geom {
 	
 	/**
 	 * @author Zeh Fernando - z at zeh.com.br
-	 * @author Olexandr Fedorow
+	 * @author Olexandr Fedorow - olexandr.org
 	 */
 	public class Line {
 		
