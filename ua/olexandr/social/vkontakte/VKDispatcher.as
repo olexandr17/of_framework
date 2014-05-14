@@ -6,11 +6,12 @@
 	import flash.events.SecurityErrorEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-	import flash.net.URLVariables;
 	/**
 	 * ...
 	 * @author Fedorow Olexandr
 	 */
+	[Event(name="error", type="flash.events.ErrorEvent")]
+	[Event(name="complete", type="flash.events.Event")]
 	public class VKDispatcher extends EventDispatcher{
 		
 		public var error:String;
@@ -21,14 +22,14 @@
 		
 		/**
 		 * 
-		 * @param	$request
+		 * @param	request
 		 */
-		public function VKDispatcher($request:URLRequest) {
-			_request = $request;
+		public function VKDispatcher(request:URLRequest) {
+			_request = request;
 		}
 		
 		/**
-		 * 
+		 * Выполнить запрос
 		 */
 		public function load():void {
 			if (_request.url) {
@@ -41,13 +42,13 @@
 		}
 		
 		
-		private function errorHandler($e:Event):void {
-			error = $e['text'];
+		private function errorHandler(e:Event):void {
+			error = e['text'];
 			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR));
 		}
 		
-		private function completeHandler($e:Event):void {
-			data = XML($e.target.data);
+		private function completeHandler(e:Event):void {
+			data = XML(e.target.data);
 			dispatchEvent(new Event(Event.COMPLETE));
 		}
 		

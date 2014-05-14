@@ -13,6 +13,7 @@
 		public static const BOX_PAYMENT:String 			= 'PaymentBox';
 		public static const BOX_PROFILE_PHOTO:String 	= 'ProfilePhotoBox';
 		
+		
 		private static var _vkontakte:Boolean;
 		
 		private static var _wrapper:Object;
@@ -27,15 +28,13 @@
 		
 		/**
 		 * 
-		 * @param	$client
+		 * @param	client
 		 */
-		public static function init($client:DisplayObject):void {
-			
-			if ($client.parent.parent) {
-				
+		public static function init(client:DisplayObject):void {
+			if (client.parent.parent) {
 				_vkontakte = true;
 				
-				_wrapper 		= $client.parent.parent;
+				_wrapper 		= client.parent.parent;
 				
 				_application	= _wrapper.application;
 				_external 		= _wrapper.external;
@@ -43,49 +42,44 @@
 				
 				_flashvars		= _application.parameters;
 				
-				_wrapper.addEventListener(VKWrapperEvent.APPLICATION_ADDED, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.APPLICATION_ADDED, $o));
+				_wrapper.addEventListener(VKWrapperEvent.APPLICATION_ADDED, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.APPLICATION_ADDED, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.BALANCE_CHANGED, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.BALANCE_CHANGED, $o));
+				_wrapper.addEventListener(VKWrapperEvent.BALANCE_CHANGED, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.BALANCE_CHANGED, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.LOCATION_CHANGED, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.LOCATION_CHANGED, $o));
+				_wrapper.addEventListener(VKWrapperEvent.LOCATION_CHANGED, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.LOCATION_CHANGED, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.MOUSE_LEAVE, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.MOUSE_LEAVE, $o));
+				_wrapper.addEventListener(VKWrapperEvent.MOUSE_LEAVE, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.MOUSE_LEAVE, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.PROFILE_PHOTO_SAVE, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.PROFILE_PHOTO_SAVE, $o));
+				_wrapper.addEventListener(VKWrapperEvent.PROFILE_PHOTO_SAVE, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.PROFILE_PHOTO_SAVE, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.SETTINGS_CHANGED, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.SETTINGS_CHANGED, $o));
+				_wrapper.addEventListener(VKWrapperEvent.SETTINGS_CHANGED, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.SETTINGS_CHANGED, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.WINDOW_BLUR, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_BLUR, $o));
+				_wrapper.addEventListener(VKWrapperEvent.WINDOW_BLUR, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_BLUR, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.WINDOW_FOCUS, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_FOCUS, $o));
+				_wrapper.addEventListener(VKWrapperEvent.WINDOW_FOCUS, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_FOCUS, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.WINDOW_RESIZED, function($o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_RESIZED, $o));
+				_wrapper.addEventListener(VKWrapperEvent.WINDOW_RESIZED, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_RESIZED, o));
 				});
-				
-				
-			} else if ($client.stage) {
-				
+			} else if (client.stage) {
 				_vkontakte 		= false;
 				
-				_wrapper		= $client.stage;
+				_wrapper		= client.stage;
 				
-				_application	= $client.stage;
+				_application	= client.stage;
 				_external		= { };
 				_lang			= { };
 				
 				_flashvars		= _wrapper.loaderInfo.parameters;
-				
 			} else {
-				
 				_vkontakte 		= false;
 				
 				_wrapper		= { };
@@ -95,7 +89,6 @@
 				_lang			= { };
 				
 				_flashvars		= { };
-				
 			}
 		}
 		
@@ -131,20 +124,20 @@
 		
 		/**
 		 * 
-		 * @param	$type
-		 * @param	$parameters
+		 * @param	type		Тип открываемого окна
+		 * @param	parameters	Битовая маска запрашиваемых настроек
 		 * @return
 		 */
-		public static function showBox($type:String, $parameters:* = null):Boolean {
+		public static function showBox(type:String, parameters:* = null):Boolean {
 			if (_vkontakte) {
-				switch ($type) {
+				switch (type) {
 					case BOX_INSTALL: {
 						_external.showInstallBox();
 						break;
 					}
 					case BOX_SETTINGS: {
-						if ($parameters)	_external.showSettingsBox($parameters);
-						else 				_external.showSettingsBox();
+						if (parameters)	_external.showSettingsBox(parameters);
+						else 			_external.showSettingsBox();
 						break;
 					}
 					case BOX_INVITE: {

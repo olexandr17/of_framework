@@ -1,5 +1,4 @@
 ﻿package ua.olexandr.social.vkontakte {
-	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.net.URLRequest;
 	import flash.net.URLVariables;
@@ -10,103 +9,79 @@
 	public class VKService extends EventDispatcher{
 		
 		/**
-		 * 
-		 * @param	$uid
+		 * олучить профиль пользователя
+		 * @param	uid
 		 * @return
 		 */
-		public static function getProfiles($uid:String):VKDispatcher {
+		public static function getProfiles(uid:String):VKDispatcher {
 			var _variables:URLVariables = new URLVariables();
-			_variables.api_id = VKVars.get(VKVars.VAR_API_ID);
-			_variables.v = VKVars.version;
-			_variables.test_mode = String(int(VKVars.testMode));
-			
 			_variables.method = 'getProfiles';
 			_variables.fields = 'nickname,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate';
-			_variables.uids = $uid;
+			_variables.uids = uid;
 			
-			_variables.sig = VKTools.createSignature(_variables);
-			var _request:URLRequest = new URLRequest(VKVars.get(VKVars.VAR_API_URL));
-			_request.data = _variables;
-			
-			var _dispatcher:VKDispatcher = new VKDispatcher(_request);
-			return _dispatcher;
+			return run(_variables);
 		}
 		
 		/**
-		 * 
-		 * @param	$user_id
-		 * @param	$key
-		 * @param	$value
+		 * Записать переменную
+		 * @param	user_id
+		 * @param	key
+		 * @param	value
 		 * @return
 		 */
-		public static function putVariable($user_id:String, $key:String, $value:String):VKDispatcher {
+		public static function putVariable(user_id:String, key:String, value:String):VKDispatcher {
 			var _variables:URLVariables = new URLVariables();
-			_variables.api_id = VKVars.get(VKVars.VAR_API_ID);
-			_variables.v = VKVars.version;
-			_variables.test_mode = String(int(VKVars.testMode));
-			
 			_variables.method = 'putVariable';
 			_variables.session = '0';
-			_variables.user_id = $user_id;
-			_variables.key = $key;
-			_variables.value = $value;
+			_variables.user_id = user_id;
+			_variables.key = key;
+			_variables.value = value;
 			
-			_variables.sig = VKTools.createSignature(_variables);
-			var _request:URLRequest = new URLRequest(VKVars.get(VKVars.VAR_API_URL));
-			_request.data = _variables;
-			
-			var _dispatcher:VKDispatcher = new VKDispatcher(_request);
-			return _dispatcher;
+			return run(_variables);
 		}
 		
 		/**
-		 * 
-		 * @param	$user_id
-		 * @param	$key
+		 * Получить переменную
+		 * @param	user_id
+		 * @param	key
 		 * @return
 		 */
-		public static function getVariable($user_id:String, $key:String):VKDispatcher {
+		public static function getVariable(user_id:String, key:String):VKDispatcher {
 			var _variables:URLVariables = new URLVariables();
-			_variables.api_id = VKVars.get(VKVars.VAR_API_ID);
-			_variables.v = VKVars.version;
-			_variables.test_mode = String(int(VKVars.testMode));
-			
 			_variables.method = 'getVariable';
 			_variables.session = '0';
-			_variables.user_id = $user_id;
-			_variables.key = $key;
+			_variables.user_id = user_id;
+			_variables.key = key;
 			
-			_variables.sig = VKTools.createSignature(_variables);
-			var _request:URLRequest = new URLRequest(VKVars.get(VKVars.VAR_API_URL));
-			_request.data = _variables;
-			
-			var _dispatcher:VKDispatcher = new VKDispatcher(_request);
-			return _dispatcher;
+			return run(_variables);
 		}
 		
 		/**
-		 * 
-		 * @param	$script
+		 * Выполнить скрипт
+		 * @param	script
 		 * @return
 		 */
-		public static function execute($script:String):VKDispatcher {
+		public static function execute(script:String):VKDispatcher {
 			var _variables:URLVariables = new URLVariables();
-			_variables.api_id = VKVars.get(VKVars.VAR_API_ID);
-			_variables.v = VKVars.version;
-			_variables.test_mode = String(int(VKVars.testMode));
-			
 			_variables.method = 'execute';
-			_variables.code = $script;
+			_variables.code = script;
 			
-			_variables.sig = VKTools.createSignature(_variables);
+			return run(_variables);
+		}
+		
+		
+		private static function run(variables:URLVariables):VKDispatcher {
+			variables.api_id = VKVars.get(VKVars.VAR_API_ID);
+			variables.v = VKVars.version;
+			variables.test_mode = String(int(VKVars.testMode));
+			variables.sig = VKTools.createSignature(_variables);
+			
 			var _request:URLRequest = new URLRequest(VKVars.get(VKVars.VAR_API_URL));
-			_request.data = _variables;
+			_request.data = variables;
 			
 			var _dispatcher:VKDispatcher = new VKDispatcher(_request);
 			return _dispatcher;
 		}
-		
-		
 		
 		/*	
 		* getFriends – возвращает список id друзей текущего пользователя.

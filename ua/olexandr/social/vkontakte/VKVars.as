@@ -55,16 +55,16 @@
 		 * 
 		 * @param	$vars
 		 */
-		public static function init($vars:Object):void { _vars = $vars; }
+		public static function init(variables:Object):void { _vars = variables; }
 		
 		/**
 		 * 
 		 */
-		public static function get($var:String):String { return _vars[$var]; }
+		public static function get(variable:String):String { return _vars[variable]; }
 		/**
 		 * 
 		 */
-		public static function set($var:String, $value:String):void { _vars[$var] = $value; }
+		public static function set(variable:String, value:String):void { _vars[variable] = value; }
 		
 		/**
 		 * 
@@ -118,5 +118,6 @@
 		public static function isInstalled():Boolean {
 			return get(VAR_IS_APP_USER) == '1';
 		}
+		
 	}
 }
