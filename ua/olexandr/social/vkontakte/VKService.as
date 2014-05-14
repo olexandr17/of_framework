@@ -13,7 +13,7 @@
 		 * @param	uid
 		 * @return
 		 */
-		public static function getProfiles(uid:String):VKDispatcher {
+		public static function getProfiles(uid:String):VKRequest {
 			var _variables:URLVariables = new URLVariables();
 			_variables.method = 'getProfiles';
 			_variables.fields = 'nickname,sex,bdate,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate';
@@ -29,7 +29,7 @@
 		 * @param	value
 		 * @return
 		 */
-		public static function putVariable(user_id:String, key:String, value:String):VKDispatcher {
+		public static function putVariable(user_id:String, key:String, value:String):VKRequest {
 			var _variables:URLVariables = new URLVariables();
 			_variables.method = 'putVariable';
 			_variables.session = '0';
@@ -46,7 +46,7 @@
 		 * @param	key
 		 * @return
 		 */
-		public static function getVariable(user_id:String, key:String):VKDispatcher {
+		public static function getVariable(user_id:String, key:String):VKRequest {
 			var _variables:URLVariables = new URLVariables();
 			_variables.method = 'getVariable';
 			_variables.session = '0';
@@ -61,7 +61,7 @@
 		 * @param	script
 		 * @return
 		 */
-		public static function execute(script:String):VKDispatcher {
+		public static function execute(script:String):VKRequest {
 			var _variables:URLVariables = new URLVariables();
 			_variables.method = 'execute';
 			_variables.code = script;
@@ -70,7 +70,7 @@
 		}
 		
 		
-		private static function run(variables:URLVariables):VKDispatcher {
+		private static function run(variables:URLVariables):VKRequest {
 			variables.api_id = VKVars.get(VKVars.VAR_API_ID);
 			variables.v = VKVars.version;
 			variables.test_mode = String(int(VKVars.testMode));
@@ -79,8 +79,7 @@
 			var _request:URLRequest = new URLRequest(VKVars.get(VKVars.VAR_API_URL));
 			_request.data = variables;
 			
-			var _dispatcher:VKDispatcher = new VKDispatcher(_request);
-			return _dispatcher;
+			return new VKRequest(_request);
 		}
 		
 		/*	

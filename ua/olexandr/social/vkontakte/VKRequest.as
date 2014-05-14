@@ -12,7 +12,7 @@
 	 */
 	[Event(name="error", type="flash.events.ErrorEvent")]
 	[Event(name="complete", type="flash.events.Event")]
-	public class VKDispatcher extends EventDispatcher{
+	public class VKRequest extends EventDispatcher{
 		
 		public var error:String;
 		public var data:XML;
@@ -24,7 +24,7 @@
 		 * 
 		 * @param	request
 		 */
-		public function VKDispatcher(request:URLRequest) {
+		public function VKRequest(request:URLRequest) {
 			_request = request;
 		}
 		
