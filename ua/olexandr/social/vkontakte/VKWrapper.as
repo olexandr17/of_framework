@@ -57,8 +57,8 @@
 				_wrapper.addEventListener(VKWrapperEvent.PROFILE_PHOTO_SAVE, function(o:Object):void {
 					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.PROFILE_PHOTO_SAVE, o));
 				});
-				_wrapper.addEventListener(VKWrapperEvent.SETTINGS_CHANGED, function(o:Object):void {
-					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.SETTINGS_CHANGED, o));
+				_wrapper.addEventListener(VKWrapperEvent.PERMISSIONS_CHANGED, function(o:Object):void {
+					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.PERMISSIONS_CHANGED, o));
 				});
 				_wrapper.addEventListener(VKWrapperEvent.WINDOW_BLUR, function(o:Object):void {
 					_dispatcher.dispatchEvent(new VKWrapperEvent(VKWrapperEvent.WINDOW_BLUR, o));
