@@ -36,17 +36,10 @@ package ua.olexandr.managers {
 		 * @param	stage
 		 */
 		public function InputManager(stage:Stage) {
-			reset();
-			
 			_stage = stage;
 			
-			_stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
-			_stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
-			
-			_stage.addEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
-			_stage.addEventListener(MouseEvent.MOUSE_UP, mouseUpHandler); 
-			
-			_stage.addEventListener(Event.DEACTIVATE, deactivateHandler);
+			reset();
+			init();
 		}
 		
 		/**
@@ -101,16 +94,15 @@ package ua.olexandr.managers {
 			
 			_isMouseDown = false;
 			
-			if (_stage) {
-				_stage.removeEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
-				_stage.removeEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
-				
-				_stage.removeEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
-				_stage.removeEventListener(MouseEvent.MOUSE_UP, mouseUpHandler); 
-				
+			_stage.removeEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+			_stage.removeEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+			
+			_stage.removeEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
+			_stage.removeEventListener(MouseEvent.MOUSE_UP, mouseUpHandler); 
+			
+			if (_stage.hasEventListener(Event.DEACTIVATE)) {
 				_stage.removeEventListener(Event.DEACTIVATE, deactivateHandler);
-				
-				_stage = null;
+				_stage.addEventListener(Event.ACTIVATE, activateHandler, false, 0, true);
 			}
 		}
 		
@@ -229,10 +221,27 @@ package ua.olexandr.managers {
 			dispatchEvent(createEvent(InputEvent.MOUSE_UP));
 		}
 		
+		private function activateHandler(e:Event):void {
+			init();
+		}
+		
 		private function deactivateHandler(e:Event):void {
 			reset();
 		}
 		
+		
+		private function init():void {
+			_stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+			_stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+			
+			_stage.addEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
+			_stage.addEventListener(MouseEvent.MOUSE_UP, mouseUpHandler); 
+			
+			if (_stage.hasEventListener(Event.ACTIVATE)) {
+				_stage.removeEventListener(Event.ACTIVATE, deactivateHandler);
+				_stage.addEventListener(Event.DEACTIVATE, deactivateHandler, false, 0, true);
+			}
+		}
 		
 		private function createEvent(type:String, key:uint = 0, char:uint = 0):InputEvent {
 			return new InputEvent(type, _isMouseDown, _isControlDown, _isAltDown, _isShiftDown, key, char);
