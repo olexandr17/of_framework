@@ -1,9 +1,11 @@
 package ua.olexandr.ui.components {
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import ua.olexandr.ui.Style;
 	
+	[Event(name="select", type="flash.events.Event")]
 	public class CheckBox extends Component {
 		protected var _back:Sprite;
 		protected var _button:Sprite;
@@ -88,6 +90,7 @@ package ua.olexandr.ui.components {
 		protected function onClick(event:MouseEvent):void {
 			_selected = !_selected;
 			_button.visible = _selected;
+			dispatchEvent(new Event(Event.SELECT));
 		}
 		
 	}
