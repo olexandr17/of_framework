@@ -1,6 +1,7 @@
 package ua.olexandr.utils {
 	import flash.filters.ColorMatrixFilter;
 	import flash.filters.ConvolutionFilter;
+	import flash.geom.ColorTransform;
 	/**
 	 * ...
 	 * @author Olexandr Fedorow
@@ -97,11 +98,10 @@ package ua.olexandr.utils {
 		
 		/**
 		 * 
-		 * @param	value
 		 * @return
 		 */
 		[Inline]
-		public static function getSepiaFilter(value:Number):ColorMatrixFilter {
+		public static function getSepiaFilter():ColorMatrixFilter {
 			return new ColorMatrixFilter([	0.3930000066757202, 0.7689999938011169, 0.1889999955892563, 0, 0,
 											0.3490000069141388, 0.6859999895095825, 0.1679999977350235, 0, 0,
 											0.2720000147819519, 0.5339999794960022, 0.1309999972581863, 0, 0,
@@ -110,17 +110,15 @@ package ua.olexandr.utils {
 
 		}
 	
-		/*
-		public static function getTintFilter(color:uint):ColorMatrixFilter {
+		/*public static function getTintFilter(color:uint):ColorMatrixFilter {
 			var r:int = (( color >> 16 ) & 0xFF );
 			var g:int = (( color >> 8 )  & 0xFF );
 			var b:int = (( color )       & 0xFF );
 			
-			//var colorTransform:ColorTransform = new ColorTransform( 1.0, 1.0, 1.0, 1.0, r, g, b );
+			var colorTransform:ColorTransform = new ColorTransform( 1.0, 1.0, 1.0, 1.0, r, g, b );
 			
-			return new ColorMatrixFilter([]);
-		}
-		*/
+			return new ColorMatrixFilter();
+		}*/
 		
 	}
 
