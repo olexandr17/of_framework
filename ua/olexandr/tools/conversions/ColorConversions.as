@@ -40,9 +40,9 @@ package ua.olexandr.tools.conversions {
 		 */
 		[Inline]
 		public static function CMYKtoRGB(c:Number, m:Number, y:Number, k:Number):Object {
-			var _r:Number = _c * (1 - k) + k;
-			var _g:Number = _m * (1 - k) + k;
-			var _b:Number = _y * (1 - k) + k;
+			var _r:Number = c * (1 - k) + k;
+			var _g:Number = m * (1 - k) + k;
+			var _b:Number = y * (1 - k) + k;
 			
 			if (_r > 1.0)
 				_r = 1.0;
@@ -92,7 +92,7 @@ package ua.olexandr.tools.conversions {
 					_h++;
 			}
 
-			return new { h:_h, s:_s, b:_b };
+			return { h:_h, s:_s, b:_b };
 		}
 		
 		/**
@@ -228,9 +228,9 @@ package ua.olexandr.tools.conversions {
 				_r = _g = _b = l;
 			} else {
 				var n:Number = 1 / 3;
-				_r = _calcHLSValue(_min, _max, h + n);
-				_g = _calcHLSValue(_min, _max, h);
-				_b = _calcHLSValue(_min, _max, h - n);
+				_r = calcHLSValue(_min, _max, h + n);
+				_g = calcHLSValue(_min, _max, h);
+				_b = calcHLSValue(_min, _max, h - n);
 			}
 			
 			return { r:_r, g:_g, b:_b };
