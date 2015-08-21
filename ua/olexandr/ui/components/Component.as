@@ -23,8 +23,6 @@ package ua.olexandr.ui.components {
 		
 		public function Component() {
 			init();
-			if (parent != null)
-				parent.addChild(this);
 		}
 		
 		public function move(xpos:Number, ypos:Number):void {

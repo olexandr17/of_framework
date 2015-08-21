@@ -2,6 +2,7 @@ package ua.olexandr.ui.components {
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
+	import ua.olexandr.ui.Style;
 	
 	public class RadioButton extends Component {
 		
@@ -30,14 +31,10 @@ package ua.olexandr.ui.components {
 		protected var _labelText:String = "";
 		protected var _groupName:String = "defaultRadioGroup";
 		
-		public function RadioButton(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, label:String = "", checked:Boolean = false, defaultHandler:Function = null) {
+		public function RadioButton(label:String = "", checked:Boolean = false) {
 			RadioButton.addButton(this);
 			_selected = checked;
 			_labelText = label;
-			super(parent, xpos, ypos);
-			if (defaultHandler != null) {
-				addEventListener(MouseEvent.CLICK, defaultHandler);
-			}
 		}
 		
 		public override function draw():void {
@@ -109,7 +106,8 @@ package ua.olexandr.ui.components {
 			_button.visible = false;
 			addChild(_button);
 			
-			_label = new Label(this, 0, 0, _labelText);
+			_label = new Label(_labelText);
+			addChild(_label);
 			draw();
 			
 			mouseChildren = false;

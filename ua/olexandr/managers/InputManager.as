@@ -231,6 +231,8 @@ package ua.olexandr.managers {
 		
 		
 		private function init():void {
+			_stage.focus = _stage;
+			
 			_stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
 			_stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
 			
